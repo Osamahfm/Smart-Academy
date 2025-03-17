@@ -56,10 +56,6 @@ li{
     right: 170px;
 }
 
-#log:hover{
-    background-color: #3D52A0;
-}
-
-#sign:hover{
+#log:hover,#sign:hover{
     background-color: #3D52A0;
 }
