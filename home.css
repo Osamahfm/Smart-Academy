@@ -1,9 +1,12 @@
-header{
-    background-color: #3D52A0;
-    
+body {
+    min-height: 5000px;
 }
 
-h2{
+header {
+    background-color: #3D52A0;
+}
+
+h2 {
     text-align: center;
     color: #EDE8F5;
     padding: 15px 0;
@@ -12,133 +15,71 @@ h2{
     font-size: 40px;
 }
 
-nav{
+nav {
     background-color: black;
     position: relative;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
 }
 
-a{
+a {
     text-decoration: none;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 30px;
+    margin: auto;
     color: #EDE8F5;
-    transition: color 0.3s,trnasform 0.3s;
-}
-a:hover{
-    color: #3D52A0;
-    transform: scale(1.2);
 }
 
-ul{
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
     padding: 20px 40px;
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
+    margin: auto;
 }
 
-li{
+li {
     display: inline;
-    
 }
 
-#log,#sign{
+#log,
+#sign {
     width: 80px;
     height: 35px;
     border-radius: 10px;
     border: 2px solid white;
-    position:absolute;
+    position: absolute;
     bottom: 18%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
+    background-color: #c1cded;
+    font-size: medium;
 }
 
-#log{
-    right:70px;
+#log {
+    right: 70px;
 }
 
-#sign{
+#sign {
     right: 170px;
 }
 
-#log:hover{
-    color: #3D52A0;
-    transform: scale(1.2);
+#log:hover,
+#sign:hover {
+    background-color: #3D52A0;
 }
 
-#sign:hover{
-    
-    color: #3D52A0;
-    transform: scale(1.2);
+.corses {
+    background-color: #7091E6;
+    height: max-content;
 }
 
+.c1 {
+    text-align: center;
+    padding: 50px;
+    margin: auto;
+    background-color: rgb(112, 194, 194);
+}
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
+#c1duration {
     left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0,0.5);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    width: 50%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-    text-align: center;
-    position: relative;
-}
-.modalTitle{
-    color: black;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.close {
-    position: absolute;
-    color: black;
-    float: right;
-    font-size: 25px;
-    font-weight: bold;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close:hover{
-    color: red;
-}
-.modal input{
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.modal button{
-    background-color: #3D52A0;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.modal button:hover{
-    background-color: #3D52A0;
 }
