@@ -16,4 +16,18 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.style.display = "none";
         }
     }
+
+    const registered=["Introduction to Computer Science"
+        ,"Discrete Mathematics",
+        "Web Development",
+        "Computer Networks"
+        ,"Algorithms Analysis AND Design"];
+        function checkRegisteration(courseName){
+            if(registered.includes(courseName)){
+                window.location.href = "";
+            }
+            else{
+                alert("You are not registered in this course. Please register first.");
+            }
+        }
 });
