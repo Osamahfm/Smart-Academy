@@ -1,0 +1,131 @@
+
+
+header{
+    background-color: #3D52A0;
+}
+
+h2{
+    text-align: center;
+    color: #EDE8F5;
+    padding: 15px 0;
+    margin: auto;
+    font-family: "DM Sans";
+    font-size: 40px;
+}
+
+nav{
+    background-color: black;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+a{
+    text-decoration: none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #EDE8F5;
+    transition: color 0.3s,trnasform 0.3s;
+}
+a:hover{
+    color: #3D52A0;
+    transform: scale(1.2);
+}
+
+ul{
+    padding: 20px 40px;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    display: inline;
+}
+
+#log,#sign{
+    width: 80px;
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid white;
+    position:absolute;
+    bottom: 18%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #c1cded;
+}
+
+#log{
+    right:70px;
+}
+
+#sign{
+    right: 170px;
+}
+
+#log:hover{
+    background-color: #3D52A0;
+    transform: scale(1.2);
+}
+
+#sign:hover{
+    background-color: #3D52A0;
+    transform: scale(1.2);
+}
+.contactForm{
+    width: 50%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+.contactForm h3{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "DM Sans";
+    color: #333;
+
+}
+.contactForm input,.contactForm textarea{
+    width: 95%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s,box-shadow 0.3s;
+
+}
+.contactForm input:focus,.contactForm textarea:focus{
+    border-color: #3949AB;
+    box-shadow: 0 0 5px rgba(57,73,171,0.5);
+    outline: none;
+}
+
+.contactForm label{
+    display: block;
+    margin: 10px 0 5px;
+    font-family: "DM Sans";
+    font-weight: bold;
+    color: #333;
+}
+.contactForm button{
+    width: 95%;
+    padding: 15px;
+    background: color #7091E6;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s,trnasform 0.3s;
+}
+.contactForm button:hover{
+    background-color: #3949AB;
+    transform:scale(1.05);
+}
