@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function() {
+   
+});
 document.addEventListener("DOMContentLoaded",function(){
     const form=document.querySelector(".contactForm form");
     form.addEventListener("submit",function(event){
@@ -41,4 +44,28 @@ document.addEventListener("DOMContentLoaded",function(){
     greetingDiv.style.fontSize="24px";
     greetingDiv.style.margin="20px 0";
 
+    const modal = document.getElementById("loginModal");
+    const btn = document.getElementById("log");
+    const span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    
+
 });
+
+
+
+
