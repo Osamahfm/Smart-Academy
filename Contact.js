@@ -34,4 +34,11 @@ document.addEventListener("DOMContentLoaded",function(){
             alertBox.remove();
         },3000);
     }
+    const greetingDiv=document.getElementById("greeting");
+    const greatingMessage="Welcome to Coursey!";
+    greetingDiv.textContent=greetingMessage;
+    greetingDiv.style.textAlign="center";
+    greetingDiv.style.fontSize="24px";
+    greetingDiv.style.margin="20px 0";
+
 });
