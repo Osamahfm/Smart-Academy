@@ -61,10 +61,14 @@ document.addEventListener("DOMContentLoaded",function(){
             modal.style.display = "none";
         }
     }
+    
 
     
 
 });
+function navigateToSignUp(){
+    window.location.href = "signup.html";
+}
 
 
 
