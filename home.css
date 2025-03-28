@@ -3,7 +3,7 @@ body {
 }
 
 header {
-    background-color: #3D52A0;
+    background-color: #5d5e61;
     position: sticky;
     top: 0;
 }
@@ -34,7 +34,7 @@ nav a {
 
 nav a:hover {
     text-decoration: none;
-    background-color: #3D52A0;
+    background-color: #9e9e9e;
 }
 
 nav ul {
@@ -55,7 +55,7 @@ nav li {
     position: absolute;
     bottom: 18%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #c1cded;
+    background-color: #9e9e9e;
     font-size: medium;
 }
 
@@ -69,7 +69,7 @@ nav li {
 
 #log:hover,
 #sign:hover {
-    background-color: #657fde;
+    background-color: #6a6969;
 }
 
 .modal {
@@ -141,46 +141,170 @@ nav li {
     background-color: #3D52A0;
 }
 
+.info{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    background-color: #c9c9c9;
+}
+#infop1,#infop2{
+    text-align: center;
+    color: black;
+}
 
-.software {
+#infop1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#infop2{
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.learninginfo {
+    margin-top: 100px;
+    padding-top: 20px;
     display: flex;
-    background-color: #ADBBDA;
+    text-align: center;
+}
 
+.learninginfo img{
+    width: 80px;
+    height: auto;
+}
+
+.learninginfo span{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+.learn,.save,.flexible,.cirt{
+    padding:0 50px;
+}
+/* Smooth transition for all sections */
+.c1,
+.c2,
+.c3,
+.css1,
+.css2,
+.css3,
+.net1,
+.net2,
+.net3{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.c1:hover,
+.c2:hover,
+.c3:hover,
+.css1:hover,
+.css2:hover,
+.css3:hover,
+.net1:hover,
+.net2:hover,
+.net3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.software,
+.css,
+.net {
+    display: flex;
+    margin-top: 10px;
+    background-color: #575757;
+}
+
+.webcourse,.csscourse,.netcourse{
+    margin: 50px 50px 50px 0;
+    text-align: center;
+    background-color: #c9c9c9;
+    width: 100%;
+}
+
+.webcourse span,.csscourse span,.netcourse span{
+    display: block;
+    font-weight: bold;
+    font-size: 40px;
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.webcourse p,.csscourse p,.netcourse p{
+    font-size: 20px;
+    text-align: center;
 }
 
 .software>.c1,
 .c2,
 .c3 {
-    float: right;
-    margin: 10px;
+    float:left;
+    margin: 10px 60px;
+    padding: 20px;
+}
+
+.css>.css1,
+.css2,
+.css3 {
+    float: left;
+    margin: 10px 60px;
+    padding: 20px;
+}
+
+.net>.net1,
+.net2,
+.net3 {
+    float: left;
+    margin: 10px 60px;
     padding: 20px;
 }
 
 .c1,
 .c2,
-.c3 {
+.c3,
+.css1,
+.css2,
+.css3,
+.net1,
+.net2,
+.net3 {
     text-align: center;
     padding-bottom: 20px;
     position: relative;
-    background-color: #8697C4;
+    background-color: #c5c5c5;
     width: 300px;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    font-family: "GT Walsheim Pro", Arial, sans-serif;
 }
 
 
 .c1 a,
 .c2 a,
-.c3 a {
+.c3 a,
+.css1 a,
+.css2 a,
+.css3 a,
+.net1 a,
+.net2 a,
+.net3 a{
     text-decoration: none;
     color: inherit;
 }
 
+
 #c1img img,
 #c2img img,
-#c3img img {
+#c3img img,
+#css1img img,
+#css2img img,
+#css3img img,
+#net1img img, 
+#net2img img,
+#net3img img {
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -193,7 +317,19 @@ nav li {
 #c2duration,
 #c2students,
 #c3duration,
-#c3students {
+#c3students,
+#css1duration,
+#css1students,
+#css2duration,
+#css2students,
+#css3duration,
+#css3students,
+#net1duration,
+#net1students,
+#net2duration,
+#net2students,
+#net3duration,
+#net3students {
     font-family: white_rabbit;
     position: absolute;
     font-size: 12px;
@@ -205,26 +341,44 @@ nav li {
 
 #c1duration,
 #c2duration,
-#c3duration {
+#c3duration,
+#css1duration,
+#css2duration,
+#css3duration,
+#net1duration,
+#net2duration,
+#net3duration {
     bottom: 50px;
     left: 10px;
 }
 
 #c1students,
 #c2students,
-#c3students {
+#c3students,
+#css1students,
+#css2students,
+#css3students,
+#net1students,
+#net2students,
+#net3students {
     bottom: 50px;
     right: 10px;
 }
 
 #c1info span,
 #c2info span,
-#c3info span {
+#c3info span,
+#css1info span,
+#css2info span,
+#css3info span,
+#net1info span,
+#net2info span,
+#net3info span {
     position: absolute;
     left: 20px;
     font-size: 20px;
     font-weight: bold;
-    font-family: white_rabbit;
+    font-family: "GT Walsheim Pro", Arial, sans-serif;
     display: block;
     color: #000000;
 }
@@ -232,7 +386,13 @@ nav li {
 
 #c1dr,
 #c2dr,
-#c3dr {
+#c3dr,
+#css1dr,
+#css2dr,
+#css3dr,
+#net1dr,
+#net2dr,
+#net3dr {
     position: absolute;
     bottom: 0px;
     left: 20px;
