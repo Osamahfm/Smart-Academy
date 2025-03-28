@@ -15,66 +15,96 @@
     </header>
 
     <nav>
-        <div>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Courses</a></li>
-                <li><a href="">My Courses</a></li>
-                <li><a href="">Contact Us</a></li>
-                <li><a href="">About</a></li>
-                <li><button id="log">Log In</button></li>
-                <li><button id="sign" onclick="navigateToSignUp()">Sign Up</button></li>
-            </ul>
-        </div>
-
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="">Courses</a></li>
+            <li><a href="">My Courses</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">About</a></li>
+            <li><button id="log">Log In</button></li>
+            <li><button id="sign">Sign Up</button></li>
+        </ul>
     </nav>
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="modalTitle">Log In</h2>
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
 
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                
-                <button type="submit">Log In</button>
-            </form>
-        </div>
-    
+    <main class="software">
         <section class="c1">
-            <div id="c1img">
-                <img src="images/pexels-pixabay-270632.jpg" alt="web" width="272" height="153">
-            </div>
-            
-            <div id="c1duration">
-                <span>10h 16m</span>
-            </div>
+            <a href="#" target="parent">
+                <div id="c1img">
+                    <img src="images/pexels-pixabay-270632.jpg" alt="web">
+                </div>
 
-            <div id="c1students">
-                <span>7,597 students</span>
-            </div>
-            <br>
-            
-            <div>
-                <span>Web Development:</span>
+                <div id="c1duration">
+                    <span>10h 16m</span>
+                </div>
+
+                <div id="c1students">
+                    <span>0 students</span>
+                </div>
+
                 <br>
-                <span>Front End</span>
-            </div>
-            
-            <br>
-
-            <span>Dr. Mohamed Sayed</span>
-
-
+                <div id="c1info">
+                    <span>Web Development:</span>
+                    <br>
+                    <span>Front End</span>
+                </div>
+                <br><br>
+                <p id="c1dr">Dr. Mohamed Sayed</p>
+            </a>
         </section>
-        
 
-   
+        <section class="c2">
+            <a href="#" target="parent">
+                <div id="c2img">
+                    <img src="images/pexels-realtoughcandy-11035380.jpg" alt="web">
+                </div>
+
+                <div id="c2duration">
+                    <span>20h 30m</span>
+                </div>
+
+                <div id="c2students">
+                    <span>0 students</span>
+                </div>
+
+                <br>
+                <div id="c2info">
+                    <span>Web Development:</span>
+                    <br>
+                    <span>Back End</span>
+                </div>
+                <br><br>
+                <p id="c2dr">Dr. Saad Mahmoud</p>
+            </a>
+        </section>
+
+        <section class="c3">
+            <a href="#" target="parent">
+                <div id="c3img">
+                    <img src="images/pexels-plann-2999237-4549411.jpg" alt="web">
+                </div>
+
+                <div id="c3duration">
+                    <span>18h 20m</span>
+                </div>
+
+                <div id="c3students">
+                    <span>0 students</span>
+                </div>
+
+                <br>
+                <div id="c3info">
+                    <span>Mobile Application</span>
+                    <br>
+                </div>
+                <br><br>
+                <p id="c3dr">Dr. Mostafa Osama</p>
+            </a>
+        </section>
+    </main>
+
+
+
+
 
 </body>
 
