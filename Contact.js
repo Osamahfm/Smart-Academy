@@ -175,5 +175,13 @@ function displaySearchResults(results){
         resultsContainer.innerHTML="<p>No results found.</p>";
         return;
     }
-    
+    const resultsHTML=results.map(course=>`
+        <div class="course-item">
+            <h3>${course.title}</h3>
+            <p>${course.description}</p>
+            <p>Category: ${course.category}</p>
+        </div>
+    `).join("");
+
+    resultsContainer.innerHTML=resultsHTML;
 }
