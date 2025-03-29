@@ -69,7 +69,111 @@ document.addEventListener("DOMContentLoaded",function(){
 function navigateToSignUp(){
     window.location.href = "signup.html";
 }
+const courses=[
+    {
+        id:1,
+        title:"Problem Solving",
+        description:"Learn how to solve problems effectively.",
+        category:"Programming",
+    },
+    {
+        id:2,
+        title:"Web Development Frontend",
+        description:"Build responsive and interactive websites.",
+        category:"Web Development",
+
+    },
+    {
+        id:3,
+        title:"Introduction to Computer Science",
+    },
+    {
+        id:4,
+        title:"Data Structures and Algorithms",
+        description:"Learn about data structures and algorithms.",
+        category:"Programming",
+    },
+
+    {
+        id:5,
+        title:"Discrete Mathematics",
+        description:"Learn about discrete mathematics.",
+        category:"Mathematics",
+
+    },
+    {
+        id:6,
+        title:"computer Networks",
+        description:"Learn about computer networks.",
+        category:"Networking",
+    },
+    {
+        id:7,
+        title:"Database Management Systems",
+        description:"Learn about database management systems.",
+        category:"Database",
+    },
+    {
+        id:8,
+        title:"Algorithms Analysis and Design",
+        description:"Learn about algorithms analysis and design.",
+        category:"Programming",
+    },
+    {
+        id:9,
+        title:"Software Engineering",
+        description:"Learn about software engineering.",
+        category:"Software Engineering",
+
+    },
+    {
+        id:10,
+        title:"Operating Systems",
+        description:"Learn about operating systems.",
+        category:"Operating Systems",
+
+    },
+    {
+        id:11,
+        title:"Web Development Backend",
+        description:"Build server-side applications.",
+        category:"Web Development",
+
+    }
 
 
+];
 
+document.getElementById("searchButton").addEventListener("click", performSearch); 
+document.getElementById("searchCourses").addEventListener("keypress",function(e){
+    if(e.key==="Enter"){
+        performSearch();
 
+    }
+})
+function perfornSearch(){
+    const searchInput=document.getElementById("searchCourses").value.toLowerCase();
+    const Searchresults=courses.filter(course=>
+        course.title.toLowerCase().includes(searchInput)||
+        course.description.toLowerCase().includes(searchQuery)||
+        course.category.toLowerCase().includes(searchQuery)
+
+    );
+    displaySearchResults(searchResults);
+
+}
+function displaySearchResults(results){
+    let resultsContainer=document.getElementById("searchResults");
+    if(!resultsCntainer){
+        resultsContainer=document.createElement("div");
+        resultsContainer.id="searchResults";
+        document.querySelector(".navbar").appendChild(resultsContainer);
+
+    }
+    resultsContainer.innerHTML="";
+    if(results.length===0){
+        resultsContainer.innerHTML="<p>No results found.</p>";
+        return;
+    }
+    
+}

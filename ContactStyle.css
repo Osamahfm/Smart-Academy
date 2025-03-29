@@ -207,3 +207,28 @@ li{
 .modal button:hover {
     background-color: #3D52A0;
 }
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+#searchcourses{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px ;
+    width: 200px;
+    height: auto;
+}
+#searchButton {
+    padding: 10px 15px;
+    background-color: #4c8f;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius:0 5px 5px 0;
+}
+#searchButton:hover {
+    background-color: #3D52A0;
+    transform: scale(1.05);
+}
+
