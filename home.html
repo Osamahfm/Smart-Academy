@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart</title>
     <link rel="stylesheet" href="home.css">
-    
+    <script src="/home.js"></script>
 </head>
 
 <body>
@@ -18,8 +18,25 @@
     <nav>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="">Courses</a></li>
-            <li><a href="">My Courses</a></li>
+            <li class="dropdown">
+                <button id="courseBtn">Courses</button>
+                <div class="dropdown-content">
+                    <strong>Software</strong>
+                    <a href="">Front End</a>
+                    <a href="">Back End</a>
+                    <a href="">Mobile Application</a>
+                    <hr>
+                    <strong>CS</strong>
+                    <a href="">Problem Solving</a>
+                    <a href="">Data Structure</a>
+                    <a href="">Object Oriented Programming</a>
+                    <hr>
+                    <strong>Cyber Security</strong>
+                    <a href="">Intro To Cyber Security</a>
+                    <a href="">Certified Ethical Hacker</a>
+                    <a href="">Cyber Security Specialization</a>
+                </div>
+            </li>
             <li><a href="">Contact Us</a></li>
             <li><a href="">About</a></li>
             <li><button id="log">Log In</button></li>
@@ -40,7 +57,7 @@
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-                
+
                 <button type="submit">Log In</button>
             </form>
         </div>
@@ -49,16 +66,17 @@
     <div class="info">
         <h2 id="infop1">Invest in your career with Smart</h2>
         <p id="infop2">Get access to videos in over 90% of courses,
-             Specializations, and Professional Certificates taught<br> by topinstructors from leading universities and companies.</p>
+            Specializations, and Professional Certificates taught<br> by topinstructors from leading universities and
+            companies.</p>
     </div>
-    
+
 
     <div class="webcourse">
         <span>Software Cources</span>
         <p>Explore Smart software cources creative community.</p>
     </div>
-    
-    
+
+
     <main class="software">
         <section class="c1">
             <a href="#" target="parent">
@@ -300,14 +318,14 @@
     </main>
 
 
-     <div class="learnp">
-            <span>Creative Learning Made Easy</span>
-        </div>
+    <div class="learnp">
+        <span>Creative Learning Made Easy</span>
+    </div>
 
     <div class="learninginfo">
 
-       
-        
+
+
         <div class="learn">
             <img src="images/learning-icon-design-free-vector.jpg" alt="learning icon">
             <div>
@@ -315,7 +333,7 @@
                 <p>Explore any interest or trending topic,<br> take prerequisites, and advance your <br>skills</p>
             </div>
         </div>
-    
+
         <div class="save">
             <img src="images/save icon.jpg" alt="Save money">
             <div>
@@ -323,7 +341,7 @@
                 <p>Spend less money on your learning if <br> you plan to take multiple courses this <br> year</p>
             </div>
         </div>
-    
+
         <div class="flexible">
             <img src="images/flex icon.jpg" alt="Flexible learning">
             <div>
@@ -331,17 +349,100 @@
                 <p>Learn at your own pace, move <br> between multiple courses, or switch <br>to a different course</p>
             </div>
         </div>
-    
+
         <div class="cirt">
             <img src="images/vector-certificate-vector-icon.jpg" alt="Unlimited certificates">
             <div>
                 <span>Unlimited certificates</span>
-                <p>Earn a certificate for every learning <br> program that you complete after your <br>trial ends at no additional cost</p>
+                <p>Earn a certificate for every learning <br> program that you complete after your <br>trial ends at no
+                    additional cost</p>
             </div>
         </div>
     </div>
 
 
+    <footer>
+        <div class="footerinfo">
+            <span>Smart</span>
+            <p>We offer a variety of educational courses designed to help you develop <br>
+                your skills in different fields, whether you're a beginner or a professional. <br>
+                Enjoy a unique learning experience with interactive content, practical exercises,<br>
+                and certified certificates upon course completion.</p>
+        </div>
+
+        <div class="footerlist">
+            <div class="footernav">
+                <span>Smart</span>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Courses</a></li>
+                    <li><a href="">Contact Us </a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </div>
+
+            <div class="footersw">
+                <span>Software</span>
+                <ul>
+                    <li><a href="">Web Development: Frontend</a></li>
+                    <li><a href="">Web Development: Backend</a></li>
+                    <li><a href="">Mobile Application</a></li>
+                </ul>
+            </div>
+
+            <div class="footercs">
+                <span>Computer Science</span>
+                <ul>
+                    <li><a href="">Problem Solving</a></li>
+                    <li><a href="">Data Structure</a></li>
+                    <li><a href="">Object Oriented Programming</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footernet">
+                <span>Cyber Security</span>
+                <ul>
+                    <li><a href="">Intro To Cyber Security</a></li>
+                    <li><a href="">certified Ethical Hacker</a></li>
+                    <li><a href="">Cyber Security Specialization</a></li>
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-copyright">
+            <span>&copy 2025 Smart. All rights reserved.</span>
+        </div>
+
+        <div class="footer-contact">
+            <span>Email: <a href="mailto:smart@gmail.com">smart@gmail.com</a></span>
+        </div>
+
+        <div class="footer-contact">
+            <span>Phone: <a href="tel:0111222333">0111222333</a></span>
+        </div>
+
+
+    </footer>
+
+
+    <script>
+        document.getElementById("courseBtn").addEventListener("click", function () {
+            let dropdown = this.parentElement;
+            dropdown.classList.toggle("show");
+        });
+
+        document.addEventListener("click", function (event) {
+            let dropdown = document.querySelector(".dropdown");
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove("show");
+            }
+        });
+    </script>
 
 </body>
 
