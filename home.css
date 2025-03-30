@@ -233,8 +233,6 @@ nav li {
     text-align: center;
     background-color: #DEF2F1;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
 .learninginfo img {
@@ -334,7 +332,6 @@ nav li {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     margin-top: 10px;
     background-color: #DEF2F1;
 }
