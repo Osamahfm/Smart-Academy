@@ -80,64 +80,50 @@ const courses=[
         id:2,
         title:"Web Development Frontend",
         description:"Build responsive and interactive websites.",
-        category:"Web Development",
+        category:"Software Development",
 
     },
     {
         id:3,
-        title:"Introduction to Computer Science",
+        title:"Mobile App Development",
+        description:"Create mobile applications for Android and iOS.",
+        category:"Software Development",
+    },
+    {
+        id:4,
+        title:"Object-Oriented Programming",
+        description:"Understand the principles of OOP.",
+        category:"Computer Science",
+    },
+    {
+        id:5,
+        title:"Intro To Cybersecurity",
+        description:"Learn the basics of cybersecurity.",
+        category:"Cybersecurity",
+    },
+    {
+        id:6,
+        title:"Certified Ethical Hacking",
+        description:"Become a certified ethical hacker.",
+        category:"Cybersecurity",
+    },
+    {
+        id:7,
+        title:"Cyber Security Specialization",
+        description:"Deep dive into cybersecurity concepts.",
+        category:"Cybersecurity",
     },
     {
         id:4,
         title:"Data Structures and Algorithms",
         description:"Learn about data structures and algorithms.",
-        category:"Programming",
-    },
-
-    {
-        id:5,
-        title:"Discrete Mathematics",
-        description:"Learn about discrete mathematics.",
-        category:"Mathematics",
-
-    },
-    {
-        id:6,
-        title:"computer Networks",
-        description:"Learn about computer networks.",
-        category:"Networking",
-    },
-    {
-        id:7,
-        title:"Database Management Systems",
-        description:"Learn about database management systems.",
-        category:"Database",
-    },
-    {
-        id:8,
-        title:"Algorithms Analysis and Design",
-        description:"Learn about algorithms analysis and design.",
-        category:"Programming",
-    },
-    {
-        id:9,
-        title:"Software Engineering",
-        description:"Learn about software engineering.",
-        category:"Software Engineering",
-
-    },
-    {
-        id:10,
-        title:"Operating Systems",
-        description:"Learn about operating systems.",
-        category:"Operating Systems",
-
+        category:"Computer Science",
     },
     {
         id:11,
         title:"Web Development Backend",
         description:"Build server-side applications.",
-        category:"Web Development",
+        category:"Software Development",
 
     }
 
