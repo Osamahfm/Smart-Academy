@@ -110,7 +110,7 @@ nav li {
     position: absolute;
     bottom: 18%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #2B7A78;
+    background-color: #ffffff;
     font-size: medium;
 }
 
@@ -198,7 +198,7 @@ nav li {
 }
 
 .info {
-    background-image: url(images/pexels-goumbik-574073.jpg);
+    background-image: url(images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -296,41 +296,18 @@ nav li {
 }
 
 /* تأثير التأخير العشوائي */
-.c1.show {
+.c1.show,.css1.show,.net1.show  {
     transition-delay: 0.1s;
 }
 
-.c2.show {
+.c2.show, .css2.show, .net2.show {
     transition-delay: 0.2s;
 }
 
-.c3.show {
+.c3.show, .css3.show, .net3.show {
     transition-delay: 0.3s;
 }
 
-.css1.show {
-    transition-delay: 0.1s;
-}
-
-.css2.show {
-    transition-delay: 0.2s;
-}
-
-.css3.show {
-    transition-delay: 0.3s;
-}
-
-.net1.show {
-    transition-delay: 0.1s;
-}
-
-.net2.show {
-    transition-delay: 0.2s;
-}
-
-.net3.show {
-    transition-delay: 0.3s;
-}
 
 /* Hover effect */
 .c1:hover,
@@ -347,65 +324,6 @@ nav li {
     animation: bounce 0.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-}
 
 .software,
 .css,
