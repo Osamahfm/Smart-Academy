@@ -198,7 +198,7 @@ nav li {
 }
 
 .info {
-    background-image: url(Photos/background.jpg);
+    background-image: url(images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -232,6 +232,9 @@ nav li {
     display: flex;
     text-align: center;
     background-color: #DEF2F1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .learninginfo img {
@@ -329,6 +332,9 @@ nav li {
 .css,
 .net {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     margin-top: 10px;
     background-color: #DEF2F1;
 }
@@ -365,7 +371,6 @@ nav li {
 .software>.c1,
 .c2,
 .c3 {
-    float: left;
     margin: 10px 60px;
     padding: 20px;
 }
