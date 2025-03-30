@@ -1,0 +1,199 @@
+.info-box, .course-banner, .enroll-button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.info-box:hover, .course-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+nav {
+    background-color: #2B7A78;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px ;
+    margin :0;
+   
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    color: #E8FBFB;
+    padding: 15px;
+    
+}
+
+
+nav a:hover {
+    background-color: #1C5452;
+    color: #ffffff;
+    
+}
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:  #17252A;
+            color: white;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .course-banner {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+         
+        }
+
+        .course-details {
+            flex: 1;
+            min-width: 300px;
+          
+        }
+
+        .course-banner img {
+            width: 40%;
+            border-radius: 8px;
+            margin-left: 30px;
+            min-width: 250px;
+        }
+
+        .info-box {
+            
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            
+        }
+
+        .enroll-button {
+            background-color: #2B7A78;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .enroll-button:hover {
+            background-color: #115351;
+        }
+
+        footer .footerinfo {
+            background-color: #2B7A78;
+            text-align: center;
+            font-family: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-top: 50px;
+            color: #e8fbfb;
+            margin: 0;
+        }
+        
+        footer .footerinfo span {
+            display: block;
+            font-size: 50px;
+            padding-top: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        footer .footerinfo p {
+            font-size: 15px;
+            padding-bottom: 20px;
+            margin: 0;
+        }
+        
+        .footerlist {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            background-color: #17252A;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footerlist div {
+            text-align: left;
+            min-width: 300px;
+        }
+        
+        .footerlist span {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #e8fbfb;
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .footerlist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footerlist li {
+            margin-bottom: 10px;
+        }
+        
+        .footerlist a,
+        .footer-contact a {
+            text-decoration: none;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #b6d4d4;
+            font-size: 14px;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .footerlist a:hover,
+        .footer-contact:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        .footer-copyright,
+        .footer-contact {
+            text-align: left;
+            color: #ffffff;
+            font-size: 14px;
+            background-color: #17252A;
+            padding: 10px 40px;
+        }
+        
