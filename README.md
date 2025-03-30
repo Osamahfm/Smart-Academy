@@ -1,6 +1,6 @@
 # Coursey - Online Learning Platform
 
-![Coursey Logo](Photos\background.jpg)
+![Coursey Logo]()
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Contributors](https://img.shields.io/github/contributors/Osamahfm/Coursey)](https://github.com/Osamahfm/Coursey/graphs/contributors)
@@ -33,7 +33,7 @@ Coursey is a modern online learning platform that provides high-quality courses 
 - HTML5 (Semantic markup)
 - CSS3 (Flexbox, Grid, Animations)
 - JavaScript (ES6+, Vanilla)
-
+ 
 ### UI Components
 - Font Awesome 5.15.4 (Icons)
 - Google Fonts (DM Sans)
@@ -160,4 +160,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Open source community
 
 ---
-Created with ❤️ by [Osamah](https://github.com/Osamahfm)
+Created with ❤️ by [Osama](https://github.com/Osamahfm)
