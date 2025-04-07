@@ -1,164 +1,112 @@
-# Coursey - Online Learning Platform
+# Smart Academy - Online Learning Platform
 
-![Smart Academy Logo](assets/images/smart_academy-updated.png)
-
+<div align="center">
+  <img src="smart_academy-updated.png" alt="Smart Academy Logo" width="300"/>
+</div>
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Contributors](https://img.shields.io/github/contributors/Osamahfm/Coursey)](https://github.com/Osamahfm/Coursey/graphs/contributors)
 [![Issues](https://img.shields.io/github/issues/Osamahfm/Coursey)](https://github.com/Osamahfm/Coursey/issues)
 
 ## Description
-Coursey is a modern online learning platform that provides high-quality courses in Computer Science, Programming, and Technology. The platform offers an intuitive interface for students to access educational content, track their progress, and engage with course materials.
+Smart Academy is a modern online learning platform specializing in Computer Science, Programming, and Cyber Security education. Our platform provides an intuitive interface for students to access high-quality educational content, track their progress, and master technical skills.
 
-### Why Coursey?
-- 🎓 High-quality educational content
-- 💻 Focus on practical skills
-- 🌐 Accessible from anywhere
-- 📱 Responsive design for all devices
-- 🔒 Secure user authentication
+### Why Smart Academy?
+- 🎓 Industry-relevant curriculum
+- 💻 Hands-on practical training
+- 🌐 Accessible anywhere, anytime
+- 📱 Fully responsive design
+- 🔒 Secure authentication system
+- 🛒 Integrated shopping cart
 - 🎯 Progress tracking
+- 📊 Course management
 
 ## Features
-- **Course Catalog**: Extensive collection of courses in Computer Science and Technology
-- **User Authentication**: Secure login and signup with form validation
-- **Responsive Design**: Mobile-first approach that works seamlessly across all devices
-- **Course Search**: Advanced search functionality with filters and categories
-- **Interactive UI**: Modern interface with smooth animations and transitions
-- **Form Validation**: Client-side validation for enhanced user experience
-- **Progress Tracking**: Monitor your learning journey
-- **Course Categories**: Organized learning paths
-- **Mobile Support**: Optimized for all screen sizes
+- **Course Catalog**: Comprehensive collection of technical courses
+- **User Authentication**: Secure login/signup with social media integration
+- **Shopping Cart**: Easy course purchase system
+- **Responsive Design**: Mobile-first approach
+- **Interactive UI**: Modern interface with smooth animations
+- **Course Categories**: Organized by technology domains
+  - Software Development
+  - Computer Science
+  - Cyber Security
+- **Form Validation**: Enhanced user input handling
+- **Search Functionality**: Quick course discovery
+- **Social Integration**: Connect with Facebook, Google, GitHub, LinkedIn
 
 ## Tech Stack
 ### Frontend
 - HTML5 (Semantic markup)
 - CSS3 (Flexbox, Grid, Animations)
-- JavaScript (ES6+, Vanilla)
+- JavaScript (ES6+, DOM Manipulation)
  
 ### UI Components
-- Font Awesome 5.15.4 (Icons)
+- Font Awesome 5.15.4
 - Google Fonts (DM Sans)
 - Custom CSS Animations
+- Responsive Navigation
+- Modal Components
 
 ### Development Tools
 - Visual Studio Code
 - Git & GitHub
 - Chrome DevTools
-- W3C Validator
+- Live Server
 
-## Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, or Edge)
-- Git (for version control)
-- Code editor (VS Code recommended)
-- Basic understanding of HTML, CSS, and JavaScript
+## Course Offerings
 
-## Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/Osamahfm/Coursey.git
-```
+### Cyber Security Track
+- Introduction to Cyber Security ($499)
+- Certified Ethical Hacker ($999)
+- Cyber Security Specialization ($1,299)
 
-2. Navigate to the project directory:
-```bash
-cd Coursey
-```
+### Computer Science
+- Problem Solving
+- Data Structures
+- Object-Oriented Programming
 
-3. Open in VS Code:
-```bash
-code .
-```
-
-4. Launch the website:
-   - Using Live Server extension in VS Code
-   - Or open `home.html` in your browser
+### Software Development
+- Frontend Development
+- Backend Development
+- Mobile Application Development
 
 ## Project Structure
 ```
-Coursey/
-├── pages/                # Page components
-│   ├── home.html        # Landing page
-│   ├── courses.html     # Course catalog
-│   ├── contact.html     # Contact information
-│   └── signup.html      # User registration
-├── styles/              # Stylesheet files
-│   ├── global.css      # Global styles
-│   ├── components/     # Component styles
-│   └── pages/         # Page-specific styles
-├── scripts/            # JavaScript files
-│   ├── main.js        # Main functionality
-│   ├── validation.js  # Form validation
-│   └── utils/         # Utility functions
-├── assets/            # Static assets
-│   ├── images/        # Images and icons
-│   └── fonts/         # Custom fonts
-└── docs/              # Documentation
+Smart Academy/
+├── assets/
+│   └── images/          # Images and logos
+├── styles/
+│   ├── home.css
+│   ├── courses.css
+│   └── contact.css
+├── scripts/
+│   ├── cart.js
+│   └── validation.js
+├── pages/
+│   ├── home.html
+│   ├── courses.html
+│   └── contact.html
+└── README.md
 ```
 
-## Available Courses
-
-### Computer Science
-- Problem Solving & Algorithms
-- Data Structures
-- Web Development (Frontend & Backend)
-- Computer Networks
-- Software Engineering
-
-### Mathematics
-- Discrete Mathematics
-- Linear Algebra
-- Calculus for Computer Science
-
-### Programming
-- JavaScript Fundamentals
-- Python Programming
-- Java Essentials
-- C++ Basics
+## Getting Started
+1. Clone the repository
+2. Open with Live Server
+3. Navigate through courses
+4. Try the shopping cart
+5. Test responsive design
 
 ## Browser Support
-- Chrome (latest 2 versions)
-- Firefox (latest 2 versions)
-- Safari (latest 2 versions)
-- Edge (latest 2 versions)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-## Contributing
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository
-2. Create your feature branch:
-```bash
-git checkout -b feature/AmazingFeature
-```
-3. Commit your changes:
-```bash
-git commit -m 'Add some AmazingFeature'
-```
-4. Push to the branch:
-```bash
-git push origin feature/AmazingFeature
-```
-5. Open a Pull Request
-
-### Contribution Guidelines
-- Follow the existing code style
-- Update documentation as needed
-- Test your changes thoroughly
-- Create meaningful commit messages
-- Reference issues in commits when applicable
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact & Support
-- 📧 Email: contact@coursey.com
-- 💬 Discord: [Join our community](https://discord.gg/coursey)
-- 🐦 Twitter: [@CourseyCommunity](https://twitter.com/CourseyCommunity)
-- 📱 GitHub: [@Osamahfm](https://github.com/Osamahfm)
-
-## Acknowledgments
-- Font Awesome for icons
-- Google Fonts for typography
-- Contributors and supporters
-- Open source community
+## Contact
+- Website: [Smart Academy](https://smart-academy.com)
+- Email: contact@smart-academy.com
+- GitHub: [@Osamahfm](https://github.com/Osamahfm)
 
 ---
 Created with ❤️ by [Osama](https://github.com/Osamahfm)
