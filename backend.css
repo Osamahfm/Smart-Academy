@@ -103,7 +103,7 @@ nav a:hover {
             
         }
 
-        .enroll-button {
+        .addToCart-button {
             background-color: #2B7A78;
             color: white;
             border: none;
@@ -114,7 +114,7 @@ nav a:hover {
             margin-top: 20px;
         }
 
-        .enroll-button:hover {
+        .addToCart-button:hover {
             background-color: #115351;
         }
 

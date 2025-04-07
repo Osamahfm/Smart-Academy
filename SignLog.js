@@ -24,6 +24,9 @@ loginForm.addEventListener('submit', (e) => {
     } else {
         alert("Login successful!");
         // Here you can add code to handle the login process
+       
+        localStorage.setItem('isSignedIn', 'true'); // ✅ Set login status
+        window.location.href = 'home.html'; // ✅ Redirect after login (optional)
     }
 });
 
