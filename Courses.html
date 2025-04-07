@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses | Coursey</title>
+    <title>Courses | Smart</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="courses.css">
@@ -20,31 +20,11 @@
                 <li><a href="courses.html">Courses</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="aboutUs.html">About</a></li>
-                <li><button id="log">Log In</button></li>
-                <li><button id="sign">Sign Up</button></li>
+                <li><button id="sign" onclick="window.location.href='SignLog.html'">Sign Up</button></li>
             </ul>
         </nav>
     </header>
     
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="modalTitle">Log In</h2>
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Log In</button>
-            </form>
-        </div>
-    </div>
-
 
     <main>
         <section class="courses-header">

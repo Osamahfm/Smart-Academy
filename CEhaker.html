@@ -20,33 +20,44 @@
             <li><a href="Courses.html">Courses</a></li>
             <li><a href="Contact Us.html">Contact Us</a></li>
             <li><a href="">About</a></li>
-            <li><button id="log">Log In</button></li>
             <li><button id="sign">Sign Up</button></li>
+            <li>
+                <div class="cart-container">
+                    <button id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <div id="loginModal" class="modal">
+    <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 class="modalTitle">Log In</h2>
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Log In</button>
-            </form>
+            <h2 class="modalTitle">Shopping Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: </strong>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                Proceed to Checkout
+            </button>
         </div>
     </div>
+
+
     <div class="course-content">
         <section class="overview">
             <h2>Course Overview</h2>
             <p>Master the art of ethical hacking and become a certified security professional. This comprehensive course teaches you advanced penetration testing techniques, vulnerability assessment, and security strategies used by ethical hackers to protect organizations from cyber threats.</p>
+            <div class="course-actions">
+                <button class="add-to-cart" data-course="ceh" data-price="999">
+                    <i class="fas fa-cart-plus"></i>
+                    Add to Cart - $120
+                </button>
+            </div>
         </section>
 
         <section class="what-you-learn">
@@ -110,6 +121,7 @@
                 <li>Programming/scripting knowledge is beneficial</li>
             </ul>
         </section>
+
 
     </div>
 

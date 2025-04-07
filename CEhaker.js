@@ -1,119 +1,98 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const loginForm= document.querySelector(".modal-content form");
-    const usernameInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
-    const emailInput = document.getElementById("email");
 
+document.addEventListener('DOMContentLoaded', function() {
+    const cart = [];
+    const cartBtn = document.getElementById('cartBtn');
+    const cartModal = document.getElementById('cartModal');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartCount = document.querySelector('.cart-count');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const addToCartBtn = document.querySelector('.add-to-cart');
 
-    const createErrorElement= (message) => {
-        const error= document.createElement("span");
-        error.className= "error-message";
-        error.textContent= message;
+    // Add to Cart
+    addToCartBtn.addEventListener('click', function() {
+        const courseId = this.dataset.course;
+        const price = parseFloat(this.dataset.price);
+        const courseName = document.querySelector('h2').textContent;
 
-        return error;
-    };
-
-    const validateUsername=(username)=>{
-        const regex= /^[a-zA-Z0-9]{4,20}$/;
-        if (!regex.test(username)) {
-            return "Username must be 4-20 characters long and can only contain letters and numbers.";
+        // Check if course is already in cart
+        if (!cart.find(item => item.id === courseId)) {
+            cart.push({
+                id: courseId,
+                name: courseName,
+                price: price
+            });
+            updateCart();
+            showNotification('Course added to cart!');
+        } else {
+            showNotification('Course is already in cart!', 'warning');
         }
-        return null;
-    };
-    const validateEmail=(email)=>{
-        const regex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!regex.test(email)) {
-            return "Invalid email.!!";
-        }
-        return null;
-
-    };
-    const validatePassword=(password)=>{
-        if(password.length < 8) {
-            return "Password must be at least 8 characters long.";
-        }
-        if(!/[A-Z]/.test(password)) {
-            return "Password must contain at least one uppercase letter.";
-        }
-        if(!/[a-z]/.test(password)) {
-            return "Password must contain at least one lowercase letter.";
-        }
-        if(!/[0-9]/.test(password)) {
-            return "Password must contain at least one number.";
-        }
-        return null;
-    };
-
-    const addInputValidation= (input, validateFn) => {
-        input.addEventListener("input", function()  {
-            const existingError= input.parentElement.querySelector(".error-message");
-            if (existingError) {
-                existingError.remove();
-            }
-
-            const error = validateFn(input.value);
-            if (error) {
-                const errorElement= createErrorElement(error);
-                input.parentElement.appendChild(errorElement);
-                input.classList.add("error");
-            }else{
-                input.classList.remove("error");
-            }
-
-        });
-    };
-    const modal = document.getElementById("loginModal");
-    const btn = document.getElementById("log");
-    const span = document.getElementsByClassName("close")[0];
-
-    btn.onclick = function() {
-        modal.style.display = "block";
-        document.querySelectorAll(".error-message").forEach(error=>error.remove());
-        document.querySelectorAll(".error").forEach(input=>input.classList.remove("error"));
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-
-    addInputValidation(usernameInput, validateUsername);
-    addInputValidation(emailInput, validateEmail);
-    addInputValidation(passwordInput, validatePassword);
-
-    loginForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const usernameError= validateUsername(usernameInput.value);
-        const emailError= validateEmail(emailInput.value);
-        const passwordError= validatePassword(passwordInput.value);
-
-        document.querySelectorAll(".error-message").forEach(error=>error.remove());
-        document.querySelectorAll(".error").forEach(input=>input.classList.remove("error"));
-
-        if(usernameError|| emailError || passwordError) {
-            if(usernameError) {
-                usernameInput.parentElement.appendChild(createErrorElement(usernameError));
-                usernameInput.classList.add("error");
-            }
-            if(emailError) {
-                emailInput.parentElement.appendChild(createErrorElement(emailError));
-                emailInput.classList.add("error");
-            }
-            if(passwordError) {
-                passwordInput.parentElement.appendChild(createErrorElement(passwordError));
-                passwordInput.classList.add("error");
-            }
-            return;
-        }
-        console.log("Form submitted successfully!");
-        modal.style.display = "none";
-        this.reset();
     });
+
+    // Update Cart
+    function updateCart() {
+        cartCount.textContent = cart.length;
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            total += item.price;
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <span>${item.name}</span>
+                    <div>
+                        <span>$${item.price}</span>
+                        <i class="fas fa-trash cart-item-remove" data-id="${item.id}"></i>
+                    </div>
+                </div>
+            `;
+        });
+
+        cartTotal.textContent = `$${total}`;
+    }
+
+    // Remove from Cart
+    cartItems.addEventListener('click', function(e) {
+        if (e.target.classList.contains('cart-item-remove')) {
+            const id = e.target.dataset.id;
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                cart.splice(index, 1);
+                updateCart();
+                showNotification('Course removed from cart!');
+            }
+        }
+    });
+
+    // Show Cart Modal
+    cartBtn.onclick = function() {
+        cartModal.style.display = 'block';
+    }
+
+    // Close Cart Modal
+    cartModal.querySelector('.close').onclick = function() {
+        cartModal.style.display = 'none';
+    }
+
+    // Checkout
+    checkoutBtn.addEventListener('click', function() {
+        if (cart.length > 0) {
+            // Add your payment processing logic here
+            window.location.href = 'checkout.html';
+        } else {
+            showNotification('Your cart is empty!', 'warning');
+        }
+    });
+
+    // Notification
+    function showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
 });
