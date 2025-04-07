@@ -6,15 +6,52 @@
     font-size: 16px;
     color:black;
 }
-.inf{
-    background-image: url(photos/datastructure.jpg);
+.inf {
+    background-image: url('photos/datastructure.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     margin-top: 10px;
-    padding-bottom: 10px;
+    padding: 20px;
     height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    position: relative;
 }
+
+/* Optional dark overlay for better readability */
+.inf::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    z-index: 1;
+}
+
+.inf h1,
+.inf p {
+    position: relative;
+    z-index: 2;
+    margin: 10px 0;
+}
+
+.inf h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.inf p {
+    font-size: 1.2rem;
+}
+
 #h33{
     color: black;
 }
