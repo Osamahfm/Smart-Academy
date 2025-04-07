@@ -1,34 +1,44 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const modal = document.getElementById("loginModal");
-    const btn = document.getElementById("log");
-    const span = document.getElementsByClassName("close")[0];
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        // Validate email
+        if (!validateEmail(email)) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
         }
+
+        // Simulate form submission
+        showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+        contactForm.reset();
+    });
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
-});
-function navigateToSignUp(){
-    window.location.href = "signup.html";
-}
 
-document.getElementById("courseBtn").addEventListener("click", function () {
-    let dropdown = this.parentElement;
-    dropdown.classList.toggle("show");
-});
+    function showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
 
-document.addEventListener("click", function (event) {
-    let dropdown = document.querySelector(".dropdown");
-    if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove("show");
+        // Add animation class
+        setTimeout(() => notification.classList.add('show'), 10);
+
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
     }
 });

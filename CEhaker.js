@@ -96,3 +96,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Prevent URL display in status bar on hover
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('mouseover', function(e) {
+            e.preventDefault();
+            this.title = '';
+        });
+    });
+    
+    
+});

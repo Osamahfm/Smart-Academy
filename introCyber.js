@@ -112,4 +112,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize cart display
     updateCartDisplay();
+
+
+    
+
+
+});
+// Prevent URL display in status bar on hover
+const links = document.querySelectorAll('a');
+links.forEach(link => {
+    link.addEventListener('mouseover', function(e) {
+        e.preventDefault();
+        this.title = '';
+    });
 });

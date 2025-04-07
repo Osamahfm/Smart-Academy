@@ -18,20 +18,54 @@ header {
     top: 0;
     z-index: 100;
 }
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 0;
 }
 
 .logo img {
-    height: 40px;
+    height: 60px;
+    object-fit: contain;
+    width: 180px;
+    filter: brightness(0) invert(1);
+
 }
 
 .logo h1 {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.9;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+    .logo img {
+        height: 45px;
+        width: 135px;
+    }
+
+    .logo h1 {
+        font-size: 1.6rem;
+    }
 }
 
 nav ul {
@@ -39,6 +73,7 @@ nav ul {
     align-items: center;
     gap: 2rem;
     list-style: none;
+    margin: 0;
 }
 
 nav a {
@@ -50,30 +85,45 @@ nav a {
 nav a:hover {
     color: #2B7A78;
 }
-#log,
 #sign {
-    width: 80px;
-    height: 35px;
-    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
     border: 2px solid white;
-    position: absolute;
-    bottom: 18%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #2B7A78;
-    font-size: medium;
+    background-color: transparent;
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-left: 1rem;
 }
 
-#log {
-    right: 70px;
-}
-
-#sign {
-    right: 170px;
-}
-
-#log:hover,
 #sign:hover {
-    background-color: #1c5452;
+    background-color: white;
+    color: #2B7A78;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #sign {
+        margin: 0;
+        width: 90px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
 }
 
 .modal {
@@ -388,3 +438,4 @@ footer .footerinfo p {
     background-color: #17252A;
     padding: 10px 40px;
 }
+
