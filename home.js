@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function navigateToSignUp(){
     window.location.href = "signup.html";
 }
+
 document.getElementById("courseBtn").addEventListener("click", function () {
     let dropdown = this.parentElement;
     dropdown.classList.toggle("show");
