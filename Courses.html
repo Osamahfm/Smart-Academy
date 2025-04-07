@@ -3,33 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <title>Courses | Coursey</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="courses.css">
-    <script src="courses.js"></script>
-
+    <script src="courses.js" defer></script>
 </head>
 <body>
     <header>
-        <!-- <img src="logo/implant.jpg" alt="logo"> -->
-        <h2>Start learning smartly</h2>
-    </header>
-
-    <nav>
-        <div>
+        <div class="logo">
+            <img src="logo.png" alt="Smart Logo">
+        </div>
+        <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="Courses.html">Courses</a></li>
-                <li><a href="">My Courses</a></li>
-                <li><a href="Contact Us.html">Contact Us</a></li>
-                <li><a href="">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><button id="log">Log In</button></li>
-                <li><button id="sign" onclick="navigateToSignUp()">Sign Up</button></li>
+                <li><button id="sign">Sign Up</button></li>
             </ul>
-        </div>
-
-    </nav>
+        </nav>
+    </header>
     
-
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -43,63 +39,242 @@
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-                
+
                 <button type="submit">Log In</button>
             </form>
         </div>
     </div>
-        <section class="courses-Container">
-            <div class="course-card" >
-                <h3 class="courseName">Introduction to Computer Science</h3>
-                <div class="course-img" data-course="Introduction to Computer Science"></div>
-                <p>Computer Science</p>
-                <button class="enter-course">Enter this course</button>
-                <p>No completion criteria</p>
-            </div>
-            <div class="course-card">
-                <div class="course-img" data-course="Problem Solving"></div>
-                <h3 class="courseName">Problem Solving</h3>
-                <p>Computer Science</p>
-                <button><a href="problemsolv.html">Enter this course</a></button>
-                <p>No completion criteria</p>
-            </div>
-            <div class="course-card">
-                <div class="course-img" data-course="Discrete Mathematics AND linear algebra"></div>
-                <h3 class="courseName">Discrete Mathematics AND linear algebra </h3>
-                <p>Mathematics</p>
-                <button>Enter this course</button>
-                <p>No completion criteria</p>
-            </div>
-            <div class="course-card" >
-                <div class="course-img" data-course="Web Development"></div>
-                <h3 class="courseName">Web Development </h3>
-                <p>Computer Science</p>
-                <button>Enter this course</button>
-                <p>No completion criteria</p>
-            </div>
-            <div class="course-card" >
-                <div class="course-img" data-course="Computer Networks"></div>
-                <h3 class="courseName">Computer Networks</h3>
-                <p>Computer Science</p>
-                <button>Enter this course</button>
-                <p>No completion criteria</p>
-            </div>
-            <div class="course-card" >
-                <div class="course-img" data-course="Algorithms Analysis AND Design"></div>
-                <h3 class="courseName">Algorithms Analysis AND Design </h3>
-                <p>Computer Science</p>
-                <button>Enter this course</button>
-                <p>No completion criteria</p>
-            </div>
-            <div class="course-card" >
-                <div class="course-img" data-course="Software Engineering"></div>
-                <h3 class="courseName">Software Engineering</h3>
-                <p>Computer Science</p>
-                <button>Enter this course</button>
-                <p>No completion criteria</p>
+
+
+    <main>
+        <section class="courses-header">
+            <h1>Our Courses</h1>
+            <p>Choose from our wide range of technology courses</p>
+        </section>
+
+        <!-- Software Development Category -->
+        <section class="course-category">
+            <h2><i class="fas fa-code"></i> Software Development</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" data-course="Frontend">
+                        <span class="course-tag">Web Development</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Frontend Development</h3>
+                        <p>Master modern frontend technologies including HTML, CSS, and JavaScript.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 12 weeks</span>
+                            <span><i class="far fa-user"></i> Beginner</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='frontend.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" data-course="Backend">
+                        <span class="course-tag">Web Development</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Backend Development</h3>
+                        <p>Learn server-side programming, databases, and API development.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 14 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='backend.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" data-course="Mobile">
+                        <span class="course-tag">Mobile Dev</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Mobile Application Development</h3>
+                        <p>Build cross-platform mobile applications using modern frameworks.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 16 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='mobile.html'">Enter Course</button>
+                    </div>
+                </div>
             </div>
         </section>
-        <script src="courses.js"></script>
+
+        <!-- Computer Science Category -->
+        <section class="course-category">
+            <h2><i class="fas fa-laptop-code"></i> Computer Science</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" data-course="ProblemSolving">
+                        <span class="course-tag">CS Fundamentals</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Problem Solving</h3>
+                        <p>Develop algorithmic thinking and problem-solving skills.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 8 weeks</span>
+                            <span><i class="far fa-user"></i> Beginner</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='problemsolving.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" data-course="DataStructure">
+                        <span class="course-tag">CS Fundamentals</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Data Structures</h3>
+                        <p>Learn essential data structures and their implementations.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 10 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='datastructure.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" data-course="OOP">
+                        <span class="course-tag">CS Fundamentals</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Object Oriented Programming</h3>
+                        <p>Master OOP concepts and design patterns.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 12 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='oop.html'">Enter Course</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cyber Security Category -->
+        <section class="course-category">
+            <h2><i class="fas fa-shield-alt"></i> Cyber Security</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" data-course="IntroCyber">
+                        <span class="course-tag">Security</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Introduction to Cyber Security</h3>
+                        <p>Learn fundamental concepts of cyber security.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 8 weeks</span>
+                            <span><i class="far fa-user"></i> Beginner</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='introcyber.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" data-course="CEH">
+                        <span class="course-tag">Security</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Certified Ethical Hacker</h3>
+                        <p>Prepare for CEH certification with hands-on training.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 16 weeks</span>
+                            <span><i class="far fa-user"></i> Advanced</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='ceh.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" data-course="CyberSpec">
+                        <span class="course-tag">Security</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Cyber Security Specialization</h3>
+                        <p>Advanced security concepts and practices.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 20 weeks</span>
+                            <span><i class="far fa-user"></i> Advanced</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='cyberspec.html'">Enter Course</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footerinfo">
+            <span>Smart</span>
+            <p>We offer a variety of educational courses designed to help you develop <br>
+                your skills in different fields, whether you're a beginner or a professional. <br>
+                Enjoy a unique learning experience with interactive content, practical exercises,<br>
+                and certified certificates upon course completion.</p>
+        </div>
+
+        <div class="footerlist">
+            <div class="footernav">
+                <span>Smart</span>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Courses</a></li>
+                    <li><a href="">Contact Us </a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </div>
+
+            <div class="footersw">
+                <span>Software</span>
+                <ul>
+                    <li><a href="">Web Development: Frontend</a></li>
+                    <li><a href="">Web Development: Backend</a></li>
+                    <li><a href="">Mobile Application</a></li>
+                </ul>
+            </div>
+
+            <div class="footercs">
+                <span>Computer Science</span>
+                <ul>
+                    <li><a href="">Problem Solving</a></li>
+                    <li><a href="">Data Structure</a></li>
+                    <li><a href="">Object Oriented Programming</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footernet">
+                <span>Cyber Security</span>
+                <ul>
+                    <li><a href="">Intro To Cyber Security</a></li>
+                    <li><a href="">certified Ethical Hacker</a></li>
+                    <li><a href="">Cyber Security Specialization</a></li>
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-copyright">
+            <span>&copy 2025 Smart. All rights reserved.</span>
+        </div>
+
+        <div class="footer-contact">
+            <span>Email: <a href="mailto:smart@gmail.com">smart@gmail.com</a></span>
+        </div>
+
+        <div class="footer-contact">
+            <span>Phone: <a href="tel:0111222333">0111222333</a></span>
+        </div>
+
+
+    </footer>
+
+
     
 </body>
 </html>

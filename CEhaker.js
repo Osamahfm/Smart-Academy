@@ -117,9 +117,3 @@ document.addEventListener("DOMContentLoaded", function() {
         this.reset();
     });
 });
-document.addEventListener("click", function (event) {
-    let dropdown = document.querySelector(".dropdown");
-    if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove("show");
-    }
-});
