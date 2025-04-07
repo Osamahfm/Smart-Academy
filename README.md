@@ -1,7 +1,4 @@
 # Coursey - Online Learning Platform
-<div align="center">
-  <img src="assets/images/smart_academy-updated.png" alt="Smart Academy Logo" width="300"/>
-</div>
 
 ![Smart Academy Logo](assets/images/smart_academy-updated.png)
 
