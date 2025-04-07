@@ -6,14 +6,11 @@ header{
     padding: 15px 0;
 }
 
-nav{
-    background-color: black;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
+nav {
+    background-color: #2B7A78;
+    position: sticky;
+    top: 75px;
+    z-index: 900;
 }
 
 
@@ -27,30 +24,86 @@ h2{
 }
 
 
-a{
+nav a {
     text-decoration: none;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 18px;
-    padding: 10px 20px;
-    color: #EDE8F5;
-    transition: color 0.3s,trnasform 0.3s;
-}
-a:hover{
-    color: #3D52A0;
-    transform: scale(1.2);
+    padding: 20px;
+    margin: auto;
+    color: #e8fbfb;
 }
 
-ul{
+nav a:hover {
+    text-decoration: none;
+    background-color: #1c5452;
+}
+
+nav ul {
     padding: 20px 40px;
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
+    margin: auto;
 }
 
-li{
+nav li {
     display: inline;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: none;
+    color: #e8fbfb;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown button:hover {
+    background-color: #1c5452;
+}
+
+.dropdown button::after {
+    content: "▼";
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.show button::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
 
 #log,#sign{
     width: 80px;
@@ -80,6 +133,9 @@ li{
     color: #3D52A0;
     transform: scale(1.2);
 }
+
+
+
 .contactForm{
     width: 50%;
     margin: 30px auto;

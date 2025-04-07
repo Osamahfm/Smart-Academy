@@ -1,0 +1,463 @@
+header {
+    background-color: #17252A;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+h2 {
+    text-align: center;
+    color: #EDE8F5;
+    padding: 15px 0;
+    margin: auto;
+    font-family: "DM Sans";
+    font-size: 40px;
+}
+
+nav {
+    background-color: #2B7A78;
+    position: sticky;
+    top: 75px;
+    z-index: 900;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    padding: 20px;
+    margin: auto;
+    color: #e8fbfb;
+}
+
+nav a:hover {
+    text-decoration: none;
+    background-color: #1c5452;
+}
+
+nav ul {
+    padding: 20px 40px;
+    margin: auto;
+}
+
+nav li {
+    display: inline;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: none;
+    color: #e8fbfb;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown button:hover {
+    background-color: #1c5452;
+}
+
+.dropdown button::after {
+    content: "▼";
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.show button::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+#log,
+#sign {
+    width: 80px;
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid white;
+    position: absolute;
+    bottom: 18%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #2B7A78;
+    font-size: medium;
+}
+
+#log {
+    right: 70px;
+}
+
+#sign {
+    right: 170px;
+}
+
+#log:hover,
+#sign:hover {
+    background-color: #1c5452;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    /* Add this line */
+}
+
+.modalTitle {
+    color: black;
+    font-family: initial;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: red;
+}
+
+.modal input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal button {
+    background-color: #3D52A0;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #3D52A0;
+}
+.course-content{
+    max-width: 1200px;
+    margin:40px auto;
+    padding: 20px;
+}
+
+section{
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+section h2{
+    color: #17252A;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: "DM Sans" sans-serif;
+    position: relative;
+    padding-bottom: 10px;
+}
+section h2::after{
+    content: "";
+    display: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: #2B7A78;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.overview{
+    color: #555;
+    line-height: 1.8;
+    font-size: 18px;
+}
+.learning-points ul{
+    list-style: none;
+    padding: 0;
+}
+.learning-points li{
+    padding: 12px 0 12px 30px;
+    position: relative;
+    color: #555;
+    font-size: 18px;
+}
+.learning-points li::before{
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #2B7A78;
+    font-weight: bold;
+}
+.module-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.module{
+    background-color: #f8f8fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #2B7A78;
+}
+.module h3{
+    color: #17252A;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-family: "DM Sans" sans-serif;
+}
+.module ul{
+    list-style: none;
+    padding: 0;
+}
+.module ul li{
+    padding: 10px 0 10px 25px;
+    position: relative;
+    color: #555;
+}
+.module ul li::before{
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #2B7A78;
+    font-weight: bold;
+}
+.requirements{
+    list-style: none;
+    padding: 0;
+}
+.requirements li{
+    padding: 10px 0 10px 30px;
+    position: relative;
+    color: #555;
+    font-size: 18px;
+}
+.requirements li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #2B7A78;
+}
+@media (max-width: 768px) {
+    .course-content {
+        padding: 0 15px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    .module h3 {
+        font-size: 1.2rem;
+    }
+
+    .overview p,
+    .learning-points li,
+    .requirements li {
+        font-size: 1rem;
+    }
+}
+
+/* Animation for Sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.module {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal input.error {
+    border-color: #ff4444;
+}
+
+.modal input:focus {
+    outline: none;
+    border-color: #2B7A78;
+    box-shadow: 0 0 0 2px rgba(43, 122, 120, 0.1);
+}
+
+.modal input.error:focus {
+    border-color: #ff4444;
+    box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.1);
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal input.error {
+    border-color: #ff4444;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+footer .footerinfo {
+    background-color: #2B7A78;
+    text-align: center;
+    margin-top: 50px;
+    color: #e8fbfb;
+}
+
+footer .footerinfo span {
+    display: block;
+    font-size: 50px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+footer .footerinfo p {
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+.footerlist {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #17252A;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.footerlist div {
+    text-align: left;
+    min-width: 300px;
+}
+
+.footerlist span {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #e8fbfb;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.footerlist ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footerlist li {
+    margin-bottom: 10px;
+}
+
+.footerlist a,
+.footer-contact a {
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #b6d4d4;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footerlist a:hover,
+.footer-contact:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-copyright,
+.footer-contact {
+    text-align: left;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #17252A;
+    padding: 10px 40px;
+}

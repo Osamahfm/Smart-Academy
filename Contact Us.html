@@ -6,7 +6,6 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="ContactStyle.css">
     <script src="Contact.js" defer></script>
-    <script src="home.js"></script>
 </head>
 <body>
     <header>
@@ -14,26 +13,35 @@
         <h2>Start learning smartly</h2>
     </header>
 
-    <nav> 
-        <div class="navbar">
-            <ul>
-                <li><a href="home.html" >Home</a></li>
-                <li><a href="Courses.html">Courses</a></li>
-                <li><a href="">My Courses</a></li>
-                <li><a href="Contact Us.html">Contact Us</a></li>
-                <li><a href="">About</a></li>
-                <li>
-                    <div class="search-container">
-                        <input type="text" id="searchCourses" placeholder="Search courses...">
-                        <button type="button" id="searchButton"><i>Search</i></button>
-                    </div>
-                </li>
-                <li><button id="log">Log In</button></li>
-                <li><button id="sign" onclick="navigateToSignUp()">Sign Up</button></li>
-            </ul>
-        </div>
-        
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown">
+                <button id="courseBtn">Courses</button>
+                <div class="dropdown-content">
+                    <strong>Software</strong>
+                    <a href="frontend.html">Front End</a>
+                    <a href="backend.html">Back End</a>
+                    <a href="mobileapp.html">Mobile Application</a>
+                    <hr>
+                    <strong>CS</strong>
+                    <a href="problem solving.html">Problem Solving</a>
+                    <a href="dataStruct.html">Data Structure</a>
+                    <a href="oop.html">Object Oriented Programming</a>
+                    <hr>
+                    <strong>Cyber Security</strong>
+                    <a href="IntroCyber.html">Intro To Cyber Security</a>
+                    <a href="">Certified Ethical Hacker</a>
+                    <a href="">Cyber Security Specialization</a>
+                </div>
+            </li>
+            <li><a href="Contact Us.html">Contact Us</a></li>
+            <li><a href="">About</a></li>
+            <li><button id="log">Log In</button></li>
+            <li><button id="sign">Sign Up</button></li>
+        </ul>
     </nav>
+
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
