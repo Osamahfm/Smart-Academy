@@ -359,3 +359,18 @@ footer .footerinfo p {
     background-color: #17252A;
     padding: 10px 40px;
 }
+#enrollBtn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #2B7A78;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#enrollBtn:hover {
+    background-color: #205e5c; 
+}
