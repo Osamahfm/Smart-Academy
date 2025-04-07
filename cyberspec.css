@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #17252A;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+header h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+
+nav {
+    background-color: #2B7A78;
+    padding: 1rem 5%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #DEF2F1;
+}
+
+/* Remove duplicate #sign selector and update the styles */
+#sign {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-left: 1rem;
+}
+
+#sign:hover {
+    background-color: white;
+    color: #2B7A78;
+    transform: translateY(-2px);
+}
+
+/* Add responsive styles for the button */
+@media (max-width: 768px) {
+    #sign {
+        width: 90px;
+        height: 35px;
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+}
+
+/* Cart Styles */
+.cart-container {
+    position: relative;
+}
+
+#cartBtn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+/* Course Content */
+.course-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.overview {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.overview h2 {
+    color: #17252A;
+    margin-bottom: 1rem;
+}
+
+.overview p {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* Course Actions */
+.course-actions {
+    margin-top: 2rem;
+}
+
+.add-to-cart {
+    background-color: #2B7A78;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #1c5452;
+    transform: translateY(-2px);
+}
+
+/* Learning Points */
+.what-you-learn {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.learning-points ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.learning-points li {
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.learning-points li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2B7A78;
+}
+
+/* Curriculum */
+.module {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #2B7A78;
+}
+
+.module h3 {
+    color: #17252A;
+    margin-bottom: 1rem;
+}
+
+.module ul {
+    list-style: none;
+}
+
+.module li {
+    padding: 0.5rem 0;
+    color: #555;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .learning-points ul {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 20% auto;
+        width: 95%;
+    }
+}
+
+
+footer .footerinfo {
+    background-color: #2B7A78;
+    text-align: center;
+    margin-top: 50px;
+    color: #e8fbfb;
+}
+
+footer .footerinfo span {
+    display: block;
+    font-size: 50px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+footer .footerinfo p {
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+.footerlist {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #17252A;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.footerlist div {
+    text-align: left;
+    min-width: 300px;
+}
+
+.footerlist span {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #e8fbfb;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.footerlist ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footerlist li {
+    margin-bottom: 10px;
+}
+
+.footerlist a,
+.footer-contact a {
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #b6d4d4;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footerlist a:hover,
+.footer-contact:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-copyright,
+.footer-contact {
+    text-align: left;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #17252A;
+    padding: 10px 40px;
+}
+
+/* Prerequisites Section */
+.requirements {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.requirements h2 {
+    color: #17252A;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.requirements h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #2B7A78;
+}
+
+.requirements ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.requirements li {
+    padding-left: 2rem;
+    position: relative;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.requirements li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #2B7A78;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .requirements {
+        padding: 1.5rem;
+    }
+
+    .requirements ul {
+        grid-template-columns: 1fr;
+    }
+
+    .requirements h2 {
+        font-size: 1.5rem;
+    }
+
+    .requirements li {
+        font-size: 1rem;
+    }
+}

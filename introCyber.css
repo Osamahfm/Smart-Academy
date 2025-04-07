@@ -1,463 +1,302 @@
-header {
-    background-color: #17252A;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h2 {
+body {
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #17252A;
+    padding: 2rem 0;
     text-align: center;
-    color: #EDE8F5;
-    padding: 15px 0;
-    margin: auto;
-    font-family: "DM Sans";
-    font-size: 40px;
+}
+
+header h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
 }
 
 nav {
     background-color: #2B7A78;
-    position: sticky;
-    top: 75px;
-    z-index: 900;
-}
-
-nav a {
-    text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 18px;
-    padding: 20px;
-    margin: auto;
-    color: #e8fbfb;
-}
-
-nav a:hover {
-    text-decoration: none;
-    background-color: #1c5452;
+    padding: 1rem 5%;
 }
 
 nav ul {
-    padding: 20px 40px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
 }
 
-nav li {
-    display: inline;
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-.dropdown {
+nav a:hover {
+    color: #DEF2F1;
+}
+
+#sign {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#sign:hover {
+    background-color: white;
+    color: #2B7A78;
+    transform: translateY(-2px);
+}
+
+/* Course Content */
+.course-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.overview, .what-you-learn, .Curriculum, .requirements {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #17252A;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
     position: relative;
-    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.dropdown button {
-    background: none;
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #2B7A78;
+}
+
+/* Cart Styles */
+.cart-container {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.add-to-cart {
+    background-color: #2B7A78;
+    color: white;
     border: none;
-    font-size: 18px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: none;
-    color: #e8fbfb;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
-.dropdown button:hover {
+.add-to-cart:hover {
     background-color: #1c5452;
+    transform: translateY(-2px);
 }
 
-.dropdown button::after {
-    content: "▼";
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown.show button::after {
-    transform: rotate(180deg);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    padding: 10px;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 8px;
-    text-decoration: none;
-    color: black;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown.show .dropdown-content {
-    display: block;
-}
-
-#log,
-#sign {
-    width: 80px;
-    height: 35px;
-    border-radius: 10px;
-    border: 2px solid white;
-    position: absolute;
-    bottom: 18%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #2B7A78;
-    font-size: medium;
-}
-
-#log {
-    right: 70px;
-}
-
-#sign {
-    right: 170px;
-}
-
-#log:hover,
-#sign:hover {
-    background-color: #1c5452;
-}
-
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0, 0.5);
-    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #ffffff;
     margin: 10% auto;
-    padding: 20px;
-    width: 50%;
-    max-width: 400px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
     position: relative;
-    /* Add this line */
-}
-
-.modalTitle {
-    color: black;
-    font-family: initial;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
 }
 
 .close {
     position: absolute;
-    color: black;
-    font-size: 25px;
-    font-weight: bold;
-    right: 20px;
-    top: 10px;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
-.close:hover {
-    color: red;
-}
-
-.modal input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.modal button {
-    background-color: #3D52A0;
+/* Footer Styles */
+footer {
+    background-color: #17252A;
     color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 3rem 5%;
 }
 
-.modal button:hover {
-    background-color: #3D52A0;
-}
-.course-content{
-    max-width: 1200px;
-    margin:40px auto;
-    padding: 20px;
+.footerinfo {
+    margin-bottom: 2rem;
 }
 
-section{
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-}
-section h2{
-    color: #17252A;
-    font-size: 30px;
-    margin-bottom: 20px;
-    font-family: "DM Sans" sans-serif;
-    position: relative;
-    padding-bottom: 10px;
-}
-section h2::after{
-    content: "";
-    display: absolute;
-    width: 50px;
-    height: 4px;
-    background-color: #2B7A78;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.overview{
-    color: #555;
-    line-height: 1.8;
-    font-size: 18px;
-}
-.learning-points ul{
-    list-style: none;
-    padding: 0;
-}
-.learning-points li{
-    padding: 12px 0 12px 30px;
-    position: relative;
-    color: #555;
-    font-size: 18px;
-}
-.learning-points li::before{
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #2B7A78;
+.footerinfo span {
+    font-size: 1.5rem;
     font-weight: bold;
-}
-.module-list{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.module{
-    background-color: #f8f8fa;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #2B7A78;
-}
-.module h3{
-    color: #17252A;
-    font-size: 24px;
-    margin-bottom: 15px;
-    font-family: "DM Sans" sans-serif;
-}
-.module ul{
-    list-style: none;
-    padding: 0;
-}
-.module ul li{
-    padding: 10px 0 10px 25px;
-    position: relative;
-    color: #555;
-}
-.module ul li::before{
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: #2B7A78;
-    font-weight: bold;
-}
-.requirements{
-    list-style: none;
-    padding: 0;
-}
-.requirements li{
-    padding: 10px 0 10px 30px;
-    position: relative;
-    color: #555;
-    font-size: 18px;
-}
-.requirements li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #2B7A78;
-}
-@media (max-width: 768px) {
-    .course-content {
-        padding: 0 15px;
-    }
-
-    section {
-        padding: 20px;
-    }
-
-    section h2 {
-        font-size: 1.5rem;
-    }
-
-    .module h3 {
-        font-size: 1.2rem;
-    }
-
-    .overview p,
-    .learning-points li,
-    .requirements li {
-        font-size: 1rem;
-    }
-}
-
-/* Animation for Sections */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-section {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-.module {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.module:hover {
-    transform: translateX(5px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.modal input.error {
-    border-color: #ff4444;
-}
-
-.modal input:focus {
-    outline: none;
-    border-color: #2B7A78;
-    box-shadow: 0 0 0 2px rgba(43, 122, 120, 0.1);
-}
-
-.modal input.error:focus {
-    border-color: #ff4444;
-    box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.1);
-}
-
-.error-message {
-    color: #ff4444;
-    font-size: 12px;
-    margin-top: 5px;
     display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-.modal input.error {
-    border-color: #ff4444;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-footer .footerinfo {
-    background-color: #2B7A78;
-    text-align: center;
-    margin-top: 50px;
-    color: #e8fbfb;
-}
-
-footer .footerinfo span {
-    display: block;
-    font-size: 50px;
-    padding-top: 20px;
-    font-weight: bold;
-}
-
-footer .footerinfo p {
-    font-size: 15px;
-    padding-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .footerlist {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    background-color: #17252A;
-    padding: 40px 20px;
-    flex-wrap: wrap;
-}
-
-.footerlist div {
-    text-align: left;
-    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
 .footerlist span {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #e8fbfb;
-    font-size: 20px;
     font-weight: bold;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
 }
 
 .footerlist ul {
     list-style: none;
-    padding: 0;
 }
 
-.footerlist li {
-    margin-bottom: 10px;
-}
-
-.footerlist a,
-.footer-contact a {
+.footerlist a {
+    color: #DEF2F1;
     text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #b6d4d4;
-    font-size: 14px;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease;
 }
 
-.footerlist a:hover,
-.footer-contact:hover {
-    color: #ffffff;
-    text-decoration: underline;
+.footerlist a:hover {
+    color: #2B7A78;
 }
 
-.footer-copyright,
+.footer-copyright {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .footer-contact {
-    text-align: left;
-    color: #ffffff;
-    font-size: 14px;
-    background-color: #17252A;
-    padding: 10px 40px;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.footer-contact a {
+    color: #DEF2F1;
+    text-decoration: none;
+}
+.learning-points li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Triangle bullet */
+.learning-points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid #2B7A78;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+/* Circle bullet */
+.module li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #2B7A78;
+    border-radius: 50%;
+}
+
+/* Square bullet */
+.requirements li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background-color: #2B7A78;
+}
+
+/* Diamond bullet */
+.certification li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background-color: #2B7A78;
+    border-radius: 2px;
+}
+
+/* Hover effects for all bullets */
+.learning-points li:hover::before,
+.module li:hover::before,
+.requirements li:hover::before,
+.certification li:hover::before {
+    transform: translateY(-50%) scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+/* Make sure all list items have consistent positioning */
+.learning-points li,
+.module li,
+.requirements li,
+.certification li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    list-style: none;
 }
