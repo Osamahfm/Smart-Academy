@@ -1,6 +1,6 @@
 # Coursey - Online Learning Platform
 
-![](smart_academy-updated.png) 
+
 <img src="assets/images/smart_academy-updated.png" alt="Smart Academy Logo" width="200" height="auto">
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
