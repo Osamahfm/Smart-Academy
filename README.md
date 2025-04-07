@@ -1,7 +1,6 @@
 # Coursey - Online Learning Platform
 
-
-<img src="assets/images/smart_academy-updated.png" alt="Smart Academy Logo" width="200" height="auto">
+![]() <img src="assets/images/smart_academy-updated.png" alt="Smart Academy Logo" width="200" height="auto">
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Contributors](https://img.shields.io/github/contributors/Osamahfm/Coursey)](https://github.com/Osamahfm/Coursey/graphs/contributors)
