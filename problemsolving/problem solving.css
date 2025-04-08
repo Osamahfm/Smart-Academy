@@ -223,45 +223,43 @@ header {
     }
 }
 
-h2 {
-    text-align: center;
-    color: #EDE8F5;
-    padding: 15px 0;
-    margin: auto;
-    font-family: "DM Sans";
-    font-size: 40px;
+header h2{
+        text-align: center;
+        color: #EDE8F5;
+        padding: 15px 0;
+        margin: auto;
+        font-family: "DM Sans";
+        font-size: 40px;
 }
 
 nav {
     background-color: #2B7A78;
+    padding: 1rem 5%;
     position: sticky;
-    top: 75px;
-    z-index: 900;
-}
-
-nav a {
-    text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 18px;
-    padding: 20px;
-    margin: auto;
-    color: #e8fbfb;
-}
-
-nav a:hover {
-    text-decoration: none;
-    background-color: #1c5452;
+    top: 100px;
+    z-index: 1000;
 }
 
 nav ul {
-    padding: 20px 40px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
 }
 
-nav li {
-    display: inline;
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
+nav a:hover {
+    color: #DEF2F1;
+}
+
+/* Sign Up Button */
 #sign {
     width: 100px;
     height: 40px;
@@ -273,10 +271,7 @@ nav li {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    right: 0;
     margin-left: 1rem;
-
 }
 
 #sign:hover {
