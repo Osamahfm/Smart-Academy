@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart</title>
-    <link rel="stylesheet" href="../home/home.css">
+    <title>Smart Academy</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
     <header>
-        
-        <img class="logo-img" src="smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'"> 
-        <h2>Start learning smartly</h2>
+        <img class="logo-img" src="smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'">
+        <h2>Start Learning Smartly</h2>
     </header>
 
     <nav>
@@ -22,306 +20,229 @@
             <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
             <li><a href="../aboutUs/aboutUs.html">About</a></li>
             <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
+            <li>
+                <div class="cart-container">
+                    <button id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <div class="info">
-        <h2 id="infop1">Invest in your career with Smart</h2>
-        <p id="infop2">Get access to videos in over 90% of courses,
-            Specializations, and Professional Certificates taught<br> by topinstructors from leading universities and
-            companies.</p>
-    </div>
-
-
-    <div class="webcourse">
-        <span>Software Courses</span>
-        <p>Explore Smart software cources creative community.</p>
-    </div>
-
-
-    <main class="software">
-        <section class="c1">
-            <a href="../frontend/frontend.html">
-                <div id="c1img">
-                    <img src="../Photos/web-frontend.jpg" alt="web">
-                </div>
-
-                <div id="c1duration">
-                    <span>10h 16m</span>
-                </div>
-
-                <div id="c1students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="c1info">
-                    <span>Web Development:</span>
-                    <br>
-                    <span>Front End</span>
-                </div>
-                <br><br>
-                <p id="c1dr">Dr. Esraa Abd EL-Aziz</p>
-            </a>
-        </section>
-
-        <section class="c2">
-            <a href="../backend/backend.html">
-                <div id="c2img">
-                    <img src="../Photos/web-backend.jpg" alt="web">
-                </div>
-
-                <div id="c2duration">
-                    <span>20h 30m</span>
-                </div>
-
-                <div id="c2students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="c2info">
-                    <span>Web Development:</span>
-                    <br>
-                    <span>Back End</span>
-                </div>
-                <br><br>
-                <p id="c2dr">Dr. Esraa Abd EL-Aziz</p>
-            </a>
-        </section>
-
-        <section class="c3">
-            <a href="../mobile/mobileapp.html">
-                <div id="c3img">
-                    <img src="../Photos/mobile-application.jpg" alt="mobile app">
-                </div>
-
-                <div id="c3duration">
-                    <span>18h 20m</span>
-                </div>
-
-                <div id="c3students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="c3info">
-                    <span>Mobile Application</span>
-                    <br>
-                </div>
-                <br><br>
-                <p id="c3dr">Dr. Taraggy Mohiy Ghanim</p>
-            </a>
-        </section>
-    </main>
-
-    <div class="csscourse">
-        <span>Computer Science Cources</span>
-        <p>Explore Smart software cources creative community.</p>
-    </div>
-
-    <main class="css">
-        <section class="css1">
-            <a href="../problemsolving/problem solving.html">
-                <div id="css1img">
-                    <img src="../Photos/problem-solving.jpg" alt="c++">
-                </div>
-
-                <div id="css1duration">
-                    <span>5h 30m</span>
-                </div>
-
-                <div id="css1students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="css1info">
-                    <span>Problem Solving: </span>
-                    <br>
-                    <span>C++</span>
-                </div>
-                <br><br>
-                <p id="css1dr">Dr. Ahmed Mansour</p>
-            </a>
-        </section>
-
-        <section class="css2">
-            <a href="../datastruct/dataStruct.html">
-                <div id="css2img">
-                    <img src="../Photos/ds.jpg" alt="data structure">
-                </div>
-
-                <div id="css2duration">
-                    <span>15h 25m</span>
-                </div>
-
-                <div id="css2students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="css2info">
-                    <span>Data Structure & </span>
-                    <br>
-                    <span>Algorithms</span>
-                </div>
-                <br><br>
-                <p id="css2dr">Dr. Ashraf AbdelRaoaf</p>
-            </a>
-        </section>
-
-        <section class="css3">
-            <a href="../oop/oop.html">
-                <div id="css3img">
-                    <img src="../Photos/oop.jpg" alt="oop">
-                </div>
-
-                <div id="css3duration">
-                    <span>19h 23m</span>
-                </div>
-
-                <div id="css3students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="css3info">
-                    <span>Object Oriented </span>
-                    <br>
-                    <span>Programming</span>
-                </div>
-                <br><br>
-                <p id="css3dr">Dr. Yassmin Abdalhamid</p>
-            </a>
-        </section>
-    </main>
-
-    <div class="netcourse">
-        <span>Cyber Security Cources</span>
-        <p>Explore Smart software cources creative community.</p>
-    </div>
-
-    <main class="net">
-        <section class="net1">
-            <a href="../introcyber/IntroCyber.html">
-                <div id="net1img">
-                    <img src="../Photos/into-to-cyber.jpg" alt="network">
-                </div>
-
-                <div id="net1duration">
-                    <span>1d 30m</span>
-                </div>
-
-                <div id="net1students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="net1info">
-                    <span>Introduction to </span>
-                    <br>
-                    <span>Cyber Security</span>
-                </div>
-                <br><br>
-                <p id="net1dr">Dr. Sara Amin</p>
-            </a>
-        </section>
-
-        <section class="net2">
-            <a href="../cehacker/CEhaker.html">
-                <div id="net2img">
-                    <img src="../Photos/cyber-hacker.jpg" alt="cyber hacker">
-                </div>
-
-                <div id="net2duration">
-                    <span>21h 40m</span>
-                </div>
-
-                <div id="net2students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="net2info">
-                    <span>Certified Ethical</span>
-                    <br>
-                    <span>Hacker (CEH)</span>
-                </div>
-                <br><br>
-                <p id="net2dr">Dr. Mohammed Elhossiney</p>
-            </a>
-        </section>
-
-        <section class="net3">
-            <a href="../cyberspec/cyberspec.html" >
-                <div id="net3img">
-                    <img src="../Photos/cyber-specialization.jpg" alt="cyber">
-                </div>
-
-                <div id="net3duration">
-                    <span>17h 15m</span>
-                </div>
-
-                <div id="net3students">
-                    <span>0 students</span>
-                </div>
-
-                <br>
-                <div id="net3info">
-                    <span>Cyber Security </span>
-                    <br>
-                    <span>Specialization</span>
-                </div>
-                <br><br>
-                <p id="net3dr">Dr. Nadia Elsayed</p>
-            </a>
-        </section>
-    </main>
-
-
-    <div class="learnp">
-        <span>Creative Learning Made Easy</span>
-    </div>
-
-    <div class="learninginfo">
-
-
-
-        <div class="learn">
-            <img src="../Photos/learning-icon.jpg" alt="learning icon">
-            <div>
-                <span>Learn anything</span>
-                <p>Explore any interest or trending topic,<br> take prerequisites, and advance your <br>skills</p>
+    <div class="hero-section">
+        <h1>Invest in Your Career with Smart</h1>
+        <p>Get access to high-quality courses taught by industry experts and leading universities.</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>90%+ Course Success Rate</span>
             </div>
-        </div>
-
-        <div class="save">
-            <img src="../Photos/save icon.jpg " alt="Save money">
-            <div>
-                <span>Save money</span>
-                <p>Spend less money on your learning if <br> you plan to take multiple courses this <br> year</p>
+            <div class="stat-item">
+                <i class="fas fa-certificate"></i>
+                <span>Professional Certificates</span>
             </div>
-        </div>
-
-        <div class="flexible">
-            <img src="../Photos/flexiblity-icon.jpg" alt="Flexible learning">
-            <div>
-                <span>Flexible learning</span>
-                <p>Learn at your own pace, move <br> between multiple courses, or switch <br>to a different course</p>
-            </div>
-        </div>
-
-        <div class="cirt">
-            <img src="../Photos/certificate-icon.jpg" alt="Unlimited certificates">
-            <div>
-                <span>Unlimited certificates</span>
-                <p>Earn a certificate for every learning <br> program that you complete after your <br>trial ends at no
-                    additional cost</p>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span>Expert Instructors</span>
             </div>
         </div>
     </div>
 
+    <section class="course-category">
+        <h2><i class="fas fa-code"></i> Software Development</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <a href="../frontend/frontend.html">
+                    <div class="course-image">
+                        <img src="../Photos/web-frontend.jpg" alt="Frontend Development">
+                        <span class="duration"><i class="fas fa-clock"></i> 10h 16m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Web Development: Frontend</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Esraa Abd EL-Aziz</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="course-card">
+                <a href="../backend/backend.html">
+                    <div class="course-image">
+                        <img src="../Photos/web-backend.jpg" alt="Backend Development">
+                        <span class="duration"><i class="fas fa-clock"></i> 20h 30m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Web Development: Backend</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Esraa Abd EL-Aziz</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="course-card">
+                <a href="../mobile/mobileapp.html">
+                    <div class="course-image">
+                        <img src="../Photos/mobile-application.jpg" alt="Mobile Development">
+                        <span class="duration"><i class="fas fa-clock"></i> 18h 20m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Mobile Application Development</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Taraggy Mohiy Ghanim</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="course-category">
+        <h2><i class="fas fa-laptop-code"></i> Computer Science</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <a href="../problemsolving/problem solving.html">
+                    <div class="course-image">
+                        <img src="../Photos/problem-solving.jpg" alt="Problem Solving">
+                        <span class="duration"><i class="fas fa-clock"></i> 5h 30m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Problem Solving: C++</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Ahmed Mansour</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="course-card">
+                <a href="../datastruct/dataStruct.html">
+                    <div class="course-image">
+                        <img src="../Photos/ds.jpg" alt="Data Structures">
+                        <span class="duration"><i class="fas fa-clock"></i> 15h 25m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Data Structures & Algorithms</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Ashraf AbdelRaoaf</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="course-card">
+                <a href="../oop/oop.html">
+                    <div class="course-image">
+                        <img src="../Photos/oop.jpg" alt="OOP">
+                        <span class="duration"><i class="fas fa-clock"></i> 19h 23m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Object Oriented Programming</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Yassmin Abdalhamid</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="course-category">
+        <h2><i class="fas fa-shield-alt"></i> Cyber Security</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <a href="../introcyber/IntroCyber.html">
+                    <div class="course-image">
+                        <img src="../Photos/into-to-cyber.jpg" alt="Intro to Cyber Security">
+                        <span class="duration"><i class="fas fa-clock"></i> 1d 30m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Introduction to Cyber Security</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Sara Amin</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="course-card">
+                <a href="../cehacker/CEhaker.html">
+                    <div class="course-image">
+                        <img src="../Photos/cyber-hacker.jpg" alt="CEH">
+                        <span class="duration"><i class="fas fa-clock"></i> 21h 40m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Certified Ethical Hacker (CEH)</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Mohammed Elhossiney</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="course-card">
+                <a href="../cyberspec/cyberspec.html">
+                    <div class="course-image">
+                        <img src="../Photos/cyber-specialization.jpg" alt="Cyber Security">
+                        <span class="duration"><i class="fas fa-clock"></i> 17h 15m</span>
+                    </div>
+                    <div class="course-info">
+                        <h3>Cyber Security Specialization</h3>
+                        <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Dr. Nadia Elsayed</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-users"></i> 0 students</span>
+                            <span class="learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Creative Learning Made Easy</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-book-reader"></i>
+                <h3>Learn Anything</h3>
+                <p>Explore any interest or trending topic, take prerequisites, and advance your skills</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-piggy-bank"></i>
+                <h3>Save Money</h3>
+                <p>Spend less money on your learning if you plan to take multiple courses this year</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>Flexible Learning</h3>
+                <p>Learn at your own pace, move between multiple courses, or switch to a different course</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Unlimited Certificates</h3>
+                <p>Earn a certificate for every learning program that you complete at no additional cost</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="footerinfo">
@@ -338,7 +259,7 @@
                 <ul>
                     <li><a href="../home/home.html">Home</a></li>
                     <li><a href="../courses/Courses.html">Courses</a></li>
-                    <li><a href="../contactUs/Contact Us.html">Contact Us </a></li>
+                    <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
                     <li><a href="../aboutUs/aboutUs.html">About</a></li>
                 </ul>
             </div>
@@ -355,30 +276,25 @@
             <div class="footercs">
                 <span>Computer Science</span>
                 <ul>
-                    <li><a href="../problemsolving/problem solving.html solving.html">Problem Solving</a></li>
+                    <li><a href="../problemsolving/problem solving.html">Problem Solving</a></li>
                     <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
                     <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
                 </ul>
-
             </div>
 
             <div class="footernet">
                 <span>Cyber Security</span>
                 <ul>
                     <li><a href="../introcyber/IntroCyber.html">Intro To Cyber Security</a></li>
-                    <li><a href="../cehacker/CEhaker.html">certified Ethical Hacker</a></li>
+                    <li><a href="../cehacker/CEhaker.html">Certified Ethical Hacker</a></li>
                     <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
                 </ul>
-
             </div>
-
-
         </div>
-
 
         <div class="footer-copyright">
             <hr>
-            <span>&copy 2025 Smart. All rights reserved.</span>
+            <span>&copy; 2025 Smart. All rights reserved.</span>
         </div>
 
         <div class="footer-contact">
@@ -388,13 +304,8 @@
         <div class="footer-contact">
             <span>Phone: <a href="tel:0111222333">0111222333</a></span>
         </div>
-
-
     </footer>
 
-
     <script src="../home/home.js"></script>
-
 </body>
-
 </html>

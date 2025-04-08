@@ -1,49 +1,48 @@
-// Function to handle social media icon clicks
-function openSocial(platform) {
-    let url;
-    
-    switch(platform) {
-        case 'facebook':
-            url = 'https://www.facebook.com/yourtechlearnpage';
-            break;
-        case 'github':
-            url = 'https://github.com/techlearn';
-            break;
-        case 'youtube':
-            url = 'https://www.youtube.com/techlearnchannel';
-            break;
-        case 'linkedin':
-            url = 'https://www.linkedin.com/company/techlearn';
-            break;
-        default:
-            url = '#';
-    }
-    
-    window.open(url, '_blank');
-}
-
-// Animation for course cards when they come into view
 document.addEventListener('DOMContentLoaded', function() {
-    const courseCards = document.querySelectorAll('.course-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+    // Initialize scroll reveal animations
+    const animatedElements = document.querySelectorAll(".course-card, .team-member");
+
+    function checkScroll() {
+        let scrollPosition = window.scrollY + window.innerHeight;
+        
+        animatedElements.forEach((element) => {
+            let elementPosition = element.offsetTop;
+            
+            if (scrollPosition > elementPosition + 50) {
+                element.classList.add("show");
             }
         });
-    }, { threshold: 0.1 });
-    
-    courseCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(card);
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll();
+
+    // Add hover effect to team member images
+    const teamMembers = document.querySelectorAll('.team-member');
+    teamMembers.forEach(member => {
+        member.addEventListener('mouseenter', () => {
+            member.style.transform = 'translateY(-10px)';
+        });
+        member.addEventListener('mouseleave', () => {
+            member.style.transform = 'translateY(0)';
+        });
     });
-    
-    // Add current year to footer
-    const yearElement = document.createElement('p');
-    yearElement.textContent = `© ${new Date().getFullYear()} TechLearn. All rights reserved.`;
-    document.querySelector('footer .container').prepend(yearElement);
 });
+
+// Add this CSS for animations
+const style = document.createElement('style');
+style.textContent = `
+    .course-card,
+    .team-member {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .course-card.show,
+    .team-member.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+document.head.appendChild(style);

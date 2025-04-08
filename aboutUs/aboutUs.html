@@ -3,112 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - TechLearn</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>About Us - Smart Academy</title>
     <link rel="stylesheet" href="aboutUs.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container">
-            <h1>SMART ACADEMY</h1>
-            <p>Your gateway to mastering cutting-edge computer science technologies through comprehensive, hands-on courses designed by industry experts.</p>
-        </div>
+        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='../home/home.html'">
+        <h2>Start Learning Smartly</h2>
     </header>
-    
-    <div class="container">
-        <section class="about-section">
-            <h2>Our Story</h2>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="../home/home.html">Home</a></li>
+            <li><a href="../courses/Courses.html">Courses</a></li>
+            <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
+            <li><a href="../aboutUs/aboutUs.html">About</a></li>
+            <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
+            <li>
+                <div class="cart-container">
+                    <button id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>About Smart Academy</h1>
+        <p>Your gateway to mastering cutting-edge computer science technologies through comprehensive, hands-on courses designed by industry experts.</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2><i class="fas fa-book-reader"></i> Our Story</h2>
             <p>SMART ACADEMY was founded in 2018 with a simple mission: to make high-quality computer science education accessible to everyone, everywhere. What started as a small platform with a handful of courses has grown into a comprehensive learning ecosystem serving over 500,000 students worldwide.</p>
             <p>We believe that education should be engaging, practical, and directly applicable to real-world challenges. Our courses are designed not just to teach concepts, but to build skills that you can immediately put to use in your career or personal projects.</p>
             <p>Our team of instructors includes industry veterans from top tech companies, academic researchers, and passionate educators who are committed to your success.</p>
-        </section>
-        
-        <section class="courses-section">
-            <h2>Our Course Offerings</h2>
-            <div class="course-grid">
-                <div class="course-card">
-                    <h3>Artificial Intelligence</h3>
-                    <p>Dive into the world of AI with our comprehensive courses covering machine learning, deep learning, neural networks, and natural language processing. Learn to build intelligent systems that can learn and adapt.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Cybersecurity</h3>
-                    <p>Master the art of protecting systems, networks, and programs from digital attacks. Our cybersecurity courses cover ethical hacking, penetration testing, cryptography, and security best practices.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Software Engineering</h3>
-                    <p>Learn the principles of building robust, scalable software systems. Our curriculum covers software design patterns, architecture, testing methodologies, and development best practices.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Front-End Development</h3>
-                    <p>Create stunning, responsive user interfaces with our front-end courses. Master HTML5, CSS3, JavaScript, and modern frameworks like React, Angular, and Vue.js.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Back-End Development</h3>
-                    <p>Build the server-side logic that powers web applications. Learn Node.js, Python (Django, Flask), Ruby on Rails, and database management with SQL and NoSQL systems.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Internet of Things (IoT)</h3>
-                    <p>Explore the interconnected world of smart devices. Our IoT courses cover sensor networks, embedded systems, data collection, and IoT security in smart home and industrial applications.</p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+        <h2><i class="fas fa-laptop-code"></i> Our Course Offerings</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <i class="fas fa-brain"></i>
+                <h3>Artificial Intelligence</h3>
+                <p>Dive into the world of AI with our comprehensive courses covering machine learning, deep learning, neural networks, and natural language processing.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cybersecurity</h3>
+                <p>Master the art of protecting systems, networks, and programs from digital attacks. Our cybersecurity courses cover ethical hacking and security best practices.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-code"></i>
+                <h3>Software Engineering</h3>
+                <p>Learn the principles of building robust, scalable software systems. Our curriculum covers software design patterns, architecture, and testing methodologies.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Front-End Development</h3>
+                <p>Create stunning, responsive user interfaces with our front-end courses. Master HTML5, CSS3, JavaScript, and modern frameworks.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-server"></i>
+                <h3>Back-End Development</h3>
+                <p>Build the server-side logic that powers web applications. Learn Node.js, Python, and database management systems.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Internet of Things (IoT)</h3>
+                <p>Explore the interconnected world of smart devices. Our IoT courses cover sensor networks, embedded systems, and IoT security.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2><i class="fas fa-users"></i> Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="person.jpg" alt="Youssef Morad">
+                <h3>Youssef Morad</h3>
+                <p>Founder & CEO</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-        </section>
-        
-        <section class="team-section">
-            <h2>Meet Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="person.jpg" alt="youssef morad">
-                    <h3>youssef morad</h3>
-                    <p>Founder & CEO</p>
-                </div>
-                <div class="team-member">
-                    <img src="person.jpg" alt="mahmoud khaled">
-                    <h3>mahmoud kaled</h3>
-                    <p>Chief Learning Officer</p>
-                </div>
-                <div class="team-member">
-                    <img src="person.jpg" alt="omar atef">
-                    <h3> omar atef</h3>
-                    <p>Director of Curriculum</p>
-                </div>
-                <div class="team-member">
-                    <img src="person.jpg" alt="osama hamada">
-                    <h3>osama hamada</h3>
-                    <p>Lead Instructor</p>
-                    <div class="team-member">
-                        <img src="person.jpg" alt="khaled mohamed">
-                        <h3>khaled mohamed</h3>
-                        <p>Lead Instructor</p>
+            <div class="team-member">
+                <img src="person.jpg" alt="Mahmoud Khaled">
+                <h3>Mahmoud Khaled</h3>
+                <p>Chief Learning Officer</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-        </section>
-        
-        <section class="social-media">
-            <h2>Connect With Us</h2>
-            <div class="social-icons">
-                <div class="social-icon facebook" onclick="openSocial('facebook')">
-                    <i class="fab fa-facebook-f"></i>
-                </div>
-                <div class="social-icon github" onclick="openSocial('github')">
-                    <i class="fab fa-github"></i>
-                </div>
-                <div class="social-icon youtube" onclick="openSocial('youtube')">
-                    <i class="fab fa-youtube"></i>
-                </div>
-                <div class="social-icon linkedin" onclick="openSocial('linkedin')">
-                    <i class="fab fa-linkedin-in"></i>
+            <div class="team-member">
+                <img src="person.jpg" alt="Omar Atef">
+                <h3>Omar Atef</h3>
+                <p>Director of Curriculum</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-        </section>
-    </div>
-    
+            <div class="team-member">
+                <img src="person.jpg" alt="Osama Hamada">
+                <h3>Osama Hamada</h3>
+                <p>Lead Instructor</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="person.jpg" alt="Khaled Mohamed">
+                <h3>Khaled Mohamed</h3>
+                <p>Lead Instructor</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2023 smart academy. All rights reserved.</p>
-            <p>Empowering the next generation of technology professionals.</p>
+        <div class="footerinfo">
+            <span>Start Learning Today</span>
+            <p>Join thousands of students in our comprehensive learning platform</p>
+        </div>
+        <div class="footerlist">
+            <div>
+                <span>Quick Links</span>
+                <ul>
+                    <li><a href="../home/home.html">Home</a></li>
+                    <li><a href="../courses/Courses.html">Courses</a></li>
+                    <li><a href="../contactUs/Contact Us.html">Contact</a></li>
+                    <li><a href="../aboutUs/aboutUs.html">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <span>Contact Info</span>
+                <ul>
+                    <li><a href="tel:+201234567890">+20 123 456 7890</a></li>
+                    <li><a href="mailto:info@smartacademy.com">info@smartacademy.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <span>Follow Us</span>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2024 Smart Academy. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../home/home.js"></script>
 </body>
 </html>
