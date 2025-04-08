@@ -31,9 +31,21 @@ header {
     }
 }
 
+header h1{
+        text-align: center;
+        color: #EDE8F5;
+        padding: 15px 0;
+        margin: auto;
+        font-family: "DM Sans";
+        font-size: 30px;
+}
+
 nav {
     background-color: #2B7A78;
     padding: 1rem 5%;
+    position: sticky;
+    top: 100px;
+    z-index: 1000;
 }
 
 nav ul {
