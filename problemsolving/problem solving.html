@@ -1,185 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
-    <link rel="stylesheet" href="../problemsolving/problem solving.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses</title>
+  <link rel="stylesheet" href="../problemsolving/problem solving.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-   
-    <header>
-        
-        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'"> 
-        <h2>Start learning smartly</h2>
-    </header>
+  <header>
+    <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'" />
+    <h2>Start learning smartly</h2>
+  </header>
 
-    <nav>
+  <nav>
+    <ul>
+      <li><a href="../home/home.html">Home</a></li>
+      <li><a href="../courses/Courses.html">Courses</a></li>
+      <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
+      <li><a href="../aboutUs/aboutUs.html">About</a></li>
+      <li>
+        <i id="cartBtn" class="fas fa-shopping-cart" style="cursor:pointer;">
+          <span class="cart-count">0</span>
+        </i>
+      </li>
+      <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
+    </ul>
+  </nav>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="modalTitle">Shopping Cart</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total">
+        <strong>Total: </strong>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Course Info -->
+  <div class="inf">
+    <h1>Full Problem Solving Course for Beginners</h1>
+    <p>Know how to handle problems</p>
+  </div>
+
+  <div class="container">
+    <section>
+      <h1>Course Overview</h1>
+      <p>
+        <span class="rating numbers">5.1</span>
+        <span class="stars">*****</span>
+        (2,234 ratings) 53,280 students applied
+      </p>
+    </section>
+    <p>Created by Eng: Robert Lafore</p>
+    <p id="l1">
+      <img src="images/world-icon-2048x2048-rw4dcfh2.png" id="img1" alt="world icon" />
+      Last updated 22/3/2025 — Available languages: ENGLISH, ARABIC
+    </p>
+  </div>
+
+  <div class="container2">
+    <ul class="checklist">
+      <h3>What you will learn</h3>
+      <li>You will learn how to break down complex problems into smaller, manageable parts using logical strategies.</li>
+      <li>You'll understand the importance of algorithmic thinking and how to approach challenges step-by-step.</li>
+      <li>The course will help you analyze problems efficiently by identifying patterns and choosing the right solving techniques.</li>
+      <li>You will practice writing pseudocode and flowcharts to plan your solutions before jumping into code.</li>
+      <li>You'll explore various problem-solving paradigms, such as greedy algorithms, divide and conquer, and backtracking.</li>
+      <li>You'll develop the ability to optimize your solutions for better time and space complexity.</li>
+      <li>You'll understand how to model complex systems by breaking them into smaller, manageable objects that interact with each other.</li>
+      <li>The course will strengthen your skills in debugging and testing, ensuring that your solutions are accurate and reliable.</li>
+      <li>You will solve a wide range of real-world and competitive programming problems, sharpening your critical thinking.</li>
+      <li>By the end of the course, you’ll gain confidence to tackle coding interviews and programming challenges with a strategic mindset.</li>
+    </ul>
+  </div>
+
+  <div class="container3">
+    <ul>
+      <h3>This course includes</h3>
+      <li>25 basic lectures</li>
+      <li>3 assignments on every lecture</li>
+      <li>Recap videos</li>
+      <li>Quizzes on every lecture</li>
+    </ul>
+    <h2 id="h33">By the end of this course you will be able to</h2>
+    <ol type="1">
+      <li>Have the critical thinking to solve problems</li>
+      <li>Try to use different approaches for solving algorithms</li>
+      <li>Acquire problem-solving skills</li>
+    </ol>
+  </div>
+
+  <!-- Enroll + Add to Cart Button -->
+  <div id="h34">
+    <button id="enrollBtn" class="add-to-cart" data-course="course1" data-price="49.99" onclick="enrollUser()">Add to Cart</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footerinfo">
+      <span>Smart</span>
+      <p>
+        We offer a variety of educational courses designed to help you develop <br />
+        your skills in different fields, whether you're a beginner or a professional. <br />
+        Enjoy a unique learning experience with interactive content, practical exercises,<br />
+        and certified certificates upon course completion.
+      </p>
+    </div>
+
+    <div class="footerlist">
+      <div class="footernav">
+        <span>Smart</span>
         <ul>
-            <li><a href="../home/home.html">Home</a></li>
-            <li><a href="../courses/Courses.html">Courses</a></li>
-            <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
-            <li><a href="../aboutUs/aboutUs.html">About</a></li>
-            <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
+          <li><a href="../home/home.html">Home</a></li>
+          <li><a href="../courses/Courses.html">Courses</a></li>
+          <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
+          <li><a href="../aboutUs/aboutUs.html">About</a></li>
         </ul>
-    </nav>
+      </div>
 
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="modalTitle">Shopping Cart</h2>
-            <div id="cartItems"></div>
-            <div class="cart-total">
-                <strong>Total: </strong>
-                <span id="cartTotal">$0</span>
-            </div>
-            <button id="checkoutBtn" class="checkout-btn">
-                Proceed to Checkout
-            </button>
-        </div>
-    </div>
-    
-    <div class="inf">
-        <h1>full problem solving course for beginners</h1>
-        
-        <p>know ho to handle problems</p>
-    
-    </div>
-    <div class="container">
-        <sectio>
-            <h1>course overview</h1>
-       
-  
-          <p>
-                <span class="rating numbers">5.1</span>  
-                <span class="stars">*****</span> 
-                (2,234 ratings) 53,280 students applied
-            </p>
-        </sectio>
-    
-            <p>Created by Eng: Robert Lafore</p>
-            
-            <p id="l1">
-                <img src="images/world-icon-2048x2048-rw4dcfh2.png" id="img1" alt="world icon">
-                Last updated 22/3/2025  Available languages: ENGLISH, ARABIC
-            </p>
-      
-    </div>
-    <div class="container2">
-     
-        <ul  class="checklist">
-            <h3>what you will learn</h3>
-                      <li>You will learn how to break down complex problems into smaller, manageable parts using logical strategies.</li>
-            <li>You'll understand the importance of algorithmic thinking and how to approach challenges step-by-step.</li>
-            <li>The course will help you analyze problems efficiently by identifying patterns and choosing the right solving techniques.</li>
-            <li>You will practice writing pseudocode and flowcharts to plan your solutions before jumping into code.</li>
-            <li>You'll explore various problem-solving paradigms, such as greedy algorithms, divide and conquer, and backtracking.</li>
-            <li>You'll develop the ability to optimize your solutions for better time and space complexity.</li>
-            <li>You'll understand how to model complex systems by breaking them into smaller, manageable objects that interact with each other</li>
-            <liThe course will strengthen your skills in debugging and testing, ensuring that your solutions are accurate and reliable..</li>
-            <li>You will solve a wide range of real-world and competitive programming problems, sharpening your critical thinking.</li>
-            <li>By the end of the course, you’ll gain confidence to tackle coding interviews and programming challenges with a strategic mindset.</li>
+      <div class="footersw">
+        <span>Software</span>
+        <ul>
+          <li><a href="../frontend/frontend.html">Web Development: Frontend</a></li>
+          <li><a href="../backend/backend.html">Web Development: Backend</a></li>
+          <li><a href="../mobile/mobileapp.html">Mobile Application</a></li>
         </ul>
-   
+      </div>
+
+      <div class="footercs">
+        <span>Computer Science</span>
+        <ul>
+          <li><a href="../problemsolving/problem solving.html">Problem Solving</a></li>
+          <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
+          <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
+        </ul>
+      </div>
+
+      <div class="footernet">
+        <span>Cyber Security</span>
+        <ul>
+          <li><a href="../introcyber/IntroCyber.html">Intro To Cyber Security</a></li>
+          <li><a href="../cehacker/CEhaker.html">Certified Ethical Hacker</a></li>
+          <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="container3">
-<ul>
-    <h3>this course includes</h3>
-    <li>25 basic lectures</li>
-    <li>3 assignment on every lecture</li>
-    <li>recap videos</li>
-    <li>quizzez on every lecture</li>
 
-</ul>
-<h2 id="h33">by the end of this course you will be able to</h2>
-<ol type="1">
-  <li>have the critical thinking to solve problems</li>
-    <li>try to use diffrent approaches for solving algorithms</li>
-    <li>acquire problem solving skills</li>
-</ol>
-
+    <div class="footer-copyright">
+      <hr />
+      <span>&copy; 2025 Smart. All rights reserved.</span>
     </div>
-    <div id="h34">
-        <button id="enrollBtn" onclick="enrollUser()">add to cart</button>
+
+    <div class="footer-contact">
+      <span>Email: <a href="mailto:smart@gmail.com">smart@gmail.com</a></span>
     </div>
-    <footer>
-        <div class="footerinfo">
-            <span>Smart</span>
-            <p>We offer a variety of educational courses designed to help you develop <br>
-                your skills in different fields, whether you're a beginner or a professional. <br>
-                Enjoy a unique learning experience with interactive content, practical exercises,<br>
-                and certified certificates upon course completion.</p>
-        </div>
 
-        <div class="footerlist">
-            <div class="footernav">
-                <span>Smart</span>
-                <ul>
-                    <li><a href="../home/home.html">Home</a></li>
-                    <li><a href="../courses/Courses.html">Courses</a></li>
-                    <li><a href="../contactUs/Contact Us.html">Contact Us </a></li>
-                    <li><a href="../aboutUs/aboutUs.html">About</a></li>
-                </ul>
-            </div>
-
-            <div class="footersw">
-                <span>Software</span>
-                <ul>
-                    <li><a href="../frontend/frontend.html">Web Development: Frontend</a></li>
-                    <li><a href="../backend/backend.html">Web Development: Backend</a></li>
-                    <li><a href="../mobile/mobileapp.html">Mobile Application</a></li>
-                </ul>
-            </div>
-
-            <div class="footercs">
-                <span>Computer Science</span>
-                <ul>
-                    <li><a href="../problemsolving/problem solving.html solving.html">Problem Solving</a></li>
-                    <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
-                    <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
-                </ul>
-
-            </div>
-
-            <div class="footernet">
-                <span>Cyber Security</span>
-                <ul>
-                    <li><a href="../introcyber/IntroCyber.html">Intro To Cyber Security</a></li>
-                    <li><a href="../cehacker/CEhaker.html">certified Ethical Hacker</a></li>
-                    <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
-                </ul>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="footer-copyright">
-            <hr>
-            <span>&copy 2025 Smart. All rights reserved.</span>
-        </div>
-
-        <div class="footer-contact">
-            <span>Email: <a href="mailto:smart@gmail.com">smart@gmail.com</a></span>
-        </div>
-
-        <div class="footer-contact">
-            <span>Phone: <a href="tel:0111222333">0111222333</a></span>
-        </div>
-
-
-    </footer>
-    <div id="cart-popup" class="cart-popup" style="display:none;">
-        <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
-            <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
-            <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
-            <div id="cart-details">
-                <p>Your cart is empty.</p>
-            </div>
-        </div>
+    <div class="footer-contact">
+      <span>Phone: <a href="tel:0111222333">0111222333</a></span>
     </div>
-<script src="../problem solving/problem solving.js"></script>
+  </footer>
+
+  <div id="cart-popup" class="cart-popup" style="display:none;">
+    <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
+      <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
+      <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
+      <div id="cart-details">
+        <p>Your cart is empty.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../problemsolving/problem solving.js"></script>
 </body>
 </html>
