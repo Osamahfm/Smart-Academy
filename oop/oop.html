@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
-    <link rel="stylesheet" href="../oop/oop.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Object Oriented Programming | Smart Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="oop.css">
 </head>
 <body>
-   
     <header>
-        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'"> 
+        <img class="logo-img" src="../home/smart_academy-updated.png" alt="Smart Academy Logo" onclick="window.location.href='../home/home.html'"> 
         <h2>Object Oriented Programming</h2>
     </header>
+
     <nav>
         <ul>
             <li><a href="../home/home.html">Home</a></li>
@@ -20,7 +21,8 @@
             <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
             <li><a href="../aboutUs/aboutUs.html">About</a></li>
             <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
-              <div class="cart-container">
+            <li>
+                <div class="cart-container">
                     <button id="cartBtn">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
@@ -29,7 +31,7 @@
             </li>
         </ul>
     </nav>
-    
+
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -44,147 +46,135 @@
             </button>
         </div>
     </div>
-    
-    <div class="inf">
-        <h1>full Oop course for beginners</h1>
-        
-        <p>enhance your critical thinking</p>
-    
+
+    <div class="course-banner">
+        <img src="../Photos/oop.jpg" alt="Object Oriented Programming Course" class="course-image">
     </div>
-    <div class="container">
-        <sectio>
-            <h1>course overview</h1>
-       
-  
-          <p>
-                <span class="rating numbers">4.5</span>  
-                <span class="stars">*****</span> 
-                (2,234 ratings) 53,280 students applied
-            </p>
-        </sectio>
-    
-            <p>Created by Eng: Robert Lafore</p>
+
+    <div class="course-content">
+        <section class="overview">
+            <h2>Course Overview</h2>
+            <p>Master Object-Oriented Programming principles and concepts with our comprehensive course.</p>
             
-            <p id="l1">
-                <img src="images/world-icon-2048x2048-rw4dcfh2.png" id="img1" alt="world icon">
-                Last updated 22/3/2025  Available languages: ENGLISH, ARABIC
-            </p>
-      
-    </div>
-    <div class="container2">
-     
-        <ul  class="checklist">
-            <h3>what you will learn</h3>
-                      <li>You'll learn the core principles of OOP, including encapsulation, inheritance, abstraction, and polymorphism, and how they help build robust and reusable code.</li>
-            <li>You'll understand how to design and structure programs using classes and objects, making your code easier to manage and scale.</li>
-            <li>You'll gain hands-on experience with real-world OOP applications, such as creating models for games, banking systems, or e-commerce platforms.</li>
-            <li>You'll explore constructors, access modifiers, method overloading/overriding, and how to apply them effectively in your projects.</li>
-            <li>You'll learn how to debug and test OOP-based applications, improving your problem-solving and code optimization skills.</li>
-            <li>You’ll learn how to apply OOP in popular programming languages like Java, Python, or C++, making it easier to transition into real-world development.</li>
-            <li>You'll understand how to model complex systems by breaking them into smaller, manageable objects that interact with each other</li>
-            <li>You’ll explore the concept of interfaces and abstract classes, and when to use each to write flexible and maintainable code.</li>
-            <li>You’ll gain the ability to build scalable applications by following clean code practices and OOP design patterns.</li>
-            <li>You’ll see how OOP is used in frameworks and libraries, preparing you to work on larger codebases in team environments.</li>
-        </ul>
-  
-    </div>
-    <div class="container3">
-<ul>
-    <h3>this course includes</h3>
-    <li>20 basic lectures</li>
-    <li>11 assignment on every lecture</li>
-    <li>recap videos</li>
-    <li>quizzez on every lecture</li>
+            <div class="course-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i> 4.5
+                    <small>(2,234 ratings)</small>
+                </span>
+                <span class="students">
+                    <i class="fas fa-users"></i> 53,280 students
+                </span>
+                <span class="instructor">
+                    <i class="fas fa-chalkboard-teacher"></i> Eng. Robert Lafore
+                </span>
+                <span class="language">
+                    <i class="fas fa-globe"></i> English, Arabic
+                </span>
+                <span class="last-updated">
+                    <i class="fas fa-calendar-alt"></i> Last updated 22/3/2025
+                </span>
+            </div>
 
-</ul>
-<h2 id="h33">by the end of this course you will be able to</h2>
-<ol type="1">
-    <li>master the basics of oop</li>
-    <li>you would be able to handle problems using inhertiance</li>
-    <li>have a strong knowledge about polymorphosm</li>
-</ol>
-  <div id="h34">
-        <button id="enrollBtn" onclick="enrollUser()">add to cart</button>
-    </div>
-    </div>
+            <div class="course-actions">
+                <button class="add-to-cart" data-course="oop" data-price="599">
+                    <i class="fas fa-cart-plus"></i>
+                    Add to Cart - $599
+                </button>
+            </div>
+        </section>
 
+        <section class="what-you-learn">
+            <h2>What You'll Learn</h2>
+            <ul class="checklist">
+                <li><i class="fas fa-check"></i> Core principles of OOP: encapsulation, inheritance, abstraction, and polymorphism</li>
+                <li><i class="fas fa-check"></i> Design and structure programs using classes and objects</li>
+                <li><i class="fas fa-check"></i> Real-world OOP applications and implementations</li>
+                <li><i class="fas fa-check"></i> Constructors, access modifiers, and method overloading</li>
+                <li><i class="fas fa-check"></i> Debug and test OOP-based applications</li>
+                <li><i class="fas fa-check"></i> OOP in Java, Python, and C++</li>
+                <li><i class="fas fa-check"></i> Model complex systems using object-oriented design</li>
+                <li><i class="fas fa-check"></i> Interfaces and abstract classes</li>
+            </ul>
+        </section>
+
+        <section class="course-includes">
+            <h2>This Course Includes</h2>
+            <ul>
+                <li><i class="fas fa-video"></i> 20 basic lectures</li>
+                <li><i class="fas fa-tasks"></i> 11 assignments per lecture</li>
+                <li><i class="fas fa-redo"></i> Recap videos</li>
+                <li><i class="fas fa-question-circle"></i> Quizzes after each lecture</li>
+                <li><i class="fas fa-certificate"></i> Certificate of completion</li>
+                <li><i class="fas fa-infinity"></i> Full lifetime access</li>
+            </ul>
+        </section>
+
+        <section class="learning-outcomes">
+            <h2>By The End Of This Course You Will Be Able To</h2>
+            <ol>
+                <li>Master the basics of Object-Oriented Programming</li>
+                <li>Handle problems using inheritance and polymorphism</li>
+                <li>Design and implement complex object-oriented systems</li>
+                <li>Write clean, maintainable, and reusable code</li>
+                <li>Apply OOP principles in real-world projects</li>
+            </ol>
+        </section>
+    </div>
     <footer>
         <div class="footerinfo">
-            <span>Smart</span>
-            <p>We offer a variety of educational courses designed to help you develop <br>
-                your skills in different fields, whether you're a beginner or a professional. <br>
-                Enjoy a unique learning experience with interactive content, practical exercises,<br>
-                and certified certificates upon course completion.</p>
+            <span>Smart Academy</span>
+            <p>We offer a variety of educational courses designed to help you develop your skills in different fields, whether you're a beginner or a professional. Enjoy a unique learning experience with interactive content, practical exercises, and certified certificates upon course completion.</p>
         </div>
-
+    
         <div class="footerlist">
-            <div class="footernav">
+            <div>
                 <span>Smart</span>
                 <ul>
                     <li><a href="../home/home.html">Home</a></li>
                     <li><a href="../courses/Courses.html">Courses</a></li>
-                    <li><a href="../contactUs/Contact Us.html">Contact Us </a></li>
+                    <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
                     <li><a href="../aboutUs/aboutUs.html">About</a></li>
                 </ul>
             </div>
-
-            <div class="footersw">
-                <span>Software</span>
+    
+            <div>
+                <span>Software Development</span>
                 <ul>
                     <li><a href="../frontend/frontend.html">Web Development: Frontend</a></li>
                     <li><a href="../backend/backend.html">Web Development: Backend</a></li>
                     <li><a href="../mobile/mobileapp.html">Mobile Application</a></li>
                 </ul>
             </div>
-
-            <div class="footercs">
+    
+            <div>
                 <span>Computer Science</span>
                 <ul>
                     <li><a href="../problemsolving/problem solving.html">Problem Solving</a></li>
                     <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
                     <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
                 </ul>
-
             </div>
-
-            <div class="footernet">
+    
+            <div>
                 <span>Cyber Security</span>
                 <ul>
                     <li><a href="../introcyber/IntroCyber.html">Intro To Cyber Security</a></li>
-                    <li><a href="../cehacker/CEhaker.html">certified Ethical Hacker</a></li>
+                    <li><a href="../cehacker/CEhaker.html">Certified Ethical Hacker</a></li>
                     <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
                 </ul>
-
             </div>
-
-
         </div>
-
-
-        <div class="footer-copyright">
-            <hr>
-            <span>&copy 2025 Smart. All rights reserved.</span>
-        </div>
-
+    
         <div class="footer-contact">
             <span>Email: <a href="mailto:smart@gmail.com">smart@gmail.com</a></span>
-        </div>
-
-        <div class="footer-contact">
             <span>Phone: <a href="tel:0111222333">0111222333</a></span>
         </div>
-
-
-    </footer>
-    <div id="cart-popup" class="cart-popup" style="display:none;">
-        <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
-            <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
-            <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
-            <div id="cart-details">
-                <p>Your cart is empty.</p>
-            </div>
+    
+        <div class="footer-copyright">
+            <span>&copy; 2025 Smart Academy. All rights reserved.</span>
         </div>
-    </div>
-<script src="../oop/oop.js"></script>
+    </footer>
+
+    <script src="oop.js"></script>
 </body>
 </html>

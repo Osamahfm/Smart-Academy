@@ -1,124 +1,163 @@
-function enrollUser() {
-    // Check if user is signed in
-    const isSignedIn = localStorage.getItem('isSignedIn');
-
-    if (isSignedIn === 'true') {
-        alert('You have been enrolled!');
-    } else {
-        // Redirect to login page
-        window.location.href = '../signlog/SignLog.html';
-    }
-}
 document.addEventListener('DOMContentLoaded', function() {
-    // Cart functionality
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Initialize cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Get DOM elements
     const cartBtn = document.getElementById('cartBtn');
-    const cartModal = document.getElementById('cartModal');
+    const modal = document.getElementById('cartModal');
+    const closeBtn = document.querySelector('.close');
+    const addToCartBtn = document.querySelector('.add-to-cart');
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
     const cartCount = document.querySelector('.cart-count');
-    const addToCartBtn = document.querySelector('.add-to-cart');
-    const closeBtn = document.querySelector('.close');
+    const checkoutBtn = document.getElementById('checkoutBtn');
 
-    // Update cart count
-    function updateCartCount() {
-        cartCount.textContent = cart.length;
-    }
+    // Initialize cart display
+    updateCartDisplay();
 
-    // Update cart display
-    function updateCartDisplay() {
-        cartItems.innerHTML = '';
-        let total = 0;
+    // Cart button click handler
+    cartBtn.addEventListener('click', function() {
+        modal.style.display = "block";
+        updateCartDisplay();
+    });
 
-        cart.forEach(item => {
-            total += item.price;
-            cartItems.innerHTML += `
-                <div class="cart-item">
-                    <span>${item.name}</span>
-                    <div>
-                        <span>$${item.price}</span>
-                        <i class="fas fa-trash cart-item-remove" data-id="${item.id}"></i>
-                    </div>
-                </div>
-            `;
-        });
+    // Close button click handler
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = "none";
+    });
 
-        cartTotal.textContent = `$${total}`;
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-    }
+    // Click outside modal handler
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
 
-    // Add to cart
+    // Add to cart handler
     addToCartBtn.addEventListener('click', function() {
-        const courseId = this.dataset.course;
-        const price = parseFloat(this.dataset.price);
-        const courseName = document.querySelector('header h2').textContent;
+        const course = {
+            name: "Object Oriented Programming",
+            price: 599,
+            id: "oop"
+        };
 
-        if (!cart.find(item => item.id === courseId)) {
-            cart.push({
-                id: courseId,
-                name: courseName,
-                price: price
-            });
+        if (!cart.some(item => item.id === course.id)) {
+            cart.push(course);
+            localStorage.setItem('cart', JSON.stringify(cart));
             updateCartDisplay();
-            showNotification('Course added to cart!');
+            showNotification('Course added to cart!', 'success');
         } else {
             showNotification('Course is already in cart!', 'warning');
         }
     });
 
-    // Remove from cart
-    cartItems.addEventListener('click', function(e) {
-        if (e.target.classList.contains('cart-item-remove')) {
-            const id = e.target.dataset.id;
-            const index = cart.findIndex(item => item.id === id);
-            if (index > -1) {
-                cart.splice(index, 1);
-                updateCartDisplay();
-                showNotification('Course removed from cart!');
-            }
-        }
-    });
-
-    // Cart modal
-    cartBtn.addEventListener('click', function() {
-        cartModal.style.display = 'block';
-        updateCartDisplay();
-    });
-
-    closeBtn.addEventListener('click', function() {
-        cartModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', function(e) {
-        if (e.target === cartModal) {
-            cartModal.style.display = 'none';
-        }
-    });
-
-    // Checkout
-    document.getElementById('checkoutBtn').addEventListener('click', function() {
+    // Checkout button handler
+    checkoutBtn.addEventListener('click', function() {
         if (cart.length > 0) {
-            window.location.href = 'checkout.html';
+            showNotification('Proceeding to checkout...', 'info');
+            // Add checkout logic here
         } else {
             showNotification('Your cart is empty!', 'warning');
         }
     });
 
-    // Notifications
-    function showNotification(message, type = 'success') {
+    function updateCartDisplay() {
+        cartCount.textContent = cart.length;
+        
+        if (cart.length === 0) {
+            cartItems.innerHTML = `
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                </div>`;
+            cartTotal.textContent = '$0';
+            return;
+        }
+
+        let total = 0;
+        cartItems.innerHTML = cart.map(item => {
+            total += item.price;
+            return `
+                <div class="cart-item">
+                    <div class="item-info">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-price">$${item.price}</span>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" class="remove-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>`;
+        }).join('');
+
+        cartTotal.textContent = `$${total}`;
+    }
+
+    // Make removeFromCart function available globally
+    window.removeFromCart = function(id) {
+        cart = cart.filter(item => item.id !== id);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+        showNotification('Course removed from cart', 'warning');
+    }
+
+    function showNotification(message, type) {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
-        notification.textContent = message;
+        notification.innerHTML = `
+            <i class="fas ${getNotificationIcon(type)}"></i>
+            <span>${message}</span>
+        `;
         document.body.appendChild(notification);
 
+        setTimeout(() => notification.classList.add('show'), 100);
         setTimeout(() => {
-            notification.remove();
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
 
-    // Initialize cart
-    updateCartCount();
+    function getNotificationIcon(type) {
+        switch(type) {
+            case 'success': return 'fa-check-circle';
+            case 'warning': return 'fa-exclamation-circle';
+            case 'info': return 'fa-info-circle';
+            default: return 'fa-info-circle';
+        }
+    }
 
-    
+    // Add notification styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: right 0.3s ease;
+            z-index: 1100;
+        }
+
+        .notification.show {
+            right: 20px;
+        }
+
+        .notification.success { border-left: 4px solid #4CAF50; }
+        .notification.warning { border-left: 4px solid #ff9800; }
+        .notification.info { border-left: 4px solid #2196F3; }
+
+        .notification i {
+            font-size: 1.2rem;
+        }
+
+        .notification.success i { color: #4CAF50; }
+        .notification.warning i { color: #ff9800; }
+        .notification.info i { color: #2196F3; }
+    `;
+    document.head.appendChild(style);
 });

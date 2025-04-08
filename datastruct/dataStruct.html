@@ -21,8 +21,15 @@
             <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
             <li><a href="../aboutUs/aboutUs.html">About</a></li>
             <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
+            <li>
+                <div class="cart-container">
+                    <button id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </li>
         </ul>
-        
     </nav>
 
     <div id="cartModal" class="modal">
@@ -93,29 +100,31 @@
         <section class="course-includes">
             <h2>This Course Includes</h2>
             <ul>
-                <li><i class="fas fa-video"></i> 15 basic lectures</li>
-                <li><i class="fas fa-tasks"></i> 5 assignments per lecture</li>
-                <li><i class="fas fa-redo"></i> Recap videos</li>
-                <li><i class="fas fa-question-circle"></i> Quizzes after each lecture</li>
+                <li><i class="fas fa-video"></i> 15 hours of video content</li>
+                <li><i class="fas fa-tasks"></i> 30 coding exercises</li>
+                <li><i class="fas fa-book"></i> Comprehensive study materials</li>
+                <li><i class="fas fa-certificate"></i> Certificate of completion</li>
+                <li><i class="fas fa-infinity"></i> Full lifetime access</li>
+                <li><i class="fas fa-mobile-alt"></i> Access on mobile and desktop</li>
             </ul>
         </section>
 
         <section class="learning-outcomes">
             <h2>By The End Of This Course You Will Be Able To</h2>
             <ol>
-                <li>Differentiate between Stacks and Queues</li>
-                <li>Handle problems using Linked Lists</li>
-                <li>Have strong knowledge about DFS and BFS</li>
+                <li>Understand and implement fundamental data structures</li>
+                <li>Analyze algorithm complexity using Big O notation</li>
+                <li>Solve programming problems using optimal data structures</li>
+                <li>Master graph algorithms and tree traversals</li>
+                <li>Write efficient and scalable code</li>
             </ol>
         </section>
     </div>
+
     <footer>
         <div class="footerinfo">
             <span>Smart</span>
-            <p>We offer a variety of educational courses designed to help you develop <br>
-                your skills in different fields, whether you're a beginner or a professional. <br>
-                Enjoy a unique learning experience with interactive content, practical exercises,<br>
-                and certified certificates upon course completion.</p>
+            <p>We offer a variety of educational courses designed to help you develop your skills in different fields, whether you're a beginner or a professional. Enjoy a unique learning experience with interactive content, practical exercises, and certified certificates upon course completion.</p>
         </div>
 
         <div class="footerlist">
@@ -124,7 +133,7 @@
                 <ul>
                     <li><a href="../home/home.html">Home</a></li>
                     <li><a href="../courses/Courses.html">Courses</a></li>
-                    <li><a href="../contactUs/Contact Us.html">Contact Us </a></li>
+                    <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
                     <li><a href="../aboutUs/aboutUs.html">About</a></li>
                 </ul>
             </div>
@@ -145,48 +154,29 @@
                     <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
                     <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
                 </ul>
-
             </div>
 
             <div class="footernet">
                 <span>Cyber Security</span>
                 <ul>
                     <li><a href="../introcyber/IntroCyber.html">Intro To Cyber Security</a></li>
-                    <li><a href="../cehacker/CEhaker.html">certified Ethical Hacker</a></li>
+                    <li><a href="../cehacker/CEhaker.html">Certified Ethical Hacker</a></li>
                     <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
                 </ul>
-
             </div>
-
-
         </div>
-
 
         <div class="footer-copyright">
             <hr>
-            <span>&copy 2025 Smart. All rights reserved.</span>
+            <span>&copy; 2025 Smart. All rights reserved.</span>
         </div>
 
         <div class="footer-contact">
             <span>Email: <a href="mailto:smart@gmail.com">smart@gmail.com</a></span>
-        </div>
-
-        <div class="footer-contact">
             <span>Phone: <a href="tel:0111222333">0111222333</a></span>
         </div>
-
-
     </footer>
-    <div id="cart-popup" class="cart-popup" style="display:none;">
-        <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
-            <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
-            <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
-            <div id="cart-details">
-                <p>Your cart is empty.</p>
-            </div>
-        </div>
-    </div>
 
-    <script src="../datastruct/dataStruct.js"></script>
+    <script src="datastructure.js"></script>
 </body>
 </html>

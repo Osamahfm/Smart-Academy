@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Web Development </title>
-    <link rel="stylesheet" href="../frontend/frontend.css">
+    <title>Frontend Development Course</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <script src="../frontend/frontend.js"></script>
+    <link rel="stylesheet" href="frontend.css">
 </head>
-
 <body>
-
     <header>
-        <img class="logo-img" src="../assets/images/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'"> 
-        <h1 style="font-family: Arial, sans-serif;  "><b> Web Development : Frontend</b></h1>
-        <p><i>Offered by Coursery | 100% Online | Beginner Level | Certificate Program</i></p>
+        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'" />
+        <h2>Frontend Development</h2>
     </header>
-  
+
     <nav>
         <ul>
             <li><a href="../home/home.html">Home</a></li>
@@ -51,56 +46,83 @@
         </div>
     </div>
 
-    <div class="container">
-
+    <main>
         <div class="course-banner">
-            <div class="course-details">
-                <h2>About This Course</h2>
-                <p>This course will teach you the fundamentals of frontend web development, 
-                    including HTML, CSS, and JavaScript, to build responsive and interactive websites.</p>
-                <button class="add-to-cart" data-course="ceh" data-price="999" data-name="Web Development Frontend">
-                    Add to Cart - $999
-                </button>
-            </div>
-            <img src="../Photos/frontend.jpg" alt="Course Banner">
+            <img src="../Photos/frontend.jpg" alt="Frontend Development Course" class="course-image">
         </div>
 
-        <div class="info-box">
-            <h3>Course Information</h3>
-            <ul>
-                <li>Duration: 6 weeks</li>
-                <li>Effort: 5-7 hours/week</li>
-                <li>Language: English</li>
-                <li>Certificate: Available upon completion</li>
-            </ul>
-        </div>
+        <div class="course-content">
+            <section class="overview">
+                <h2>Course Overview</h2>
+                <p>Master frontend web development with HTML, CSS, and JavaScript to build modern, responsive websites.</p>
+                
+                <div class="course-meta">
+                    <span class="rating">
+                        <i class="fas fa-star"></i> 4.8
+                        <small>(3,456 ratings)</small>
+                    </span>
+                    <span class="students">
+                        <i class="fas fa-users"></i> 42,150 students
+                    </span>
+                    <span class="instructor">
+                        <i class="fas fa-chalkboard-teacher"></i> Esraa Abd EL-Aziz
+                    </span>
+                    <span class="language">
+                        <i class="fas fa-globe"></i> English, Arabic
+                    </span>
+                    <span class="last-updated">
+                        <i class="fas fa-calendar-alt"></i> Last updated 15/3/2025
+                    </span>
+                </div>
 
-        <div class="info-box">
-            <h3>What you'll learn</h3>
-            <ul>
-                <li>HTML Basics and Semantic Markup</li>
-                <li>CSS for Styling and Layout</li>
-                <li>JavaScript for Interactivity</li>
-                <li>Responsive Design Principles</li>
-                <li>Building and Deploying a Portfolio Website</li>
-            </ul>
-        </div>
+                <div class="course-actions">
+                    <button class="add-to-cart" data-course="frontend" data-price="999">
+                        <i class="fas fa-cart-plus"></i>
+                        Add to Cart - $999
+                    </button>
+                </div>
+            </section>
 
-        <div class="info-box">
-            <h3>Instructor</h3>
-            <p><strong><i>Esraa Abd EL-Aziz</i></strong> - Frontend Development Specialist & Experienced Trainer.</p>
-        </div>
+            <section class="what-you-learn">
+                <h2>What You'll Learn</h2>
+                <ul class="checklist">
+                    <li><i class="fas fa-check"></i> Build responsive websites using HTML5 and CSS3</li>
+                    <li><i class="fas fa-check"></i> Master JavaScript and modern ES6+ features</li>
+                    <li><i class="fas fa-check"></i> Implement interactive user interfaces</li>
+                    <li><i class="fas fa-check"></i> Use CSS Flexbox and Grid for layouts</li>
+                    <li><i class="fas fa-check"></i> Work with APIs and handle AJAX requests</li>
+                    <li><i class="fas fa-check"></i> Optimize website performance</li>
+                    <li><i class="fas fa-check"></i> Deploy websites to production</li>
+                    <li><i class="fas fa-check"></i> Apply responsive design principles</li>
+                    <li><i class="fas fa-check"></i> Debug and test web applications</li>
+                    <li><i class="fas fa-check"></i> Build a professional portfolio</li>
+                </ul>
+            </section>
 
-        <div class="info-box">
-            <h3>Requirements</h3>
-            <ul>
-                <li>No prior experience required</li>
-                <li>Internet & Computer Access</li>
-                <li>Basic English Understanding</li>
-            </ul>
-        </div>
+            <section class="course-includes">
+                <h2>This Course Includes</h2>
+                <ul>
+                    <li><i class="fas fa-video"></i> 42 hours of video</li>
+                    <li><i class="fas fa-file"></i> 15 coding exercises</li>
+                    <li><i class="fas fa-project-diagram"></i> 5 real-world projects</li>
+                    <li><i class="fas fa-download"></i> Downloadable resources</li>
+                    <li><i class="fas fa-certificate"></i> Certificate of completion</li>
+                    <li><i class="fas fa-infinity"></i> Full lifetime access</li>
+                </ul>
+            </section>
 
-    </div>
+            <section class="learning-outcomes">
+                <h2>By The End Of This Course You Will Be Able To</h2>
+                <ol>
+                    <li>Create modern, responsive websites from scratch</li>
+                    <li>Build interactive web applications using JavaScript</li>
+                    <li>Implement professional UI/UX design principles</li>
+                    <li>Work with modern web development tools</li>
+                    <li>Deploy and maintain web applications</li>
+                </ol>
+            </section>
+        </div>
+    </main>
 
     <footer>
         <div class="footerinfo">
@@ -117,7 +139,7 @@
                 <ul>
                     <li><a href="../home/home.html">Home</a></li>
                     <li><a href="../courses/Courses.html">Courses</a></li>
-                    <li><a href="../contactUs/Contact Us.html">Contact Us </a></li>
+                    <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
                     <li><a href="../aboutUs/aboutUs.html">About</a></li>
                 </ul>
             </div>
@@ -138,7 +160,6 @@
                     <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
                     <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
                 </ul>
-
             </div>
 
             <div class="footernet">
@@ -148,15 +169,12 @@
                     <li><a href="../cehacker/CEhaker.html">certified Ethical Hacker</a></li>
                     <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
                 </ul>
-
             </div>
-
-
         </div>
 
-
         <div class="footer-copyright">
-            <span>&copy 2025 Smart. All rights reserved.</span>
+            <hr>
+            <span>&copy; 2025 Smart. All rights reserved.</span>
         </div>
 
         <div class="footer-contact">
@@ -166,18 +184,8 @@
         <div class="footer-contact">
             <span>Phone: <a href="tel:0111222333">0111222333</a></span>
         </div>
-
-
     </footer>
-    <div id="cart-popup" class="cart-popup" style="display:none;">
-        <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
-            <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
-            <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
-            <div id="cart-details">
-                <p>Your cart is empty.</p>
-            </div>
-        </div>
-    </div>
-</body>
 
+    <script src="frontend.js"></script>
+</body>
 </html>

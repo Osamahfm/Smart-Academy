@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <title>Problem Solving Course</title>
     <link rel="stylesheet" href="../problemsolving/problem solving.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-
-  <header>
-    <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'" />
-    <h2>Problem Solving</h2>
-  </header>
+    <header>
+        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'" />
+        <h2>Problem Solving</h2>
+    </header>
 
     <nav>
         <ul>
@@ -21,7 +20,8 @@
             <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
             <li><a href="../aboutUs/aboutUs.html">About</a></li>
             <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
-              <div class="cart-container">
+            <li>
+                <div class="cart-container">
                     <button id="cartBtn">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
@@ -29,7 +29,6 @@
                 </div>
             </li>
         </ul>
-        
     </nav>
 
     <div id="cartModal" class="modal">
@@ -46,70 +45,85 @@
             </button>
         </div>
     </div>
-    
-    <div class="inf">
-        <h1>full problem solving course for beginners</h1>
-        
-        <p>know ho to handle problems</p>
-    
-    </div>
-    <div class="container">
-        <sectio>
-            <h1>course overview</h1>
-       
-  
-          <p>
-                <span class="rating numbers">5.1</span>  
-                <span class="stars">*****</span> 
-                (2,234 ratings) 53,280 students applied
-            </p>
-        </sectio>
-    
-            <p>Created by Eng: Robert Lafore</p>
-            
-            <p id="l1">
-                <img src="images/world-icon-2048x2048-rw4dcfh2.png" id="img1" alt="world icon">
-                Last updated 22/3/2025  Available languages: ENGLISH, ARABIC
-            </p>
-      
-    </div>
-    <div class="container2">
-     
-        <ul  class="checklist">
-            <h3>what you will learn</h3>
-                      <li>You will learn how to break down complex problems into smaller, manageable parts using logical strategies.</li>
-            <li>You'll understand the importance of algorithmic thinking and how to approach challenges step-by-step.</li>
-            <li>The course will help you analyze problems efficiently by identifying patterns and choosing the right solving techniques.</li>
-            <li>You will practice writing pseudocode and flowcharts to plan your solutions before jumping into code.</li>
-            <li>You'll explore various problem-solving paradigms, such as greedy algorithms, divide and conquer, and backtracking.</li>
-            <li>You'll develop the ability to optimize your solutions for better time and space complexity.</li>
-            <li>You'll understand how to model complex systems by breaking them into smaller, manageable objects that interact with each other</li>
-            <liThe course will strengthen your skills in debugging and testing, ensuring that your solutions are accurate and reliable..</li>
-            <li>You will solve a wide range of real-world and competitive programming problems, sharpening your critical thinking.</li>
-            <li>By the end of the course, you’ll gain confidence to tackle coding interviews and programming challenges with a strategic mindset.</li>
-        </ul>
-   
-    </div>
-    <div class="container3">
-<ul>
-    <h3>this course includes</h3>
-    <li>25 basic lectures</li>
-    <li>3 assignment on every lecture</li>
-    <li>recap videos</li>
-    <li>quizzez on every lecture</li>
 
-</ul>
-<h2 id="h33">by the end of this course you will be able to</h2>
-<ol type="1">
-  <li>have the critical thinking to solve problems</li>
-    <li>try to use diffrent approaches for solving algorithms</li>
-    <li>acquire problem solving skills</li>
-</ol>
+    <main>
+        <div class="course-banner">
+            <img src="../Photos/problem-solving.jpg" alt="Problem Solving Course" class="course-image">
+        </div>
 
-    </div>
-    <div id="h34">
-        <button id="enrollBtn" onclick="enrollUser()">add to cart</button>
-    </div>
+        <div class="course-content">
+            <section class="overview">
+                <h2>Course Overview</h2>
+                <p>Master problem-solving techniques and algorithmic thinking with our comprehensive course.</p>
+                
+                <div class="course-meta">
+                    <span class="rating">
+                        <i class="fas fa-star"></i> 5.1
+                        <small>(2,234 ratings)</small>
+                    </span>
+                    <span class="students">
+                        <i class="fas fa-users"></i> 53,280 students
+                    </span>
+                    <span class="instructor">
+                        <i class="fas fa-chalkboard-teacher"></i> Eng. Robert Lafore
+                    </span>
+                    <span class="language">
+                        <i class="fas fa-globe"></i> English, Arabic
+                    </span>
+                    <span class="last-updated">
+                        <i class="fas fa-calendar-alt"></i> Last updated 22/3/2025
+                    </span>
+                </div>
+
+                <div class="course-actions">
+                    <button class="add-to-cart" data-course="problemsolving" data-price="599">
+                        <i class="fas fa-cart-plus"></i>
+                        Add to Cart - $599
+                    </button>
+                </div>
+            </section>
+
+            <section class="what-you-learn">
+                <h2>What You'll Learn</h2>
+                <ul class="checklist">
+                    <li><i class="fas fa-check"></i> Break down complex problems into manageable parts</li>
+                    <li><i class="fas fa-check"></i> Master algorithmic thinking and step-by-step problem solving</li>
+                    <li><i class="fas fa-check"></i> Analyze problems efficiently by identifying patterns</li>
+                    <li><i class="fas fa-check"></i> Write pseudocode and flowcharts to plan solutions</li>
+                    <li><i class="fas fa-check"></i> Explore various problem-solving paradigms and techniques</li>
+                    <li><i class="fas fa-check"></i> Optimize solutions for better time and space complexity</li>
+                    <li><i class="fas fa-check"></i> Model complex systems through object decomposition</li>
+                    <li><i class="fas fa-check"></i> Debug and test solutions effectively</li>
+                    <li><i class="fas fa-check"></i> Solve real-world programming challenges</li>
+                    <li><i class="fas fa-check"></i> Excel in coding interviews</li>
+                </ul>
+            </section>
+
+            <section class="course-includes">
+                <h2>This Course Includes</h2>
+                <ul>
+                    <li><i class="fas fa-video"></i> 25 basic lectures</li>
+                    <li><i class="fas fa-tasks"></i> 3 assignments per lecture</li>
+                    <li><i class="fas fa-redo"></i> Recap videos</li>
+                    <li><i class="fas fa-question-circle"></i> Quizzes after each lecture</li>
+                    <li><i class="fas fa-certificate"></i> Certificate of completion</li>
+                    <li><i class="fas fa-infinity"></i> Full lifetime access</li>
+                </ul>
+            </section>
+
+            <section class="learning-outcomes">
+                <h2>By The End Of This Course You Will Be Able To</h2>
+                <ol>
+                    <li>Apply critical thinking to solve complex problems</li>
+                    <li>Use different approaches for solving algorithms</li>
+                    <li>Implement efficient problem-solving strategies</li>
+                    <li>Write optimized and scalable solutions</li>
+                    <li>Tackle coding interviews with confidence</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
     <footer>
         <div class="footerinfo">
             <span>Smart</span>
@@ -125,7 +139,7 @@
                 <ul>
                     <li><a href="../home/home.html">Home</a></li>
                     <li><a href="../courses/Courses.html">Courses</a></li>
-                    <li><a href="../contactUs/Contact Us.html">Contact Us </a></li>
+                    <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
                     <li><a href="../aboutUs/aboutUs.html">About</a></li>
                 </ul>
             </div>
@@ -142,11 +156,10 @@
             <div class="footercs">
                 <span>Computer Science</span>
                 <ul>
-                    <li><a href="../problemsolving/problem solving.html solving.html">Problem Solving</a></li>
+                    <li><a href="../problemsolving/problem solving.html">Problem Solving</a></li>
                     <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
                     <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
                 </ul>
-
             </div>
 
             <div class="footernet">
@@ -156,16 +169,12 @@
                     <li><a href="../cehacker/CEhaker.html">certified Ethical Hacker</a></li>
                     <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
                 </ul>
-
             </div>
-
-
         </div>
-
 
         <div class="footer-copyright">
             <hr>
-            <span>&copy 2025 Smart. All rights reserved.</span>
+            <span>&copy; 2025 Smart. All rights reserved.</span>
         </div>
 
         <div class="footer-contact">
@@ -175,18 +184,8 @@
         <div class="footer-contact">
             <span>Phone: <a href="tel:0111222333">0111222333</a></span>
         </div>
-
-
     </footer>
-    <div id="cart-popup" class="cart-popup" style="display:none;">
-        <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
-            <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
-            <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
-            <div id="cart-details">
-                <p>Your cart is empty.</p>
-            </div>
-        </div>
-    </div>
-<script src="../problem solving/problem solving.js"></script>
+
+    <script src="problemsolving.js"></script>
 </body>
 </html>

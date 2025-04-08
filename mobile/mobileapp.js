@@ -1,97 +1,226 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const cart = [];
+    // Initialize cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Get DOM elements
     const cartBtn = document.getElementById('cartBtn');
-    const cartModal = document.getElementById('cartModal');
+    const modal = document.getElementById('cartModal');
+    const closeBtn = document.querySelector('.close');
+    const addToCartBtn = document.querySelector('.add-to-cart');
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
     const cartCount = document.querySelector('.cart-count');
     const checkoutBtn = document.getElementById('checkoutBtn');
-    const addToCartBtn = document.querySelector('.add-to-cart');
 
-    // Add to Cart
+    // Course details
+    const course = {
+        name: "Mobile Application Development",
+        price: 999,
+        id: "mobileapp"
+    };
+
+    // Initialize cart display
+    updateCartDisplay();
+
+    // Cart button click handler
+    cartBtn.addEventListener('click', function() {
+        modal.style.display = "block";
+        updateCartDisplay();
+        showNotification('Cart opened', 'info');
+    });
+
+    // Close button click handler with animation
+    closeBtn.addEventListener('click', function() {
+        modal.classList.add('fade-out');
+        setTimeout(() => {
+            modal.style.display = "none";
+            modal.classList.remove('fade-out');
+        }, 300);
+    });
+
+    // Click outside modal handler
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            closeBtn.click();
+        }
+    });
+
+    // Add to cart handler with animation
     addToCartBtn.addEventListener('click', function() {
-        const courseId = this.dataset.course;
-        const price = parseFloat(this.dataset.price);
-        const courseName = this.dataset.name;
-
-        // Check if course is already in cart
-        if (!cart.find(item => item.id === courseId)) {
-            cart.push({
-                id: courseId,
-                name: courseName,
-                price: price
-            });
-            updateCart();
-            showNotification('Course added to cart!');
+        if (!cart.some(item => item.id === course.id)) {
+            addToCartBtn.classList.add('adding');
+            setTimeout(() => {
+                cart.push(course);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                showNotification('Mobile Development course added to cart!', 'success');
+                addToCartBtn.classList.remove('adding');
+            }, 500);
         } else {
-            showNotification('Course is already in cart!', 'warning');
+            showNotification('This course is already in your cart!', 'warning');
         }
     });
 
-    // Update Cart
-    function updateCart() {
-        cartCount.textContent = cart.length;
-        cartItems.innerHTML = '';
-        let total = 0;
-
-        cart.forEach(item => {
-            total += item.price;
-            cartItems.innerHTML += `
-                <div class="cart-item">
-                    <span>${item.name}</span>
-                    <div>
-                        <span>$${item.price}</span>
-                        <i class="fas fa-trash cart-item-remove" data-id="${item.id}"></i>
-                    </div>
-                </div>
-            `;
-        });
-
-        cartTotal.textContent = `$${total}`;
-    }
-
-    // Remove from Cart
-    cartItems.addEventListener('click', function(e) {
-        if (e.target.classList.contains('cart-item-remove')) {
-            const id = e.target.dataset.id;
-            const index = cart.findIndex(item => item.id === id);
-            if (index > -1) {
-                cart.splice(index, 1);
-                updateCart();
-                showNotification('Course removed from cart!');
-            }
-        }
-    });
-
-    // Show Cart Modal
-    cartBtn.onclick = function() {
-        cartModal.style.display = 'block';
-    }
-
-    // Close Cart Modal
-    cartModal.querySelector('.close').onclick = function() {
-        cartModal.style.display = 'none';
-    }
-
-    // Checkout
+    // Checkout handler with validation and animation
     checkoutBtn.addEventListener('click', function() {
         if (cart.length > 0) {
-            // Add your payment processing logic here
-            window.location.href = 'checkout.html';
+            checkoutBtn.classList.add('processing');
+            showNotification('Processing your order...', 'info');
+            setTimeout(() => {
+                // Simulate checkout process
+                showNotification('Order processed successfully!', 'success');
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                modal.style.display = "none";
+                checkoutBtn.classList.remove('processing');
+            }, 2000);
         } else {
             showNotification('Your cart is empty!', 'warning');
         }
     });
 
-    // Notification
-    function showNotification(message, type = 'success') {
+    function updateCartDisplay() {
+        cartCount.textContent = cart.length;
+        
+        if (cart.length === 0) {
+            cartItems.innerHTML = `
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                </div>`;
+            cartTotal.textContent = '$0';
+            return;
+        }
+
+        let total = 0;
+        cartItems.innerHTML = cart.map(item => {
+            total += item.price;
+            return `
+                <div class="cart-item" data-id="${item.id}">
+                    <div class="item-info">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-price">$${item.price}</span>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" class="remove-btn" title="Remove from cart">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>`;
+        }).join('');
+
+        cartTotal.textContent = `$${total}`;
+    }
+
+    // Global removeFromCart function with animation
+    window.removeFromCart = function(id) {
+        const itemElement = document.querySelector(`[data-id="${id}"]`);
+        if (itemElement) {
+            itemElement.classList.add('removing');
+        }
+        setTimeout(() => {
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            showNotification('Course removed from cart', 'info');
+        }, 300);
+    }
+
+    function showNotification(message, type) {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
-        notification.textContent = message;
+        notification.innerHTML = `
+            <i class="fas ${getNotificationIcon(type)}"></i>
+            <span>${message}</span>
+        `;
         document.body.appendChild(notification);
 
+        requestAnimationFrame(() => {
+            notification.classList.add('show');
+        });
+
         setTimeout(() => {
-            notification.remove();
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
+
+    function getNotificationIcon(type) {
+        const icons = {
+            success: 'fa-check-circle',
+            warning: 'fa-exclamation-circle',
+            info: 'fa-info-circle',
+            error: 'fa-times-circle'
+        };
+        return icons[type] || icons.info;
+    }
+
+    // Enhanced notification and animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1100;
+        }
+
+        .notification.show {
+            right: 20px;
+            transform: translateY(0);
+        }
+
+        .notification.success { border-left: 4px solid #2B7A78; }
+        .notification.warning { border-left: 4px solid #ff9800; }
+        .notification.info { border-left: 4px solid #17252A; }
+        .notification.error { border-left: 4px solid #f44336; }
+
+        .notification i {
+            font-size: 1.2rem;
+        }
+
+        .notification.success i { color: #2B7A78; }
+        .notification.warning i { color: #ff9800; }
+        .notification.info i { color: #17252A; }
+        .notification.error i { color: #f44336; }
+
+        .adding {
+            animation: pulse 0.5s ease;
+        }
+
+        .removing {
+            animation: slideOut 0.3s ease forwards;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideOut {
+            to { 
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
 });
