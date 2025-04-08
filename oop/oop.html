@@ -169,7 +169,15 @@
 
 
     </footer>
-
+    <div id="cart-popup" class="cart-popup" style="display:none;">
+        <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
+            <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
+            <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
+            <div id="cart-details">
+                <p>Your cart is empty.</p>
+            </div>
+        </div>
+    </div>
 <script src="../oop/oop.js"></script>
 </body>
 </html>
