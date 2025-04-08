@@ -126,27 +126,110 @@ nav a:hover {
     }
 }
 
-.searchbar{
+.search-section {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-left: 20px;
+    gap: 2rem;
+    padding: 0 1rem;
 }
 
-#search-input{
-    padding: 5px 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-family: Arial, Helvetica, sans-serif;
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
 }
 
-#search-btn{
-    background-color: #17252A;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 4px;
+.search-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2B7A78;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #2B7A78;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-container input:focus {
+    border-color: #17252A;
+    box-shadow: 0 4px 10px rgba(43, 122, 120, 0.2);
+}
+
+.filter-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filter-item i {
+    position: absolute;
+    left: 10px;
+    color: #2B7A78;
+    pointer-events: none;
+}
+
+.filter-item select {
+    padding: 8px 15px 8px 35px;
+    border: 2px solid #2B7A78;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: white;
+    color: #17252A;
     cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    min-width: 150px;
+}
+
+.filter-item select:hover,
+.filter-item select:focus {
+    border-color: #17252A;
+    box-shadow: 0 2px 5px rgba(43, 122, 120, 0.1);
+}
+
+@media (max-width: 1024px) {
+    .search-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-container {
+        max-width: none;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-item {
+        flex: 1;
+        min-width: 200px;
+    }
 }
 
 /* Course Header */

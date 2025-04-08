@@ -13,22 +13,50 @@
 <body>
     <header>
         <nav>
-            <a href="../home/home.html" class="logo-link">
-            <div class="logo">
-                <img src="../courses/smart_academy-updated.png" alt="Smart Logo">
+            <div class="nav-left">
+                <a href="../home/home.html" class="logo-link">
+                    <div class="logo">
+                        <img src="../courses/smart_academy-updated.png" alt="Smart Logo">
+                    </div>
+                </a>
+                <div class="search-section">
+                    <div class="search-wrapper">
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="search-input" placeholder="Search courses...">
+                        </div>
+                        <div class="filter-container">
+                            <div class="filter-item">
+                                <i class="fas fa-th-large"></i>
+                                <select id="category-filter">
+                                    <option value="">All Categories</option>
+                                    <option value="Security">Cyber Security</option>
+                                    <option value="Development">Software Development</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>
+                            <div class="filter-item">
+                                <i class="fas fa-layer-group"></i>
+                                <select id="level-filter">
+                                    <option value="">All Levels</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                </select>
+                            </div>
+                            <div class="filter-item">
+                                <i class="fas fa-sort"></i>
+                                <select id="sort-by">
+                                    <option value="name">Sort by Name</option>
+                                    <option value="duration">Sort by Duration</option>
+                                    <option value="level">Sort by Level</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </a>
-            <ul>
-
-                <li><a href="/home/home.html">Home</a></li>
-                <li><a href="/courses/Courses.html">Courses</a></li>
-                <li><a href="/contactUs/Contact Us.html">Contact Us</a></li>
-                <li><a href="/aboutUs/aboutUs.html">About</a></li>
-                <li class="searchbar">
-                    <input type="text" id="search-input" placeholder="search courses...">
-                    <button id="search-btn"><i class="fas fa-search"></i></button>
-                </li>
-                <li><button id="sign" onclick="window.location.href='/signlog/signlog.html'">Sign Up</button></li>
+            <ul class="nav-right">
                 <li><a href="../home/home.html">Home</a></li>
                 <li><a href="../courses/Courses.html">Courses</a></li>
                 <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>

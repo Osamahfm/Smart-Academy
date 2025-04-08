@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <title>Data Structures | Smart Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../datastruct/dataStruct.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
 </head>
 <body>
-   
     <header>
-        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'"> 
-        <h2>Data Structure</h2>
+        <img class="logo-img" src="../home/smart_academy-updated.png" alt="Smart Academy Logo" onclick="window.location.href='../home/home.html'"> 
+        <h2>Data Structures</h2>
     </header>
+
     <nav>
         <ul>
             <li><a href="../home/home.html">Home</a></li>
@@ -21,6 +21,14 @@
             <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
             <li><a href="../aboutUs/aboutUs.html">About</a></li>
             <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
+            <li>
+                <div class="cart-container">
+                    <button id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </li>
         </ul>
     </nav>
 
@@ -38,72 +46,76 @@
             </button>
         </div>
     </div>
-    
-    <div class="inf">
-        <h1>full datastructure course for beginners</h1>
-        
-        <p>enhance your critical thinking</p>
-    
+
+    <div class="course-banner">
+        <img src="../Photos/ds.jpg" alt="Data Structures Course" class="course-image">
     </div>
-    <div class="container">
-        <sectio>
-            <h1>course overview</h1>
-       
-  
-          <p>
-                <span class="rating numbers">4.1</span>  
-                <span class="stars">****</span> 
-                (2,234 ratings) 53,280 students applied
-            </p>
-        </sectio>
-    
-            <p>Created by Eng: Robert Lafore</p>
+
+    <div class="course-content">
+        <section class="overview">
+            <h2>Course Overview</h2>
+            <p>Master fundamental data structures and algorithms with our comprehensive course.</p>
             
-            <p id="l1">
-                <img src="images/world-icon-2048x2048-rw4dcfh2.png" id="img1" alt="world icon">
-                Last updated 22/3/2025  Available languages: ENGLISH, ARABIC
-            </p>
-      
+            <div class="course-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i> 4.1
+                    <small>(2,234 ratings)</small>
+                </span>
+                <span class="students">
+                    <i class="fas fa-users"></i> 53,280 students
+                </span>
+                <span class="instructor">
+                    <i class="fas fa-chalkboard-teacher"></i> Dr. Ashraf AbdelRaoaf
+                </span>
+                <span class="language">
+                    <i class="fas fa-globe"></i> English, Arabic
+                </span>
+                <span class="last-updated">
+                    <i class="fas fa-calendar-alt"></i> Last updated 22/3/2025
+                </span>
+            </div>
+
+            <div class="course-actions">
+                <button class="add-to-cart" data-course="datastructures" data-price="699">
+                    <i class="fas fa-cart-plus"></i>
+                    Add to Cart - $699
+                </button>
+            </div>
+        </section>
+
+        <section class="what-you-learn">
+            <h2>What You'll Learn</h2>
+            <ul class="checklist">
+                <li><i class="fas fa-check"></i> Introduction to Data Structures and Algorithms</li>
+                <li><i class="fas fa-check"></i> Arrays and Linked Lists</li>
+                <li><i class="fas fa-check"></i> Stacks and Queues</li>
+                <li><i class="fas fa-check"></i> Hash Tables and Hashing Techniques</li>
+                <li><i class="fas fa-check"></i> Trees (Binary Trees, BST, AVL, Heap)</li>
+                <li><i class="fas fa-check"></i> Graphs (BFS, DFS, Dijkstra's Algorithm)</li>
+                <li><i class="fas fa-check"></i> Sorting and Searching Algorithms</li>
+                <li><i class="fas fa-check"></i> Time and Space Complexity Analysis</li>
+            </ul>
+        </section>
+
+        <section class="course-includes">
+            <h2>This Course Includes</h2>
+            <ul>
+                <li><i class="fas fa-video"></i> 15 basic lectures</li>
+                <li><i class="fas fa-tasks"></i> 5 assignments per lecture</li>
+                <li><i class="fas fa-redo"></i> Recap videos</li>
+                <li><i class="fas fa-question-circle"></i> Quizzes after each lecture</li>
+            </ul>
+        </section>
+
+        <section class="learning-outcomes">
+            <h2>By The End Of This Course You Will Be Able To</h2>
+            <ol>
+                <li>Differentiate between Stacks and Queues</li>
+                <li>Handle problems using Linked Lists</li>
+                <li>Have strong knowledge about DFS and BFS</li>
+            </ol>
+        </section>
     </div>
-    <div class="container2">
-     
-        <ul  class="checklist">
-            <h3>what you will learn</h3>
-            <li>Introduction to Data Structures and Algorithms</li>
-            <li>Arrays and Linked Lists</li>
-            <li>Stacks and Queues</li>
-            <li>Hash Tables and Hashing Techniques</li>
-            <li>Trees (Binary Trees, BST, AVL, Heap)</li>
-            <li>Graphs (BFS, DFS, Dijkstra's Algorithm)</li>
-            <li>Sorting Algorithms (Merge Sort, Quick Sort, Heap Sort)</li>
-            <li>Searching Algorithms (Binary Search, Linear Search)</li>
-            <li>Dynamic Programming and Recursion</li>
-            <li>Time and Space Complexity Analysis</li>
-        </ul>
-
-    </div>
-    <div class="container3">
-<ul>
-    <h3>this course includes</h3>
-    <li>15 basic lectures</li>
-    <li>5 assignment on every lecture</li>
-    <li>recap videos</li>
-    <li>quizzez on every lecture</li>
-
-</ul>
-<h2 id="h33">by the end of this course you will be able to</h2>
-<ol type="1">
-    <li>diffrentiate between stacks and Queues</li>
-    <li>you would be able to handle problems using linked list</li>
-    <li>have a strong knowledge about dfs and bds</li>
-</ol>
-
-    </div>
-      <div id="h34">
-        <button id="enrollBtn" onclick="enrollUser()">add to cart</button>
-    </div>
-
-
     <footer>
         <div class="footerinfo">
             <span>Smart</span>
@@ -181,6 +193,7 @@
             </div>
         </div>
     </div>
-<script src="../datastruct/dataStruct.js"></script>
+
+    <script src="../datastruct/dataStruct.js"></script>
 </body>
 </html>
