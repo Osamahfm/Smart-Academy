@@ -2,18 +2,6 @@ function navigateToSignUp(){
     window.location.href = "signup.html";
 }
 
-document.getElementById("courseBtn").addEventListener("click", function () {
-    let dropdown = this.parentElement;
-    dropdown.classList.toggle("show");
-});
-
-document.addEventListener("click", function (event) {
-    let dropdown = document.querySelector(".dropdown");
-    if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove("show");
-    }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const animatedElements = document.querySelectorAll(".scroll-reveal, .c1, .c2, .c3, .css1, .css2, .css3, .net1, .net2, .net3");
 

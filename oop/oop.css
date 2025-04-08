@@ -87,7 +87,6 @@ cart-container {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    margin-top: 10px;
     padding: 20px;  /* Added padding for better spacing */
     height: 400px;
     display: flex;
@@ -201,11 +200,27 @@ img{
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
 header {
     background-color: #17252A;
     position: sticky;
     top: 0;
     z-index: 1000;
+    align-items: center;
+    display: flex;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        width: 90px;
+    }
 }
 
 h2 {
@@ -221,37 +236,53 @@ nav {
     background-color: #2B7A78;
     position: sticky;
     top: 75px;
-    width: 100%;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px ;
-    margin :0;
-   
-}
-
-nav li {
-    margin: 0 20px;
+    z-index: 900;
 }
 
 nav a {
     text-decoration: none;
-    font-family: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 18px;
-    color: #E8FBFB;
-    padding: 15px;
-    
+    padding: 20px;
+    margin: auto;
+    color: #e8fbfb;
 }
 
-
 nav a:hover {
-    background-color: #1C5452;
-    color: #ffffff;
-    
+    text-decoration: none;
+    background-color: #1c5452;
+}
+
+nav ul {
+    padding: 20px 40px;
+    margin: auto;
+}
+
+nav li {
+    display: inline;
+}
+
+#sign {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    right: 0;
+    margin-left: 1rem;
+
+}
+
+#sign:hover {
+    background-color: white;
+    color: #2B7A78;
+    transform: translateY(-2px);
 }
 
 
@@ -324,6 +355,8 @@ nav a:hover {
 .modal button:hover {
     background-color: #3D52A0;
 }
+
+
 footer .footerinfo {
     background-color: #2B7A78;
     text-align: center;
@@ -396,7 +429,7 @@ footer .footerinfo p {
 
 .footer-copyright,
 .footer-contact {
-    text-align: left;
+    text-align: center;
     color: #ffffff;
     font-size: 14px;
     background-color: #17252A;

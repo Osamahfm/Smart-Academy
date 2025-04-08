@@ -4,43 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
-    <link rel="stylesheet" href="/problem solving/problem solving.css">
+    <link rel="stylesheet" href="../problemsolving/problem solving.css">
 </head>
 <body>
    
     <header>
-        <!-- <img src="logo/implant.jpg" alt="logo"> -->
-        <h2>Intro to problem solving</h2>
+        
+        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'"> 
+        <h2>Start learning smartly</h2>
     </header>
 
     <nav>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li class="dropdown">
-                <button id="courseBtn">Courses</button>
-                <div class="dropdown-content">
-                    <strong>Software</strong>
-                    <a href="frontend.html">Front End</a>
-                    <a href="backend.html">Back End</a>
-                    <a href="mobileapp.html">Mobile Application</a>
-                    <hr>
-                    <strong>CS</strong>
-                    <a href="problem solving.html">Problem Solving</a>
-                    <a href="dataStruct.html">Data Structure</a>
-                    <a href="oop.html">Object Oriented Programming</a>
-                    <hr>
-                    <strong>Cyber Security</strong>
-                    <a href="IntroCyber.html">Intro To Cyber Security</a>
-                    <a href="">Certified Ethical Hacker</a>
-                    <a href="">Cyber Security Specialization</a>
-                </div>
-            </li>
-            <li><a href="Contact Us.html">Contact Us</a></li>
-            <li><a href="">About</a></li>
-            <li><button id="log">Log In</button></li>
-            <li><button id="sign">Sign Up</button></li>
+            <li><a href="../home/home.html">Home</a></li>
+            <li><a href="../courses/Courses.html">Courses</a></li>
+            <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
+            <li><a href="../aboutUs/aboutUs.html">About</a></li>
+            <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
         </ul>
     </nav>
+
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -132,28 +115,28 @@
             <div class="footernav">
                 <span>Smart</span>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Courses</a></li>
-                    <li><a href="">Contact Us </a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="../home/home.html">Home</a></li>
+                    <li><a href="../courses/Courses.html">Courses</a></li>
+                    <li><a href="../contactUs/Contact Us.html">Contact Us </a></li>
+                    <li><a href="../aboutUs/aboutUs.html">About</a></li>
                 </ul>
             </div>
 
             <div class="footersw">
                 <span>Software</span>
                 <ul>
-                    <li><a href="">Web Development: Frontend</a></li>
-                    <li><a href="">Web Development: Backend</a></li>
-                    <li><a href="">Mobile Application</a></li>
+                    <li><a href="../frontend/frontend.html">Web Development: Frontend</a></li>
+                    <li><a href="../backend/backend.html">Web Development: Backend</a></li>
+                    <li><a href="../mobile/mobileapp.html">Mobile Application</a></li>
                 </ul>
             </div>
 
             <div class="footercs">
                 <span>Computer Science</span>
                 <ul>
-                    <li><a href="">Problem Solving</a></li>
-                    <li><a href="">Data Structure</a></li>
-                    <li><a href="">Object Oriented Programming</a></li>
+                    <li><a href="../problemsolving/problem solving.html solving.html">Problem Solving</a></li>
+                    <li><a href="../datastruct/dataStruct.html">Data Structure</a></li>
+                    <li><a href="../oop/oop.html">Object Oriented Programming</a></li>
                 </ul>
 
             </div>
@@ -161,9 +144,9 @@
             <div class="footernet">
                 <span>Cyber Security</span>
                 <ul>
-                    <li><a href="">Intro To Cyber Security</a></li>
-                    <li><a href="">certified Ethical Hacker</a></li>
-                    <li><a href="">Cyber Security Specialization</a></li>
+                    <li><a href="../introcyber/IntroCyber.html">Intro To Cyber Security</a></li>
+                    <li><a href="../cehacker/CEhaker.html">certified Ethical Hacker</a></li>
+                    <li><a href="../cyberspec/cyberspec.html">Cyber Security Specialization</a></li>
                 </ul>
 
             </div>
@@ -173,6 +156,7 @@
 
 
         <div class="footer-copyright">
+            <hr>
             <span>&copy 2025 Smart. All rights reserved.</span>
         </div>
 
@@ -187,6 +171,6 @@
 
     </footer>
 
-<script src"/problem solving/problem solving.js"></script>
+<script src="../problem solving/problem solving.js"></script>
 </body>
 </html>
