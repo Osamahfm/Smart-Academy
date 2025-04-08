@@ -45,6 +45,9 @@ header h2{
 nav {
     background-color: #2B7A78;
     padding: 1rem 5%;
+    position: sticky;
+    top: 100px;
+    z-index: 1000;
 }
 
 nav ul {
