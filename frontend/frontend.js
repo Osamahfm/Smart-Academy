@@ -6,6 +6,6 @@ function enrollUser() {
         alert('You have been enrolled!');
     } else {
         // Redirect to login page
-        window.location.href = 'SignLog.html';
+        window.location.href = '../signlog/SignLog.html';
     }
 }

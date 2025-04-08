@@ -320,8 +320,10 @@ nav a:hover {
 footer .footerinfo {
     background-color: #2B7A78;
     text-align: center;
+    font-family: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-top: 50px;
     color: #e8fbfb;
+    margin: 0;
 }
 
 footer .footerinfo span {
@@ -329,11 +331,13 @@ footer .footerinfo span {
     font-size: 50px;
     padding-top: 20px;
     font-weight: bold;
+    margin: 0;
 }
 
 footer .footerinfo p {
     font-size: 15px;
     padding-bottom: 20px;
+    margin: 0;
 }
 
 .footerlist {
@@ -385,7 +389,7 @@ footer .footerinfo p {
 
 .footer-copyright,
 .footer-contact {
-    text-align: left;
+    text-align: center;
     color: #ffffff;
     font-size: 14px;
     background-color: #17252A;

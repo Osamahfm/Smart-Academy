@@ -13,13 +13,33 @@ body {
 /* Header & Navigation */
 header {
     background-color: #17252A;
-    padding: 2rem 0;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    display: flex;
 }
 
-header h2 {
-    color: #ffffff;
-    font-size: 2.5rem;
+.logo-img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        width: 90px;
+    }
+}
+
+header h2{
+        text-align: center;
+        color: #EDE8F5;
+        padding: 15px 0;
+        margin: auto;
+        font-family: "DM Sans";
+        font-size: 40px;
 }
 
 nav {
@@ -46,7 +66,7 @@ nav a:hover {
     color: #DEF2F1;
 }
 
-/* Remove duplicate #sign selector and update the styles */
+/* Sign Up Button */
 #sign {
     width: 100px;
     height: 40px;
@@ -58,7 +78,6 @@ nav a:hover {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
     margin-left: 1rem;
 }
 
@@ -67,6 +86,7 @@ nav a:hover {
     color: #2B7A78;
     transform: translateY(-2px);
 }
+
 
 /* Add responsive styles for the button */
 @media (max-width: 768px) {
@@ -101,6 +121,23 @@ nav a:hover {
     padding: 2px 6px;
     font-size: 12px;
 }
+
+/* course banner */
+.course-banner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.course-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Course Content */
 .course-content {
@@ -332,8 +369,10 @@ nav a:hover {
 footer .footerinfo {
     background-color: #2B7A78;
     text-align: center;
+    font-family: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-top: 50px;
     color: #e8fbfb;
+    margin: 0;
 }
 
 footer .footerinfo span {
@@ -341,11 +380,13 @@ footer .footerinfo span {
     font-size: 50px;
     padding-top: 20px;
     font-weight: bold;
+    margin: 0;
 }
 
 footer .footerinfo p {
     font-size: 15px;
     padding-bottom: 20px;
+    margin: 0;
 }
 
 .footerlist {
@@ -397,108 +438,9 @@ footer .footerinfo p {
 
 .footer-copyright,
 .footer-contact {
-    text-align: left;
+    text-align: center;
     color: #ffffff;
     font-size: 14px;
     background-color: #17252A;
     padding: 10px 40px;
-}
-
-/* Prerequisites Section */
-.requirements {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-}
-
-.requirements h2 {
-    color: #17252A;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.requirements h2::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 3px;
-    background-color: #2B7A78;
-}
-
-.requirements ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.requirements li {
-    padding-left: 2rem;
-    position: relative;
-    color: #555;
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-}
-
-.requirements li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #2B7A78;
-    font-weight: bold;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .requirements {
-        padding: 1.5rem;
-    }
-
-    .requirements ul {
-        grid-template-columns: 1fr;
-    }
-
-    .requirements h2 {
-        font-size: 1.5rem;
-    }
-
-    .requirements li {
-        font-size: 1rem;
-    }
-}
-/* Course Banner */
-.course-banner {
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 20px;
-}
-
-.course-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .course-image {
-        height: 250px;
-    }
-}
-/* Prevent URL display */
-a[href] {
-    pointer-events: auto;
-    cursor: pointer;
-}
-
-a[href]:hover {
-    text-decoration: none;
 }

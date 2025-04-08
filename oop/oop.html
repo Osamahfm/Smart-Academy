@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
     <link rel="stylesheet" href="../oop/oop.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
    
     <header>
         <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='home.html'"> 
-        <h2>Start learning smartly</h2>
+        <h2>Object Oriented Programming</h2>
     </header>
     <nav>
         <ul>
@@ -99,7 +100,7 @@
         <button id="enrollBtn" onclick="enrollUser()">add to cart</button>
     </div>
     </div>
-    
+
     <footer>
         <div class="footerinfo">
             <span>Smart</span>
@@ -168,7 +169,15 @@
 
 
     </footer>
-
+    <div id="cart-popup" class="cart-popup" style="display:none;">
+        <div class="cart-popup-content" style="background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; margin-top:50px;">
+            <span onclick="toggleCartPopup()" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
+            <h3>Your Cart (<span id="popup-cart-count">0</span>)</h3>
+            <div id="cart-details">
+                <p>Your cart is empty.</p>
+            </div>
+        </div>
+    </div>
 <script src="../oop/oop.js"></script>
 </body>
 </html>

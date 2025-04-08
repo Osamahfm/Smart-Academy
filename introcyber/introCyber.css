@@ -13,13 +13,33 @@ body {
 /* Header & Navigation */
 header {
     background-color: #17252A;
-    padding: 2rem 0;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    display: flex;
 }
 
-header h2 {
-    color: #ffffff;
-    font-size: 2.5rem;
+.logo-img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        width: 90px;
+    }
+}
+
+header h2{
+        text-align: center;
+        color: #EDE8F5;
+        padding: 15px 0;
+        margin: auto;
+        font-family: "DM Sans";
+        font-size: 40px;
 }
 
 nav {
@@ -46,6 +66,7 @@ nav a:hover {
     color: #DEF2F1;
 }
 
+/* Sign Up Button */
 #sign {
     width: 100px;
     height: 40px;
@@ -57,12 +78,29 @@ nav a:hover {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-left: 1rem;
 }
 
 #sign:hover {
     background-color: white;
     color: #2B7A78;
     transform: translateY(-2px);
+}
+
+/* Course Banner */
+.course-banner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.course-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Course Content */
@@ -268,177 +306,81 @@ section h2::after {
 }
 
 /* Footer Styles */
-footer {
-    background-color: #17252A;
-    color: white;
-    padding: 3rem 5%;
+footer .footerinfo {
+    background-color: #2B7A78;
+    text-align: center;
+    font-family: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 50px;
+    color: #e8fbfb;
+    margin: 0;
 }
 
-.footerinfo {
-    margin-bottom: 2rem;
-    text-align: center;  
-}
-
-.footerinfo span {
-    font-size: 1.5rem;
-    font-weight: bold;
+footer .footerinfo span {
     display: block;
-    margin-bottom: 1rem;
+    font-size: 50px;
+    padding-top: 20px;
+    font-weight: bold;
+    margin: 0;
 }
-.footerinfo p {
-    color: #DEF2F1;
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;    
-    text-align: center; 
+
+footer .footerinfo p {
+    font-size: 15px;
+    padding-bottom: 20px;
+    margin: 0;
 }
 
 .footerlist {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #17252A;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.footerlist div {
+    text-align: left;
+    min-width: 300px;
 }
 
 .footerlist span {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #e8fbfb;
+    font-size: 20px;
     font-weight: bold;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
 }
 
 .footerlist ul {
     list-style: none;
+    padding: 0;
 }
 
-.footerlist a {
-    color: #DEF2F1;
+.footerlist li {
+    margin-bottom: 10px;
+}
+
+.footerlist a,
+.footer-contact a {
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #b6d4d4;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
 }
 
-.footerlist a:hover {
-    color: #2B7A78;
+.footerlist a:hover,
+.footer-contact:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
-.footer-copyright {
-    margin-top: 2rem;
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+.footer-copyright,
 .footer-contact {
     text-align: center;
-    margin-top: 1rem;
-}
-
-.footer-contact a {
-    color: #DEF2F1;
-    text-decoration: none;
-}
-.learning-points li {
-    position: relative;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-}
-
-/* Triangle bullet */
-.learning-points li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid #2B7A78;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-}
-
-/* Circle bullet */
-.module li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    background-color: #2B7A78;
-    border-radius: 50%;
-}
-
-/* Square bullet */
-.requirements li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    width: 8px;
-    height: 8px;
-    background-color: #2B7A78;
-}
-
-/* Diamond bullet */
-.certification li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    width: 8px;
-    height: 8px;
-    background-color: #2B7A78;
-    border-radius: 2px;
-}
-
-/* Hover effects for all bullets */
-.learning-points li:hover::before,
-.module li:hover::before,
-.requirements li:hover::before,
-.certification li:hover::before {
-    transform: translateY(-50%) scale(1.2);
-    transition: transform 0.3s ease;
-}
-
-/* Make sure all list items have consistent positioning */
-.learning-points li,
-.module li,
-.requirements li,
-.certification li {
-    position: relative;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-    list-style: none;
-}
-.course-banner {
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 20px;
-}
-
-.course-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .course-image {
-        height: 250px;
-    }
-}
-
-/* Prevent URL display */
-a[href] {
-    pointer-events: auto;
-    cursor: pointer;
-}
-
-a[href]:hover {
-    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #17252A;
+    padding: 10px 40px;
 }
