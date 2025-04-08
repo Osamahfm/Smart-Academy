@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
-    <link rel="stylesheet" href="/dataStruct/dataStruct.css">
+    <link rel="stylesheet" href="dataStruct.css">
 
 </head>
 <body>
@@ -42,6 +42,20 @@
             <li><button id="sign">Sign Up</button></li>
         </ul>
     </nav>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modalTitle">Shopping Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: </strong>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
     
     <div class="inf">
         <h1>full datastructure course for beginners</h1>
@@ -174,6 +188,6 @@
 
     </footer>
 
-<script src="/datastructure/datastructure.js"></script>
+<script src="datastructure.js"></script>
 </body>
 </html>
