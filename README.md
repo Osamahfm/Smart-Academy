@@ -1,5 +1,4 @@
 # Smart Academy - Online Learning Platform
-
 <div align="center">
   <img src="smart_academy-updated.png" alt="Smart Academy Logo" width="300"/>
 </div>
