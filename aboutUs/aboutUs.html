@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Smart Academy</title>
+    <link rel="icon" type="image/x-icon" href="smart_academy-updated.png">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="aboutUs.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <img class="logo-img" src="../home/smart_academy-updated.png" alt="logo" onclick="window.location.href='../home/home.html'">
-        <h2>Start Learning Smartly</h2>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="../home/home.html">Home</a></li>
-            <li><a href="../courses/Courses.html">Courses</a></li>
-            <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
-            <li><a href="../aboutUs/aboutUs.html">About</a></li>
-            <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
-            <li>
-                <div class="cart-container">
-                    <button id="cartBtn">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </button>
-                </div>
-            </li>
-        </ul>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img class="logo-img" src="smart_academy-updated.png" alt="logo" onclick="window.location.href='../home/home.html'">
+            <h2>Start Learning Smartly</h2>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../courses/Courses.html">Courses</a></li>
+                <li><a href="../contactUs/Contact Us.html">Contact Us</a></li>
+                <li><a href="../aboutUs/aboutUs.html">About</a></li>
+                <li><button id="sign" onclick="window.location.href='../signlog/SignLog.html'">Sign Up</button></li>
+                <li>
+                    <div class="cart-container">
+                        <button id="cartBtn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </nav>
-
-    <!-- Hero Section -->
+        <!-- Hero Section -->
     <section class="hero-section">
         <h1>About Smart Academy</h1>
         <p>Your gateway to mastering cutting-edge computer science technologies through comprehensive, hands-on courses designed by industry experts.</p>

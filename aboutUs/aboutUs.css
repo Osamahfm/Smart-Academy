@@ -35,36 +35,115 @@ header {
     transform: scale(1.05);
 }
 
-nav {
-    background: #17252A;
+.navbar {
+    background-color: #17252A;
     padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav ul {
+.nav-left {
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-right {
+    display: flex;
     align-items: center;
     gap: 2rem;
-    list-style: none;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
 }
 
-nav a {
+.nav-right ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-right a {
     color: #DEF2F1;
     text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+.navbar h2{
+    color: white;
+}
+
+.nav-right a:hover {
+    color: #3AAFA9;
+}
+
+.logo-img {
+    height: 100px;  
+    width: auto;   
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.logo-img:hover {
+    transform: scale(1.03);  
+}
+
+
+.navbar {
+    padding: 0.75rem 2rem;  
+}
+
+/* Adjust media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 70px; 
+    }
+}
+
+
+#sign {
+    background: #2B7A78;
+    color: #DEF2F1;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
     font-weight: 500;
     transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
 }
 
-nav a:hover {
-    background: #2B7A78;
+#sign:hover {
+    background: #3AAFA9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* Update media query for responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-right ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .nav-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
 /* Hero Section */
 .hero-section {
     text-align: center;
@@ -339,7 +418,7 @@ footer {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    display: block;
+    display:contents
 }
 
 .footerlist ul {
