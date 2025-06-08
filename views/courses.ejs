@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Smart</title>
+    <link rel="icon" type="image/x-icon" href="/Photos/smart_academy-updated.png">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/courses.css">
+    <script src="/js/courses.js" defer></script>
+</head>
+<body>
+    
+    <%- include('partials/nav') %>
+
+    <main>
+        <section class="courses-header">
+            <h1>Our Courses</h1>
+            <p>Choose from our wide range of technology courses</p>
+        </section>
+
+        <!-- Software Development Category -->
+        <section class="course-category">
+            <h2><i class="fas fa-code"></i> Software Development</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/frontend.jpg) ;" >
+
+                        <span class="course-tag">Web Development</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Frontend Development</h3>
+                        <p>Master modern frontend technologies including HTML, CSS, and JavaScript.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 12 weeks</span>
+                            <span><i class="far fa-user"></i> Beginner</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../frontend/frontend.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/web-backend.jpg);">
+                        <span class="course-tag">Web Development</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Backend Development</h3>
+                        <p>Learn server-side programming, databases, and API development.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 14 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../backend/backend.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/mobileapp.jpg);">
+                        <span class="course-tag">Mobile Dev</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Mobile Application Development</h3>
+                        <p>Build cross-platform mobile applications using modern frameworks.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 16 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../mobile/mobileapp.html'">Enter Course</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Computer Science Category -->
+        <section class="course-category">
+            <h2><i class="fas fa-laptop-code"></i> Computer Science</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/problem-solving.jpg);">
+                        <span class="course-tag">CS Fundamentals</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Problem Solving</h3>
+                        <p>Develop algorithmic thinking and problem-solving skills.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 8 weeks</span>
+                            <span><i class="far fa-user"></i> Beginner</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../problemsolving/problem solving.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/ds.jpg);">
+                        <span class="course-tag">CS Fundamentals</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Data Structures</h3>
+                        <p>Learn essential data structures and their implementations.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 10 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../datastruct/dataStruct.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/oop.jpg);">
+                        <span class="course-tag">CS Fundamentals</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Object Oriented Programming</h3>
+                        <p>Master OOP concepts and design patterns.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 12 weeks</span>
+                            <span><i class="far fa-user"></i> Intermediate</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../oop/oop.html'">Enter Course</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cyber Security Category -->
+        <section class="course-category">
+            <h2><i class="fas fa-shield-alt"></i> Cyber Security</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/into-to-cyber.jpg);">
+                        <span class="course-tag">Security</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Introduction to Cyber Security</h3>
+                        <p>Learn fundamental concepts of cyber security.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 8 weeks</span>
+                            <span><i class="far fa-user"></i> Beginner</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../introcyber/introCyber.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/cyber-hacker.jpg);">
+                        <span class="course-tag">Security</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Certified Ethical Hacker</h3>
+                        <p>Prepare for CEH certification with hands-on training.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 16 weeks</span>
+                            <span><i class="far fa-user"></i> Advanced</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../cehacker/CEhaker.html'">Enter Course</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url(/Photos/cyber-specialization.jpg);">
+                        <span class="course-tag">Security</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="courseName">Cyber Security Specialization</h3>
+                        <p>Advanced security concepts and practices.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 20 weeks</span>
+                            <span><i class="far fa-user"></i> Advanced</span>
+                        </div>
+                        <button class="enter-course" onclick="window.location.href='../cyberspec/cyberspec.html'">Enter Course</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+
+
+    
+</body>
+</html>

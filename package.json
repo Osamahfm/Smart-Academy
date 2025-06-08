@@ -1,0 +1,25 @@
+{
+  "name": "coursey",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r   <img src=\"smart_academy-updated.png\" alt=\"Smart Academy Logo\" width=\"300\"/>\r </div>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Osamahfm/Coursey.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Osamahfm/Coursey/issues"
+  },
+  "homepage": "https://github.com/Osamahfm/Coursey#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

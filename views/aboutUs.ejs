@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Smart Academy</title>
+    <link rel="icon" type="image/x-icon" href="/Photos/smart_academy-updated.png">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/aboutUs.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <%- include('partials/nav') %>
+
+        <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>About Smart Academy</h1>
+        <p>Your gateway to mastering cutting-edge computer science technologies through comprehensive, hands-on courses designed by industry experts.</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2><i class="fas fa-book-reader"></i> Our Story</h2>
+            <p>SMART ACADEMY was founded in 2018 with a simple mission: to make high-quality computer science education accessible to everyone, everywhere. What started as a small platform with a handful of courses has grown into a comprehensive learning ecosystem serving over 500,000 students worldwide.</p>
+            <p>We believe that education should be engaging, practical, and directly applicable to real-world challenges. Our courses are designed not just to teach concepts, but to build skills that you can immediately put to use in your career or personal projects.</p>
+            <p>Our team of instructors includes industry veterans from top tech companies, academic researchers, and passionate educators who are committed to your success.</p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+        <h2><i class="fas fa-laptop-code"></i> Our Course Offerings</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <i class="fas fa-brain"></i>
+                <h3>Artificial Intelligence</h3>
+                <p>Dive into the world of AI with our comprehensive courses covering machine learning, deep learning, neural networks, and natural language processing.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cybersecurity</h3>
+                <p>Master the art of protecting systems, networks, and programs from digital attacks. Our cybersecurity courses cover ethical hacking and security best practices.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-code"></i>
+                <h3>Software Engineering</h3>
+                <p>Learn the principles of building robust, scalable software systems. Our curriculum covers software design patterns, architecture, and testing methodologies.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Front-End Development</h3>
+                <p>Create stunning, responsive user interfaces with our front-end courses. Master HTML5, CSS3, JavaScript, and modern frameworks.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-server"></i>
+                <h3>Back-End Development</h3>
+                <p>Build the server-side logic that powers web applications. Learn Node.js, Python, and database management systems.</p>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Internet of Things (IoT)</h3>
+                <p>Explore the interconnected world of smart devices. Our IoT courses cover sensor networks, embedded systems, and IoT security.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2><i class="fas fa-users"></i> Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="/Photos/person.jpg" alt="Youssef Morad">
+                <h3>Youssef Morad</h3>
+                <p>Founder & CEO</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/Photos/person.jpg" alt="Mahmoud Khaled">
+                <h3>Mahmoud Khaled</h3>
+                <p>Chief Learning Officer</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/Photos/person.jpg" alt="Omar Atef">
+                <h3>Omar Atef</h3>
+                <p>Director of Curriculum</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/Photos/person.jpg" alt="Osama Hamada">
+                <h3>Osama Hamada</h3>
+                <p>Lead Instructor</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/Photos/person.jpg" alt="Khaled Mohamed">
+                <h3>Khaled Mohamed</h3>
+                <p>Lead Instructor</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <script src="/js/home.js"></script>
+</body>
+</html>
