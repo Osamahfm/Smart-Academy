@@ -16,8 +16,12 @@ app.get('/aboutUs', (req, res) => {
 })
 
 app.get('/courses', (req, res) => {
-    res.render('courses'); // assuming the file is views/courses.ejs
+    res.render('courses');
 });
+
+app.get('/contactUs', (req, res) => {
+    res.render('contactUs'); 
+})
 
 app.listen(5050, () => {
     console.log("Server is running on port 5050");
