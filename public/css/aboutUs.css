@@ -385,7 +385,6 @@ footer {
     background: #2B7A78;
 }
 
-
 .footerinfo span {
     font-size: 2rem;
     font-weight: bold;
@@ -406,7 +405,7 @@ footer {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    display:contents
+    display: block;
 }
 
 .footerlist ul {

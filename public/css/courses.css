@@ -460,82 +460,71 @@ nav a:hover {
 
 
 
-footer .footerinfo {
-    background-color: #2B7A78;
+/* Footer Styles */
+footer {
+    background: #17252A;
+    color: #DEF2F1;
+    margin-top: auto;
+}
+
+.footerinfo {
     text-align: center;
-    font-family: "Cambria", Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-top: 50px;
-    color: #e8fbfb;
-    margin: 0;
+    padding: 3rem 2rem;
+    background: #2B7A78;
 }
 
-footer .footerinfo span {
-    display: block;
-    font-size: 50px;
-    padding-top: 20px;
+.footerinfo span {
+    font-size: 2rem;
     font-weight: bold;
-    margin: 0;
-}
-
-footer .footerinfo p {
-    font-size: 15px;
-    padding-bottom: 20px;
-    margin: 0;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
 .footerlist {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    background-color: #17252A;
-    padding: 40px 20px;
-    flex-wrap: wrap;
-}
-
-.footerlist div {
-    text-align: left;
-    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background: rgba(23, 37, 42, 0.9);
 }
 
 .footerlist span {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #e8fbfb;
-    font-size: 20px;
+    color: #DEF2F1;
+    font-size: 1.2rem;
     font-weight: bold;
+    margin-bottom: 1rem;
     display: block;
-    margin-bottom: 15px;
 }
 
 .footerlist ul {
     list-style: none;
-    padding: 0;
 }
 
-.footerlist li {
-    margin-bottom: 10px;
-}
-
-.footerlist a,
-.footer-contact a {
-    text-decoration: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.footerlist a {
     color: #b6d4d4;
-    font-size: 14px;
-    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    line-height: 2;
 }
 
-.footerlist a:hover,
-.footer-contact:hover {
-    color: #ffffff;
-    text-decoration: underline;
+.footerlist a:hover {
+    color: #DEF2F1;
 }
 
 .footer-copyright,
 .footer-contact {
     text-align: center;
-    color: #ffffff;
-    font-size: 14px;
-    background-color: #17252A;
-    padding: 10px 40px;
+    padding: 1rem;
+    background: rgba(23, 37, 42, 0.95);
+}
+
+.footer-contact a {
+    color: #2B7A78;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #DEF2F1;
 }
 
