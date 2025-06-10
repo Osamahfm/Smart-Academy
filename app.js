@@ -1,33 +1,32 @@
-
-// ...existing code...
-app.use('/api/categories', require('./routes/categoryRoutes'));
-app.use('/api/products', require('./routes/productRoutes'));
-const connectDB = require('./config/db');
-app.use('/api/users', require('./routes/userRoutes'));
-const adminRoutes = require('./routes/adminroutes');
-
-
-// Connect to MongoDB
-connectDB();
-
+// 1. IMPORT ALL MODULES FIRST
 const express = require('express');
 const path = require('path');
 const createError = require('http-errors');
+const connectDB = require('./config/db');
 
+// 2. INITIALIZE EXPRESS APP IMMEDIATELY
 const app = express();
 
-// View Engine Setup
+// 3. VIEW ENGINE SETUP
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Static Files
+// 4. MIDDLEWARE
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Body Parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Frontend Page Routes
+// 5. DATABASE CONNECTION
+connectDB();
+
+// 6. ROUTE IMPORTS
+const categoryRoutes = require('./routes/categoryRoutes');
+const productRoutes = require('./routes/productRoutes');
+const userRoutes = require('./routes/userRoutes');
+const adminRoutes = require('./routes/adminroutes');
+const apiRoutes = require('./routes'); // Main API routes
+
+// 7. FRONTEND PAGE ROUTES
 app.get(['/', '/home'], (req, res) => res.render('home'));
 app.get('/aboutUs', (req, res) => res.render('aboutUs'));
 app.get('/courses', (req, res) => res.render('courses'));
@@ -43,31 +42,31 @@ app.get('/introcyber', (req, res) => res.render('introcyber'));
 app.get('/cyberspec', (req, res) => res.render('cyberspec'));
 app.get('/cehacker', (req, res) => res.render('cehacker'));
 
-// API Routes
-app.use('/api', require('./routes'));
+// 8. API ROUTES
+app.use('/api/categories', categoryRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api', apiRoutes);
+app.use('/admin', adminRoutes);
 
-// Production Build (Optional for React frontend)
+// 9. PRODUCTION CONFIGURATION
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
-app.use('/admin', adminRoutes);
 
-// 404 Handler
+// 10. ERROR HANDLERS
 const routeNotFound = require('./middlewares/routeNotFound');
-app.use(routeNotFound);
-
-// Global Error Handler
 const errorHandler = require('./middlewares/errorHandler');
+app.use(routeNotFound);
 app.use(errorHandler);
 
-// Start Server
+// 11. START SERVER
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
 
 module.exports = app;
-
