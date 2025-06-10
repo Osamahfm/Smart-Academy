@@ -17,4 +17,4 @@ router.post(
   coursesController.createCourse
 );
 
-// Other routes...
+module.exports = router;
