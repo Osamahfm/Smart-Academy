@@ -1,21 +1,20 @@
 // routes/courses.js
 const express = require('express');
 const router = express.Router();
-const {
-  getCourses,
-  getCourse,
-  createCourse,
-  updateCourse,
-  deleteCourse
-} = require('../controllers/coursesController');
+const { body } = require('express-validator');
+const validateRequest = require('../middlewares/validateRequest');
+const coursesController = require('../controllers/coursesController');
 
-router.route('/')
-  .get(getCourses)
-  .post(createCourse);
+router.post(
+  '/',
+  [
+    body('title').notEmpty().withMessage('Title is required'),
+    body('description').notEmpty().withMessage('Description is required'),
+    body('duration').notEmpty().withMessage('Duration is required'),
+    body('instructor').notEmpty().withMessage('Instructor is required')
+  ],
+  validateRequest,
+  coursesController.createCourse
+);
 
-router.route('/:id')
-  .get(getCourse)
-  .put(updateCourse)
-  .delete(deleteCourse);
-
-module.exports = router;
+// Other routes...

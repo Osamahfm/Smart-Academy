@@ -106,3 +106,22 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+const express = require('express');
+
+const path = require('path');
+
+// Import error handlers
+const errorHandler = require('./middlewares/errorHandler');
+const routeNotFound = require('./middlewares/routeNotFound');
+
+// Routes
+app.use('/api', require('./routes'));
+
+// 404 handler for unhandled routes
+app.all('*', routeNotFound);
+
+// Global error handler
+app.use(errorHandler);
+
+module.exports = app;
