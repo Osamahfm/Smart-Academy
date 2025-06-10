@@ -4,6 +4,8 @@ app.use('/api/categories', require('./routes/categoryRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 const connectDB = require('./config/db');
 app.use('/api/users', require('./routes/userRoutes'));
+const adminRoutes = require('./routes/adminroutes');
+
 
 // Connect to MongoDB
 connectDB();
@@ -67,3 +69,4 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+app.use('/admin', adminRoutes);
