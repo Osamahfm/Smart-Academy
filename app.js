@@ -1,32 +1,33 @@
-// 1. IMPORT ALL MODULES FIRST
+
+// ...existing code...
+app.use('/api/categories', require('./routes/categoryRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
+const connectDB = require('./config/db');
+app.use('/api/users', require('./routes/userRoutes'));
+const adminRoutes = require('./routes/adminroutes');
+
+
+// Connect to MongoDB
+connectDB();
+
 const express = require('express');
 const path = require('path');
 const createError = require('http-errors');
-const connectDB = require('./config/db');
 
-// 2. INITIALIZE EXPRESS APP IMMEDIATELY
 const app = express();
 
-// 3. VIEW ENGINE SETUP
+// View Engine Setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// 4. MIDDLEWARE
+// Static Files
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Body Parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// 5. DATABASE CONNECTION
-connectDB();
-
-// 6. ROUTE IMPORTS
-const categoryRoutes = require('./routes/categoryRoutes');
-const productRoutes = require('./routes/productRoutes');
-const userRoutes = require('./routes/userRoutes');
-const adminRoutes = require('./routes/adminroutes');
-const apiRoutes = require('./routes'); // Main API routes
-
-// 7. FRONTEND PAGE ROUTES
+// Frontend Page Routes
 app.get(['/', '/home'], (req, res) => res.render('home'));
 app.get('/aboutUs', (req, res) => res.render('aboutUs'));
 app.get('/courses', (req, res) => res.render('courses'));
@@ -42,31 +43,31 @@ app.get('/introcyber', (req, res) => res.render('introcyber'));
 app.get('/cyberspec', (req, res) => res.render('cyberspec'));
 app.get('/cehacker', (req, res) => res.render('cehacker'));
 
-// 8. API ROUTES
-app.use('/api/categories', categoryRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api', apiRoutes);
-app.use('/admin', adminRoutes);
+// API Routes
+app.use('/api', require('./routes'));
 
-// 9. PRODUCTION CONFIGURATION
+// Production Build (Optional for React frontend)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+app.use('/admin', adminRoutes);
 
-// 10. ERROR HANDLERS
+// 404 Handler
 const routeNotFound = require('./middlewares/routeNotFound');
-const errorHandler = require('./middlewares/errorHandler');
 app.use(routeNotFound);
+
+// Global Error Handler
+const errorHandler = require('./middlewares/errorHandler');
 app.use(errorHandler);
 
-// 11. START SERVER
+// Start Server
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
 
 module.exports = app;
+
