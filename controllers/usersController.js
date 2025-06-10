@@ -19,6 +19,7 @@ let users = [
   }
 ];
 
+
 let nextId = 3;
 
 // Register user
@@ -96,21 +97,16 @@ exports.getUser = (req, res, next) => {
 };
 
 // Update user
-exports.updateUser = (req, res, next) => {
-  const user = users.find(u => u.id === parseInt(req.params.id));
-  
-  if (!user) {
-    return next(createError(404, 'User not found'));
-  }
-  
-  const { name, email, role } = req.body;
-  
-  if (name) user.name = name;
-  if (email) user.email = email;
-  if (role) user.role = role;
-  
-  const { password, ...userWithoutPassword } = user;
-  res.json(userWithoutPassword);
+exports.updateUser = async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    if (req.body.password) user.password = req.body.password;
+
+    await user.save();
+    res.json({ message: 'User updated' });
 };
 
 // Delete user
@@ -123,4 +119,24 @@ exports.deleteUser = (req, res, next) => {
   
   users = users.filter(u => u.id !== parseInt(req.params.id));
   res.status(204).send();
+};
+
+const User = require('../models/User');
+
+// Get all users (excluding password)
+exports.getUsers = async (req, res) => {
+    const users = await User.find().select('-password');
+    res.json(users);
+};
+
+// Get single user by ID (excluding password)
+exports.getUser = async (req, res) => {
+    const user = await User.findById(req.params.id).select('-password');
+    if (!user) return res.status(404).json({ message: 'User not found' });
+    res.json(user);
+};
+
+exports.getUserCount = async (req, res) => {
+    const count = await User.countDocuments();
+    res.json({ count });
 };

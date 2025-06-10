@@ -1,89 +1,72 @@
 // controllers/coursesController.js
+const Course = require('../models/Course');
 const createError = require('http-errors');
 
-// In-memory data store
-let courses = [
-  {
-    id: 1,
-    title: 'Introduction to Programming',
-    description: 'Learn the basics of programming',
-    duration: '8 weeks',
-    instructor: 'John Doe'
-  },
-  {
-    id: 2,
-    title: 'Web Development Fundamentals',
-    description: 'Learn HTML, CSS, and JavaScript',
-    duration: '10 weeks',
-    instructor: 'Jane Smith'
-  }
-];
-
-let nextId = 3;
-
 // Get all courses
-exports.getCourses = (req, res) => {
-  res.json(courses);
+exports.getCourses = async (req, res) => {
+    try {
+        const courses = await Course.find();
+        res.json(courses);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 };
 
 // Get single course
-exports.getCourse = (req, res, next) => {
-  const course = courses.find(c => c.id === parseInt(req.params.id));
-  
-  if (!course) {
-    return next(createError(404, 'Course not found'));
-  }
-  
-  res.json(course);
+exports.getCourse = async (req, res, next) => {
+    try {
+        const course = await Course.findById(req.params.id);
+        
+        if (!course) {
+            return next(createError(404, 'Course not found'));
+        }
+        
+        res.json(course);
+    } catch (error) {
+        next(createError(400, error.message));
+    }
 };
 
 // Create new course
-exports.createCourse = (req, res, next) => {
-  const { title, description, duration, instructor } = req.body;
-
-  if (!title || !description || !duration || !instructor) {
-    return next(createError(400, 'All fields are required'));
-  }
-
-  const newCourse = {
-    id: nextId++,
-    title,
-    description,
-    duration,
-    instructor
-  };
-
-  courses.push(newCourse);
-  res.status(201).json(newCourse);
+exports.createCourse = async (req, res, next) => {
+    try {
+        const course = await Course.create(req.body);
+        res.status(201).json(course);
+    } catch (error) {
+        next(createError(400, error.message));
+    }
 };
 
-
 // Update course
-exports.updateCourse = (req, res, next) => {
-  const course = courses.find(c => c.id === parseInt(req.params.id));
-  
-  if (!course) {
-    return next(createError(404, 'Course not found'));
-  }
-  
-  const { title, description, duration, instructor } = req.body;
-  
-  if (title) course.title = title;
-  if (description) course.description = description;
-  if (duration) course.duration = duration;
-  if (instructor) course.instructor = instructor;
-  
-  res.json(course);
+exports.updateCourse = async (req, res, next) => {
+    try {
+        const course = await Course.findByIdAndUpdate(
+            req.params.id, 
+            req.body,
+            { new: true, runValidators: true }
+        );
+        
+        if (!course) {
+            return next(createError(404, 'Course not found'));
+        }
+        
+        res.json(course);
+    } catch (error) {
+        next(createError(400, error.message));
+    }
 };
 
 // Delete course
-exports.deleteCourse = (req, res, next) => {
-  const courseIndex = courses.findIndex(c => c.id === parseInt(req.params.id));
-  
-  if (courseIndex === -1) {
-    return next(createError(404, 'Course not found'));
-  }
-  
-  courses = courses.filter(c => c.id !== parseInt(req.params.id));
-  res.status(204).send();
+exports.deleteCourse = async (req, res, next) => {
+    try {
+        const course = await Course.findByIdAndDelete(req.params.id);
+        
+        if (!course) {
+            return next(createError(404, 'Course not found'));
+        }
+        
+        res.status(204).send();
+    } catch (error) {
+        next(createError(400, error.message));
+    }
 };

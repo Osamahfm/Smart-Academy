@@ -131,6 +131,36 @@ nav a:hover {
     justify-content: center;
 }
 
+.nav-cart {
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-cart a {
+    color: white;
+    font-size: 1.4rem;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-cart a:hover {
+    color: #2B7A78;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: #ff4444;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    font-weight: bold;
+}
+
 /* Adjust responsive design */
 @media (max-width: 1200px) {
     nav {
@@ -186,109 +216,6 @@ nav a:hover {
         width: 90px;
         height: 35px;
         font-size: 0.9rem;
-    }
-}
-
-.search-section {
-    display: flex;
-    align-items: center;
-}
-
-.search-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.search-container {
-    position: relative;
-    flex: 1;
-    max-width: 400px;
-}
-
-.search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #2B7A78;
-}
-
-.search-container input {
-    width: 100%;
-    padding: 12px 15px 12px 45px;
-    border: 2px solid #2B7A78;
-    border-radius: 25px;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.search-container input:focus {
-    border-color: #17252A;
-    box-shadow: 0 4px 10px rgba(43, 122, 120, 0.2);
-}
-
-.filter-container {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.filter-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.filter-item i {
-    position: absolute;
-    left: 10px;
-    color: #2B7A78;
-    pointer-events: none;
-}
-
-.filter-item select {
-    padding: 8px 15px 8px 35px;
-    border: 2px solid #2B7A78;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    background: white;
-    color: #17252A;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    min-width: 150px;
-}
-
-.filter-item select:hover,
-.filter-item select:focus {
-    border-color: #17252A;
-    box-shadow: 0 2px 5px rgba(43, 122, 120, 0.1);
-}
-
-@media (max-width: 1024px) {
-    .search-wrapper {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .search-container {
-        max-width: none;
-    }
-
-    .filter-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .filter-item {
-        flex: 1;
-        min-width: 200px;
     }
 }
 
@@ -526,5 +453,108 @@ footer {
 
 .footer-contact a:hover {
     color: #DEF2F1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(23, 37, 42, 0.9);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.nav-search {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 2rem;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.search-container button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+}
+
+.search-container button:hover {
+    color: #007bff;
+}
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+}
+
+.auth-btn {
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(43, 122, 120, 0.9);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-search {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .auth-btn {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
 }
 

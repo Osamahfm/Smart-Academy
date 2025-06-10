@@ -1,3 +1,13 @@
+
+// ...existing code...
+app.use('/api/categories', require('./routes/categoryRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
+const connectDB = require('./config/db');
+app.use('/api/users', require('./routes/userRoutes'));
+
+// Connect to MongoDB
+connectDB();
+
 const express = require('express');
 const path = require('path');
 const createError = require('http-errors');
