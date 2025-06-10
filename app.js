@@ -53,6 +53,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+app.use('/admin', adminRoutes);
 
 // 404 Handler
 const routeNotFound = require('./middlewares/routeNotFound');
@@ -69,4 +70,4 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
-app.use('/admin', adminRoutes);
+
