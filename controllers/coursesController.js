@@ -38,13 +38,13 @@ exports.getCourse = (req, res, next) => {
 };
 
 // Create new course
-exports.createCourse = (req, res) => {
+exports.createCourse = (req, res, next) => {
   const { title, description, duration, instructor } = req.body;
-  
+
   if (!title || !description || !duration || !instructor) {
-    return next(createError(400, 'Missing required fields'));
+    return next(createError(400, 'All fields are required'));
   }
-  
+
   const newCourse = {
     id: nextId++,
     title,
@@ -52,10 +52,11 @@ exports.createCourse = (req, res) => {
     duration,
     instructor
   };
-  
+
   courses.push(newCourse);
   res.status(201).json(newCourse);
 };
+
 
 // Update course
 exports.updateCourse = (req, res, next) => {
