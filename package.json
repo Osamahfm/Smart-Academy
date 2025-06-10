@@ -4,6 +4,7 @@
   "description": "<div align=\"center\">\r   <img src=\"smart_academy-updated.png\" alt=\"Smart Academy Logo\" width=\"300\"/>\r </div>",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "repository": {
