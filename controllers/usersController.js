@@ -3,8 +3,19 @@ const createError = require('http-errors');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
+const userController = require('../controllers/usersController'); // Import userController
+
+// Define user routes
+router.get('/', usersController.getAllUsers);
+router.get('/:id', usersController.getUserById);
+router.post('/', usersController.createUser);
+router.put('/:id', usersController.updateUser);
+router.delete('/:id', usersController.deleteUser);
+
+module.exports = router;
+
 // Register user
-exports.registerUser = async (req, res, next) => {
+exports.createUser = async (req, res, next) => {
   const { name, email, password } = req.body;
   
   if (!name || !email || !password) {
@@ -61,7 +72,7 @@ exports.loginUser = async (req, res, next) => {
 };
 
 // Get all users (excluding password)
-exports.getUsers = async (req, res, next) => {
+exports.getAllUsers = async (req, res, next) => {
   try {
     const users = await User.find().select('-password');
     res.json(users);

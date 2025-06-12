@@ -1,9 +1,15 @@
 // controllers/coursesController.js
-const Course = require('../models/Course');
+const Course = require('../models/Courses'); // Fix the path
 const createError = require('http-errors');
 
+
+
+
+
+
+
 // Get all courses
-exports.getCourses = async (req, res) => {
+exports.getAllCourses = async (req, res) => {
     try {
         const courses = await Course.find();
         res.json(courses);
@@ -13,7 +19,7 @@ exports.getCourses = async (req, res) => {
 };
 
 // Get single course
-exports.getCourse = async (req, res, next) => {
+exports.getCourseById = async (req, res, next) => {
     try {
         const course = await Course.findById(req.params.id);
         

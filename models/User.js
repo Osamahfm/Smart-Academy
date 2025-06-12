@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
@@ -31,6 +32,7 @@ const userSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {

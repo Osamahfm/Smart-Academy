@@ -5,6 +5,16 @@ const dotenv = require('dotenv');
 const User = require('../models/User');
 dotenv.config();
 
+
+const authController = require('../controllers/authController');
+
+// Define authentication routes
+router.post('/register', authController.register);
+router.post('/login', authController.login);
+router.post('/logout', authController.logout);
+
+module.exports = router;
+
 // Register
 router.post('/register', async (req, res) => {
   try {

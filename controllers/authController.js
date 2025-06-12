@@ -1,6 +1,14 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
+const express = require('express');
+const router = express.Router();
+const authController = require('../controllers/authController');
+
+router.post('/register', authController.register);
+router.post('/login', authController.login);
+router.post('/logout', authController.logout); // Not logOut
+
 const generateToken = (user) => {
     return jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
@@ -47,15 +55,30 @@ exports.login = async (req, res) => {
     }
 };
 
+// Add the missing logout function
+exports.logout = async (req, res) => {
+    // Typically, logout is handled client-side by removing the token
+    // This endpoint can be used for server-side token invalidation if needed
+    res.status(200).json({ message: 'Logout successful' });
+};
+
 // Get all users (excluding password)
 exports.getUsers = async (req, res) => {
-    const users = await User.find().select('-password');
-    res.json(users);
+    try {
+        const users = await User.find().select('-password');
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };
 
 // Get single user by ID (excluding password)
 exports.getUser = async (req, res) => {
-    const user = await User.findById(req.params.id).select('-password');
-    if (!user) return res.status(404).json({ message: 'User not found' });
-    res.json(user);
+    try {
+        const user = await User.findById(req.params.id).select('-password');
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };

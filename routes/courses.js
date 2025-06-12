@@ -5,6 +5,16 @@ const { body } = require('express-validator');
 const validateRequest = require('../middlewares/validateRequest');
 const coursesController = require('../controllers/coursesController');
 
+
+
+// Corrected function names (uppercase 'C' in Courses)
+router.get('/', coursesController.getAllCourses); // Fixed: getAllCourses
+router.get('/:id', coursesController.getCourseById); // Fixed: getCourseById
+router.post('/', coursesController.createCourse); // Fixed: createCourse
+router.put('/:id', coursesController.updateCourse); // Fixed: updateCourse
+router.delete('/:id', coursesController.deleteCourse); // Fixed: deleteCourse
+
+
 router.post(
   '/',
   [

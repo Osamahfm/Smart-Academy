@@ -1,76 +1,53 @@
 require('dotenv').config();
-console.log('🌍 Loaded MONGODB_URI:', process.env.MONGODB_URI);
 const express = require('express');
-const mongoose = require('mongoose'); // ADD MISSING IMPORT
+const mongoose = require('mongoose');
+
 const app = express();
-const connectDB = require('./config/db');
-const path = require('path');
-const createError = require('http-errors');
+const PORT = process.env.PORT || 5050;
 
-console.log('🔍 MONGODB_URI =', process.env.MONGODB_URI);
+// Middleware
+app.use(express.json()); // Parses JSON requests
 
+// MongoDB connection
+const uri = process.env.MONGODB_URI;
 
-// Connect to MongoDB - CHOOSE ONE APPROACH BELOW
-
-// OPTION 1: Use your existing connectDB function (recommended)
-connectDB();
-
-// OPTION 2: Direct connection (remove connectDB if using this)
-// mongoose.connect(process.env.MONGODB_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
-// .then(() => console.log('Connected to MongoDB Atlas'))
-// .catch(err => console.error('Connection error:', err));
-
-// View Engine Setup
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Static Files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Body Parsers
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// API Routes
-app.use('/api/categories', require('./routes/categoryRoutes'));
-app.use('/api/products', require('./routes/productRoutes'));
-app.use('/api/users', require('./routes/userRoutes'));
-
-// Admin Routes
-const adminRoutes = require('./routes/adminroutes');
-app.use('/admin', adminRoutes);
-
-// Production Build
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  
-  app.get('*', (req, res, next) => {
-    if (req.originalUrl.startsWith('/api') || req.originalUrl.startsWith('/admin')) {
-      return next();
-    }
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
+if (!uri) {
+  console.error('❌ MONGODB_URI is not defined in .env');
+  process.exit(1);
 }
-app.get('/', (req, res) => {
-  res.send('✅ API is working!');
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('✅ Connected to MongoDB Atlas');
+})
+.catch((err) => {
+  console.error('❌ MongoDB connection failed:', err.message);
+  process.exit(1);
 });
 
+// Modular routing
+const indexRouter = require('./routes/index');
+app.use('/', indexRouter);
 
-// 404 Handler
-const routeNotFound = require('./middlewares/routeNotFound');
-app.use(routeNotFound);
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('🔥 Error:', err.stack);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
 
-// Global Error Handler
-const errorHandler = require('./middlewares/errorHandler');
-app.use(errorHandler);
-
-// Start Server
-const PORT = process.env.PORT || 5050;
+// Start the server
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server is running at http://localhost:${PORT}`);
+});
+
+// Graceful shutdown on Ctrl+C
+process.on('SIGINT', async () => {
+  await mongoose.disconnect();
+  console.log('\n🛑 MongoDB connection closed');
+  process.exit(0);
 });
 
 module.exports = app;

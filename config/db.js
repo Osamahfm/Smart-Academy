@@ -1,15 +1,15 @@
 // ./config/db.js
 
 const mongoose = require('mongoose');
-const uri = "mongodb+srv://osamahamadafm:VUImvoVhUiJ8xtUT@smartacagemy.isvdh60.mongodb.net/?retryWrites=true&w=majority&appName=SmartAcagemy";
+const uri = process.env.MONGODB_URI;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://osamahamadafm:Osamahfm10@smartacagemy.isvdh60.mongodb.net/mongodbVSCodePlaygroundDB?retryWrites=true&w=majority', {
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
-    console.log('✅ MongoDB Connected (hardcoded)');
+    console.log('✅ MongoDB Connected (using environment variable)');
   } catch (err) {
     console.error('❌ MongoDB connection failed:', err.message);
   }
