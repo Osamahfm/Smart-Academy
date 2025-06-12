@@ -1,16 +1,18 @@
+// ./config/db.js
+
 const mongoose = require('mongoose');
+const uri = "mongodb+srv://osamahamadafm:VUImvoVhUiJ8xtUT@smartacagemy.isvdh60.mongodb.net/?retryWrites=true&w=majority&appName=SmartAcagemy";
 
 const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (error) {
-        console.error(`Error: ${error.message}`);
-        process.exit(1);
-    }
+  try {
+    await mongoose.connect('mongodb+srv://osamahamadafm:Osamahfm10@smartacagemy.isvdh60.mongodb.net/mongodbVSCodePlaygroundDB?retryWrites=true&w=majority', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log('✅ MongoDB Connected (hardcoded)');
+  } catch (err) {
+    console.error('❌ MongoDB connection failed:', err.message);
+  }
 };
 
 module.exports = connectDB;
