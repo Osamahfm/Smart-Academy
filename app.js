@@ -1,20 +1,12 @@
-
-// ...existing code...
-app.use('/api/categories', require('./routes/categoryRoutes'));
-app.use('/api/products', require('./routes/productRoutes'));
-const connectDB = require('./config/db');
-app.use('/api/users', require('./routes/userRoutes'));
-const adminRoutes = require('./routes/adminroutes');
-
-
-// Connect to MongoDB
-connectDB();
-
+require('dotenv').config();
 const express = require('express');
+const app = express();
+const connectDB = require('./config/db');
 const path = require('path');
 const createError = require('http-errors');
 
-const app = express();
+// Connect to MongoDB
+connectDB();
 
 // View Engine Setup
 app.set('view engine', 'ejs');
@@ -27,33 +19,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Frontend Page Routes
-app.get(['/', '/home'], (req, res) => res.render('home'));
-app.get('/aboutUs', (req, res) => res.render('aboutUs'));
-app.get('/courses', (req, res) => res.render('courses'));
-app.get('/contactUs', (req, res) => res.render('contactUs'));
-app.get('/signlog', (req, res) => res.render('signlog'));
-app.get('/backend', (req, res) => res.render('backend'));
-app.get('/frontend', (req, res) => res.render('frontend'));
-app.get('/mobile', (req, res) => res.render('mobile'));
-app.get('/problemsolving', (req, res) => res.render('problemsolving'));
-app.get('/oop', (req, res) => res.render('oop'));
-app.get('/datastruct', (req, res) => res.render('datastruct'));
-app.get('/introcyber', (req, res) => res.render('introcyber'));
-app.get('/cyberspec', (req, res) => res.render('cyberspec'));
-app.get('/cehacker', (req, res) => res.render('cehacker'));
+// API Routes (Fixed duplicates and optimized)
+app.use('/api/categories', require('./routes/categoryRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
-// API Routes
-app.use('/api', require('./routes'));
+// Admin Routes
+const adminRoutes = require('./routes/adminroutes');
+app.use('/admin', adminRoutes);
 
-// Production Build (Optional for React frontend)
+// Production Build (Moved below API/admin routes)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
-  app.get('*', (req, res) => {
+  
+  // Smart catch-all that ignores API/admin routes
+  app.get('*', (req, res, next) => {
+    if (req.originalUrl.startsWith('/api') || req.originalUrl.startsWith('/admin')) {
+      return next(); // Skip to next middleware
+    }
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
-app.use('/admin', adminRoutes);
 
 // 404 Handler
 const routeNotFound = require('./middlewares/routeNotFound');
@@ -70,4 +56,3 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
-

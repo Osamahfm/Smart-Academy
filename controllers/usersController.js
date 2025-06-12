@@ -1,142 +1,150 @@
 // controllers/usersController.js
 const createError = require('http-errors');
-
-// In-memory data store
-let users = [
-  {
-    id: 1,
-    name: 'Admin User',
-    email: 'admin@example.com',
-    password: 'admin123',
-    role: 'admin'
-  },
-  {
-    id: 2,
-    name: 'John Doe',
-    email: 'john@example.com',
-    password: 'john123',
-    role: 'user'
-  }
-];
-
-
-let nextId = 3;
+const bcrypt = require('bcryptjs');
+const User = require('../models/User');
 
 // Register user
-exports.registerUser = (req, res, next) => {
+exports.registerUser = async (req, res, next) => {
   const { name, email, password } = req.body;
   
   if (!name || !email || !password) {
     return next(createError(400, 'Please provide name, email, and password'));
   }
   
-  // Check if user already exists
-  const existingUser = users.find(u => u.email === email);
-  if (existingUser) {
-    return next(createError(400, 'User already exists'));
+  try {
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return next(createError(400, 'User already exists'));
+    }
+
+    // Create user with hashed password
+    const user = await User.create({
+      name,
+      email,
+      password: bcrypt.hashSync(password, 10),
+      role: 'user'
+    });
+
+    // Return user without password
+    const { password: _, ...userWithoutPassword } = user.toObject();
+    res.status(201).json(userWithoutPassword);
+  } catch (error) {
+    next(error);
   }
-  
-  const newUser = {
-    id: nextId++,
-    name,
-    email,
-    password,
-    role: 'user'
-  };
-  
-  users.push(newUser);
-  
-  // In a real app, don't send back the password
-  const { password: _, ...userWithoutPassword } = newUser;
-  res.status(201).json(userWithoutPassword);
 };
 
 // Login user
-exports.loginUser = (req, res, next) => {
+exports.loginUser = async (req, res, next) => {
   const { email, password } = req.body;
   
   if (!email || !password) {
     return next(createError(400, 'Please provide email and password'));
   }
   
-  const user = users.find(u => u.email === email && u.password === password);
-  
-  if (!user) {
-    return next(createError(401, 'Invalid credentials'));
+  try {
+    const user = await User.findOne({ email });
+    
+    if (!user || !bcrypt.compareSync(password, user.password)) {
+      return next(createError(401, 'Invalid credentials'));
+    }
+
+    // Return user without password
+    const { password: _, ...userWithoutPassword } = user.toObject();
+    res.json({
+      success: true,
+      user: userWithoutPassword
+    });
+  } catch (error) {
+    next(error);
   }
-  
-  // In a real app, you would return a token here
-  const { password: _, ...userWithoutPassword } = user;
-  res.json({
-    success: true,
-    user: userWithoutPassword
-  });
 };
-
-// Get all users
-exports.getUsers = (req, res) => {
-  // Don't send passwords in response
-  const usersWithoutPasswords = users.map(user => {
-    const { password, ...rest } = user;
-    return rest;
-  });
-  
-  res.json(usersWithoutPasswords);
-};
-
-// Get single user
-exports.getUser = (req, res, next) => {
-  const user = users.find(u => u.id === parseInt(req.params.id));
-  
-  if (!user) {
-    return next(createError(404, 'User not found'));
-  }
-  
-  const { password, ...userWithoutPassword } = user;
-  res.json(userWithoutPassword);
-};
-
-// Update user
-exports.updateUser = async (req, res) => {
-    const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).json({ message: 'User not found' });
-
-    user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
-    if (req.body.password) user.password = req.body.password;
-
-    await user.save();
-    res.json({ message: 'User updated' });
-};
-
-// Delete user
-exports.deleteUser = (req, res, next) => {
-  const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
-  
-  if (userIndex === -1) {
-    return next(createError(404, 'User not found'));
-  }
-  
-  users = users.filter(u => u.id !== parseInt(req.params.id));
-  res.status(204).send();
-};
-
-const User = require('../models/User');
 
 // Get all users (excluding password)
-exports.getUsers = async (req, res) => {
+exports.getUsers = async (req, res, next) => {
+  try {
     const users = await User.find().select('-password');
     res.json(users);
+  } catch (error) {
+    next(error);
+  }
 };
 
 // Get single user by ID (excluding password)
-exports.getUser = async (req, res) => {
+exports.getUser = async (req, res, next) => {
+  try {
     const user = await User.findById(req.params.id).select('-password');
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (!user) {
+      return next(createError(404, 'User not found'));
+    }
     res.json(user);
+  } catch (error) {
+    next(error);
+  }
 };
 
-exports.getUserCount = async (req, res) => {
+// Get user profile (for currently logged in user)
+exports.getUserProfile = async (req, res, next) => {
+  try {
+    // req.user is set by auth middleware
+    const user = await User.findById(req.user._id).select('-password');
+    if (!user) {
+      return next(createError(404, 'User not found'));
+    }
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Update user profile
+exports.updateUserProfile = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user._id);
+    
+    if (!user) {
+      return next(createError(404, 'User not found'));
+    }
+    
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    
+    // Update password if provided
+    if (req.body.password) {
+      user.password = bcrypt.hashSync(req.body.password, 10);
+    }
+    
+    const updatedUser = await user.save();
+    
+    // Return updated user without password
+    const { password: _, ...userWithoutPassword } = updatedUser.toObject();
+    res.json(userWithoutPassword);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Delete user (admin only)
+exports.deleteUser = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return next(createError(404, 'User not found'));
+    }
+    
+    await user.remove();
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Get user count
+exports.getUserCount = async (req, res, next) => {
+  try {
     const count = await User.countDocuments();
     res.json({ count });
+  } catch (error) {
+    next(error);
+  }
 };
