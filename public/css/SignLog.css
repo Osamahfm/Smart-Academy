@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background: #2B7A78;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@ input {
 button {
     border-radius: 20px;
     border: none;
-    background-color: #007bff;
+    background-color: #2B7A78;
     color: #fff;
     font-size: 12px;
     font-weight: bold;
@@ -83,13 +83,14 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0e4e4b;
 }
 
 .forgot-password, .register-link, .login-link {
-    color: #007bff;
+    color: #2B7A78;
     text-decoration: none;
     margin-top: 10px;
+    text-decoration: none;
 }
 
 .forgot-password:hover, .register-link a:hover, .login-link a:hover {
@@ -124,7 +125,7 @@ button:hover {
 }
 
 .social-icon:hover {
-    background-color: #f1f1f1;
+    background-color: #2B7A78;
 }
 
 .container.right-panel-active .sign-in-container {
