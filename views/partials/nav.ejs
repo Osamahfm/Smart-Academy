@@ -31,3 +31,8 @@
 <!-- Admin Check Script -->
 <script src="/js/adminCheck.js"></script>
 
+<% if (admin) { %>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin/dashboard">Edit Courses</a>
+  </li>
+<% } %>
