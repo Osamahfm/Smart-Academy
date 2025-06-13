@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const homeCourseCategories = document.querySelectorAll('.course-category');
 
         // If search is empty, show all courses
+        if (!searchTerm) {
             courseCards.forEach(card => card.style.display = 'block');
             courseCategories.forEach(category => category.style.display = 'block');
             homeCourseCards.forEach(card => card.style.display = 'block');
