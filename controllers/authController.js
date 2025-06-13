@@ -25,20 +25,16 @@ exports.register = async (req, res) => {
             token: generateToken(user)
         });
     } catch (err) {
-        // ✅ هنا أضف شرط الـ ValidationError
         if (err.name === 'ValidationError') {
             const messages = Object.values(err.errors).map(val => val.message);
-            console.error("❌ Registration validation errors:", messages);
+            console.error(" Registration validation errors:", messages);
             return res.status(400).json({ message: messages.join(', ') });
         }
 
-        // باقي الأخطاء العادية
-        console.error("❌ Registration error:", err);
+        console.error(" Registration error:", err);
         res.status(400).json({ message: err.message });
     }
 };
-
-
 
 
 exports.login = async (req, res) => {
@@ -77,6 +73,22 @@ exports.logout = async (req, res) => {
     res.status(200).json({ message: 'Logout successful' });
 };
 
+// controllers/authController.js
+exports.resetPassword = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    user.password = password; 
+    await user.save();
+
+    res.status(200).json({ message: "Password updated successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 exports.getUsers = async (req, res) => {
     try {
         const users = await User.find().select('-password');
@@ -95,3 +107,7 @@ exports.getUser = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+
+
+

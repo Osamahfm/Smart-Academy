@@ -1,56 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="/css/SignLog.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/css/SignLog.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
 </head>
 <body>
-    <div class="container" id="container">
-        <div class="form-container sign-in-container">
-            <form id="loginForm">
-                <h1>Login</h1>
-                <div id="loginError" class="error-message" style="display: none; color: red; margin-bottom: 10px;"></div>
-                <input type="email" placeholder="Email" id="email" required />
-                <input type="password" placeholder="Password" id="password" required />
-                <a href="#" class="forgot-password">Forgot password?</a>
-                <button type="submit">Login</button>
-                <div class="social-login">
-                    <p>or login with</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <p class="register-link">Don't have an account? <a href="#" id="showRegister">Register</a></p>
-            </form>
+  <div class="container" id="container">
+    <!-- Login Form -->
+    <div class="form-container sign-in-container">
+      <form id="loginForm">
+        <h1>Login</h1>
+        <div id="loginError" class="error-message" style="display: none; color: red; margin-bottom: 10px;"></div>
+        <input type="email" placeholder="Email" id="email" required />
+        <input type="password" placeholder="Password" id="password" required />
+        <a href="#" id="showForgotPassword" class="forgot-password">Forgot password?</a>
+        <button type="submit">Login</button>
+        <div class="social-login">
+          <p>or login with</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
-        <div class="form-container sign-up-container">
-            <form id="registerForm">
-                <h1>Register</h1>
-                <div id="registerError" class="error-message" style="display: none; color: red; margin-bottom: 10px;"></div>
-                <input type="text" placeholder="Username" id="reg-username" required />
-                <input type="email" placeholder="Email" id="reg-email" required />
-                <input type="password" placeholder="Password" id="reg-password" required />
-                <button type="submit">Register</button>
-                <div class="social-login">
-                    <p>or register with</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <p class="login-link">Already have an account? <a href="#" id="showLogin">Login</a></p>
-            </form>
-        </div>
+        <p class="register-link">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+      </form>
     </div>
 
-    <script src="/js/SignLog.js"></script>
+    <!-- Register Form -->
+    <div class="form-container sign-up-container" style="display: none;">
+      <form id="registerForm">
+        <h1>Register</h1>
+        <div id="registerError" class="error-message" style="display: none; color: red; margin-bottom: 10px;"></div>
+        <input type="text" placeholder="Username" id="reg-username" required />
+        <input type="email" placeholder="Email" id="reg-email" required />
+        <input type="password" placeholder="Password" id="reg-password" required />
+        <button type="submit">Register</button>
+        <div class="social-login">
+          <p>or register with</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <p class="login-link">Already have an account? <a href="#" id="showLogin">Login</a></p>
+      </form>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div class="form-container forgot-password-container" style="display: none;">
+      <form id="forgotPasswordForm">
+        <h1>Reset Password</h1>
+        <div id="resetError" class="error-message" style="display: none; color: red; margin-bottom: 10px;"></div>
+        <input type="email" placeholder="Email" id="resetEmail" required />
+        <input type="password" placeholder="New password" id="newPassword" required />
+        <button type="submit">Update Password</button>
+        <p class="login-link">Remembered your password? <a href="#" id="backToLogin">Back to Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/SignLog.js"></script>
 </body>
 </html>

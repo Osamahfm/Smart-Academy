@@ -12,6 +12,8 @@ const authController = require('../controllers/authController');
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 router.post('/logout', authController.logout);
+// routes/auth.js
+router.post('/resetPassword', authController.resetPassword);
 
 // Check admin status
 router.get('/check-admin', protect, async (req, res) => {
@@ -25,5 +27,7 @@ router.get('/check-admin', protect, async (req, res) => {
         res.status(500).json({ message: 'Error checking admin status' });
     }
 });
+
+
 
 module.exports = router;

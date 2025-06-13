@@ -40,6 +40,7 @@ app.get('/introcyber', (req, res) => res.render('introcyber'));
 app.get('/cyberspec', (req, res) => res.render('cyberspec'));
 app.get('/cehacker', (req, res) => res.render('cehacker'));
 
+
 // API Routes
 app.use('/api', require('./routes'));
 app.use('/api/auth', require('./routes/auth'));
