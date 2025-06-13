@@ -74,3 +74,5 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
