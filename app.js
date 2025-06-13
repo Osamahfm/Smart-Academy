@@ -1,53 +1,60 @@
-require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+const path = require('path');
+const createError = require('http-errors');
 
 const app = express();
-const PORT = process.env.PORT || 5050;
 
-// Middleware
-app.use(express.json()); // Parses JSON requests
+// View Engine Setup
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// MongoDB connection
-const uri = process.env.MONGODB_URI;
+// Static Files
+app.use(express.static(path.join(__dirname, 'public')));
 
-if (!uri) {
-  console.error('❌ MONGODB_URI is not defined in .env');
-  process.exit(1);
+// Body Parsers
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+
+// Frontend Page Routes
+app.get(['/', '/home'], (req, res) => res.render('home'));
+app.get('/aboutUs', (req, res) => res.render('aboutUs'));
+app.get('/courses', (req, res) => res.render('courses'));
+app.get('/contactUs', (req, res) => res.render('contactUs'));
+app.get('/signlog', (req, res) => res.render('signlog'));
+app.get('/backend', (req, res) => res.render('backend'));
+app.get('/frontend', (req, res) => res.render('frontend'));
+app.get('/mobile', (req, res) => res.render('mobile'));
+app.get('/problemsolving', (req, res) => res.render('problemsolving'));
+app.get('/oop', (req, res) => res.render('oop'));
+app.get('/datastruct', (req, res) => res.render('datastruct'));
+app.get('/introcyber', (req, res) => res.render('introcyber'));
+app.get('/cyberspec', (req, res) => res.render('cyberspec'));
+app.get('/cehacker', (req, res) => res.render('cehacker'));
+
+// API Routes
+app.use('/api', require('./routes'));
+
+// Production Build (Optional for React frontend)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 }
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log('✅ Connected to MongoDB Atlas');
-})
-.catch((err) => {
-  console.error('❌ MongoDB connection failed:', err.message);
-  process.exit(1);
-});
+// 404 Handler
+const routeNotFound = require('./middlewares/routeNotFound');
+app.use(routeNotFound);
 
-// Modular routing
-const indexRouter = require('./routes/index');
-app.use('/', indexRouter);
+// Global Error Handler
+const errorHandler = require('./middlewares/errorHandler');
+app.use(errorHandler);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error('🔥 Error:', err.stack);
-  res.status(500).json({ error: 'Internal Server Error' });
-});
-
-// Start the server
+// Start Server
+const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running at http://localhost:${PORT}`);
-});
-
-// Graceful shutdown on Ctrl+C
-process.on('SIGINT', async () => {
-  await mongoose.disconnect();
-  console.log('\n🛑 MongoDB connection closed');
-  process.exit(0);
+  console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
 
 module.exports = app;
