@@ -1,10 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("/api/courses")
+let currentPage = 1;
+
+function loadCourses(page = 1) {
+  fetch(`/api/courses?page=${page}&limit=6`)
     .then(response => {
       if (!response.ok) throw new Error("Failed to fetch courses");
       return response.json();
     })
-    .then(courses => {
+    .then(data => {
+      const { courses, totalPages } = data;
       const container = document.getElementById("dynamic-courses-container");
       container.innerHTML = "";
 
@@ -32,10 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         container.appendChild(card);
       });
+
+      // Pagination controls
+      const pagination = document.getElementById("pagination-controls");
+      pagination.innerHTML = `
+        <button ${page <= 1 ? "disabled" : ""} onclick="loadCourses(${page - 1})">Previous</button>
+        <span>Page ${page} of ${totalPages}</span>
+        <button ${page >= totalPages ? "disabled" : ""} onclick="loadCourses(${page + 1})">Next</button>
+      `;
+      currentPage = page;
     })
     .catch(error => {
       console.error("Error loading courses:", error);
       document.getElementById("dynamic-courses-container").innerHTML =
         "<p>Failed to load courses. Please try again later.</p>";
     });
-});
+}
+
+document.addEventListener("DOMContentLoaded", () => loadCourses(currentPage));
