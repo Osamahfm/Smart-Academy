@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const createError = require('http-errors');
 const connectDB = require('./config/db');
+const contactRoutes = require('./routes/contact'); // غيّر الاسم حسب ملفك
+
 
 const app = express();
 
@@ -45,6 +47,8 @@ app.get('/cehacker', (req, res) => res.render('cehacker'));
 app.use('/api', require('./routes'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/courses', require('./routes/courses'));
+app.use('/', contactRoutes);
+
 
 // Production Build (Optional for React frontend)
 if (process.env.NODE_ENV === 'production') {
