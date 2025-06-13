@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Specialization | Smart</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/cyberspec.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <header>
+        <img class="logo-img" src="/Photos/smart_academy-updated.png" alt="logo" onclick="window.location.href='/home'"> 
+        <h2>Cyber Security Specialization</h2>
+    </header>
+
+    <%- include('partials/nav') %>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modalTitle">Shopping Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: </strong>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+    <div class="course-banner">
+        <img src="/Photos/cyber-specialization.jpg" alt="Cyber Security Specialization" class="course-image">
+    </div>
+
+    <div class="course-content">
+        <section class="overview">
+            <h2>Course Overview</h2>
+            <p>Take your cyber security skills to the next level with our comprehensive specialization program. This advanced course covers cutting-edge security techniques, threat intelligence, incident response, and security architecture design.</p>
+            <div class="course-actions">
+                <button class="add-to-cart" data-course="cyberspec" data-price="1299">
+                    <i class="fas fa-cart-plus"></i>
+                    Add to Cart - $1,299
+                </button>
+            </div>
+        </section>
+
+        <section class="what-you-learn">
+            <h2>What You'll Learn</h2>
+            <div class="learning-points">
+                <ul>
+                    <li>Advanced security architecture and design</li>
+                    <li>Cloud security and DevSecOps</li>
+                    <li>Threat hunting and intelligence</li>
+                    <li>Incident response and forensics</li>
+                    <li>Security automation and orchestration</li>
+                    <li>Zero trust architecture implementation</li>
+                    <li>Advanced malware analysis</li>
+                    <li>Security compliance and frameworks</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="Curriculum">
+            <h2>Course Curriculum</h2>
+            <div class="module-list">
+                <div class="module">
+                    <h3>Module 1: Advanced Security Architecture</h3>
+                    <ul>
+                        <li>Enterprise Security Architecture</li>
+                        <li>Zero Trust Implementation</li>
+                        <li>Security Frameworks and Standards</li>
+                        <li>Risk Management Strategies</li>
+                    </ul>
+                </div>
+
+                <div class="module">
+                    <h3>Module 2: Cloud Security & DevSecOps</h3>
+                    <ul>
+                        <li>Cloud Security Architecture</li>
+                        <li>Container Security</li>
+                        <li>CI/CD Security Integration</li>
+                        <li>Cloud Native Security Tools</li>
+                    </ul>
+                </div>
+
+                <div class="module">
+                    <h3>Module 3: Threat Intelligence</h3>
+                    <ul>
+                        <li>Threat Intelligence Platforms</li>
+                        <li>Threat Hunting Techniques</li>
+                        <li>Intelligence-Driven Defense</li>
+                        <li>APT Detection and Response</li>
+                    </ul>
+                </div>
+
+                <div class="module">
+                    <h3>Module 4: Security Automation</h3>
+                    <ul>
+                        <li>SOAR Implementation</li>
+                        <li>Security Playbooks</li>
+                        <li>Automated Response Systems</li>
+                        <li>Integration and Orchestration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="requirements">
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>Previous experience in cyber security</li>
+                <li>Understanding of networking and systems</li>
+                <li>Basic programming/scripting knowledge</li>
+                <li>Familiarity with cloud platforms</li>
+                <li>Understanding of security tools and frameworks</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script src="/js/cyberspec.js" defer></script>
+
+</body>
+</html>

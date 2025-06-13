@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programming | Smart Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/oop.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <header>
+        <img class="logo-img" src="/Photos/smart_academy-updated.png" alt="Smart Academy Logo" onclick="window.location.href='/home'"> 
+        <h2>Object Oriented Programming</h2>
+    </header>
+
+    <%- include('partials/nav') %>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modalTitle">Shopping Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: </strong>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <div class="course-banner">
+        <img src="/Photos/1677400884011.jfif" alt="Object Oriented Programming Course" class="course-image">
+        <div class="banner-overlay">
+            <h1>Full OOP Course for Beginners</h1>
+        </div>
+    </div>
+
+    <div class="course-content">
+        <section class="overview">
+            <h2>Course Overview</h2>
+            <p>Master Object-Oriented Programming principles and concepts with our comprehensive course.</p>
+            
+            <div class="course-meta">
+                <span class="rating">
+                    <i class="fas fa-star"></i> 4.5
+                    <small>(2,234 ratings)</small>
+                </span>
+                <span class="students">
+                    <i class="fas fa-users"></i> 53,280 students
+                </span>
+                <span class="instructor">
+                    <i class="fas fa-chalkboard-teacher"></i> Eng. Robert Lafore
+                </span>
+                <span class="language">
+                    <i class="fas fa-globe"></i> English, Arabic
+                </span>
+                <span class="last-updated">
+                    <i class="fas fa-calendar-alt"></i> Last updated 22/3/2025
+                </span>
+            </div>
+
+            <div class="course-actions">
+                <button class="add-to-cart" data-course="oop" data-price="599">
+                    <i class="fas fa-cart-plus"></i>
+                    Add to Cart - $599
+                </button>
+            </div>
+        </section>
+
+        <section class="what-you-learn">
+            <h2>What You'll Learn</h2>
+            <ul class="checklist">
+                <li><i class="fas fa-check"></i> Core principles of OOP: encapsulation, inheritance, abstraction, and polymorphism</li>
+                <li><i class="fas fa-check"></i> Design and structure programs using classes and objects</li>
+                <li><i class="fas fa-check"></i> Real-world OOP applications and implementations</li>
+                <li><i class="fas fa-check"></i> Constructors, access modifiers, and method overloading</li>
+                <li><i class="fas fa-check"></i> Debug and test OOP-based applications</li>
+                <li><i class="fas fa-check"></i> OOP in Java, Python, and C++</li>
+                <li><i class="fas fa-check"></i> Model complex systems using object-oriented design</li>
+                <li><i class="fas fa-check"></i> Interfaces and abstract classes</li>
+            </ul>
+        </section>
+
+        <section class="course-includes">
+            <h2>This Course Includes</h2>
+            <ul>
+                <li><i class="fas fa-video"></i> 20 basic lectures</li>
+                <li><i class="fas fa-tasks"></i> 11 assignments per lecture</li>
+                <li><i class="fas fa-redo"></i> Recap videos</li>
+                <li><i class="fas fa-question-circle"></i> Quizzes after each lecture</li>
+                <li><i class="fas fa-certificate"></i> Certificate of completion</li>
+                <li><i class="fas fa-infinity"></i> Full lifetime access</li>
+            </ul>
+        </section>
+
+        <section class="learning-outcomes">
+            <h2>By The End Of This Course You Will Be Able To</h2>
+            <ol>
+                <li>Master the basics of Object-Oriented Programming</li>
+                <li>Handle problems using inheritance and polymorphism</li>
+                <li>Design and implement complex object-oriented systems</li>
+                <li>Write clean, maintainable, and reusable code</li>
+                <li>Apply OOP principles in real-world projects</li>
+            </ol>
+        </section>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script src="/js/oop.js"></script>
+</body>
+</html>

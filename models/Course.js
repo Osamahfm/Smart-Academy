@@ -1,0 +1,43 @@
+const mongoose = require('mongoose');
+
+const courseSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: [true, 'Course title is required'],
+        trim: true
+    },
+    description: {
+        type: String,
+        required: [true, 'Course description is required']
+    },
+    price: {
+        type: Number,
+        required: [true, 'Course price is required'],
+        min: [0, 'Price cannot be negative']
+    },
+    category: {
+        type: String,
+        required: [true, 'Course category is required'],
+        enum: ['frontend', 'backend', 'mobile', 'problemsolving', 'oop', 'datastruct', 'introcyber', 'cyberspec', 'cehacker']
+    },
+    imageUrl: {
+        type: String,
+        required: [true, 'Course image is required']
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+// Update the updatedAt timestamp before saving
+courseSchema.pre('save', function(next) {
+    this.updatedAt = Date.now();
+    next();
+});
+
+module.exports = mongoose.model('Course', courseSchema); 

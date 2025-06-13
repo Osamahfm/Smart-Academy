@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course - Coursey Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <%- include('../partials/adminHeader') %>
+    
+    <div class="container mt-4">
+        <h1>Add New Course</h1>
+        
+        <% if (typeof error !== 'undefined') { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+
+        <form action="/api/admin/courses/add" method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="title" class="form-label">Course Title</label>
+                <input type="text" class="form-control" id="title" name="title" required value="<%= typeof formData !== 'undefined' ? formData.title : '' %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required><%= typeof formData !== 'undefined' ? formData.description : '' %></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price ($)</label>
+                <input type="number" class="form-control" id="price" name="price" min="0" step="0.01" required value="<%= typeof formData !== 'undefined' ? formData.price : '' %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="frontend" <%= typeof formData !== 'undefined' && formData.category === 'frontend' ? 'selected' : '' %>>Frontend</option>
+                    <option value="backend" <%= typeof formData !== 'undefined' && formData.category === 'backend' ? 'selected' : '' %>>Backend</option>
+                    <option value="mobile" <%= typeof formData !== 'undefined' && formData.category === 'mobile' ? 'selected' : '' %>>Mobile</option>
+                    <option value="problemsolving" <%= typeof formData !== 'undefined' && formData.category === 'problemsolving' ? 'selected' : '' %>>Problem Solving</option>
+                    <option value="oop" <%= typeof formData !== 'undefined' && formData.category === 'oop' ? 'selected' : '' %>>OOP</option>
+                    <option value="datastruct" <%= typeof formData !== 'undefined' && formData.category === 'datastruct' ? 'selected' : '' %>>Data Structures</option>
+                    <option value="introcyber" <%= typeof formData !== 'undefined' && formData.category === 'introcyber' ? 'selected' : '' %>>Intro to Cybersecurity</option>
+                    <option value="cyberspec" <%= typeof formData !== 'undefined' && formData.category === 'cyberspec' ? 'selected' : '' %>>Cybersecurity Specialist</option>
+                    <option value="cehacker" <%= typeof formData !== 'undefined' && formData.category === 'cehacker' ? 'selected' : '' %>>CEH Hacker</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="imageUrl" class="form-label">Image URL</label>
+                <input type="url" class="form-control" id="imageUrl" name="imageUrl" required value="<%= typeof formData !== 'undefined' ? formData.imageUrl : '' %>">
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Add Course</button>
+                <a href="/api/admin/courses" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

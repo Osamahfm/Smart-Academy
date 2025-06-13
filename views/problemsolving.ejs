@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Solving Course</title>
+    <link rel="stylesheet" href="/css/problem solving.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo-img" src="/Photos/smart_academy-updated.png" alt="logo" onclick="window.location.href='/home'" />
+        <h2>Problem Solving</h2>
+    </header>
+
+    <%- include('partials/nav') %>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modalTitle">Shopping Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Total: </strong>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <div class="course-banner">
+            <img src="/Photos/problem-solving-concept-technique.webp" alt="Problem Solving Course" class="course-image">
+        </div>
+
+        <div class="course-content">
+            <section class="overview">
+                <h2>Course Overview</h2>
+                <p>Master problem-solving techniques and algorithmic thinking with our comprehensive course.</p>
+                
+                <div class="course-meta">
+                    <span class="rating">
+                        <i class="fas fa-star"></i> 5.1
+                        <small>(2,234 ratings)</small>
+                    </span>
+                    <span class="students">
+                        <i class="fas fa-users"></i> 53,280 students
+                    </span>
+                    <span class="instructor">
+                        <i class="fas fa-chalkboard-teacher"></i> Eng. Robert Lafore
+                    </span>
+                    <span class="language">
+                        <i class="fas fa-globe"></i> English, Arabic
+                    </span>
+                    <span class="last-updated">
+                        <i class="fas fa-calendar-alt"></i> Last updated 22/3/2025
+                    </span>
+                </div>
+
+                <div class="course-actions">
+                    <button class="add-to-cart" data-course="problemsolving" data-price="599">
+                        <i class="fas fa-cart-plus"></i>
+                        Add to Cart - $599
+                    </button>
+                </div>
+            </section>
+
+            <section class="what-you-learn">
+                <h2>What You'll Learn</h2>
+                <ul class="checklist">
+                    <li><i class="fas fa-check"></i> Break down complex problems into manageable parts</li>
+                    <li><i class="fas fa-check"></i> Master algorithmic thinking and step-by-step problem solving</li>
+                    <li><i class="fas fa-check"></i> Analyze problems efficiently by identifying patterns</li>
+                    <li><i class="fas fa-check"></i> Write pseudocode and flowcharts to plan solutions</li>
+                    <li><i class="fas fa-check"></i> Explore various problem-solving paradigms and techniques</li>
+                    <li><i class="fas fa-check"></i> Optimize solutions for better time and space complexity</li>
+                    <li><i class="fas fa-check"></i> Model complex systems through object decomposition</li>
+                    <li><i class="fas fa-check"></i> Debug and test solutions effectively</li>
+                    <li><i class="fas fa-check"></i> Solve real-world programming challenges</li>
+                    <li><i class="fas fa-check"></i> Excel in coding interviews</li>
+                </ul>
+            </section>
+
+            <section class="course-includes">
+                <h2>This Course Includes</h2>
+                <ul>
+                    <li><i class="fas fa-video"></i> 25 basic lectures</li>
+                    <li><i class="fas fa-tasks"></i> 3 assignments per lecture</li>
+                    <li><i class="fas fa-redo"></i> Recap videos</li>
+                    <li><i class="fas fa-question-circle"></i> Quizzes after each lecture</li>
+                    <li><i class="fas fa-certificate"></i> Certificate of completion</li>
+                    <li><i class="fas fa-infinity"></i> Full lifetime access</li>
+                </ul>
+            </section>
+
+            <section class="learning-outcomes">
+                <h2>By The End Of This Course You Will Be Able To</h2>
+                <ol>
+                    <li>Apply critical thinking to solve complex problems</li>
+                    <li>Use different approaches for solving algorithms</li>
+                    <li>Implement efficient problem-solving strategies</li>
+                    <li>Write optimized and scalable solutions</li>
+                    <li>Tackle coding interviews with confidence</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="/js/problemsolving.js"></script>
+</body>
+</html>
