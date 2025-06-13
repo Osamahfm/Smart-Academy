@@ -1,29 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('container');
+
     const showRegister = document.getElementById('showRegister');
     const showLogin = document.getElementById('showLogin');
+    const showForgotPassword = document.getElementById('showForgotPassword');
+    const backToLogin = document.getElementById('backToLogin');
+
+    const loginFormContainer = document.querySelector('.sign-in-container');
+    const registerFormContainer = document.querySelector('.sign-up-container');
+    const forgotPasswordContainer = document.querySelector('.forgot-password-container');
 
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
+    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
 
     const loginError = document.getElementById('loginError');
     const registerError = document.getElementById('registerError');
+    const resetError = document.getElementById('resetError');
 
-    // التحويل إلى نموذج التسجيل
+    // Show Register Form
     showRegister.addEventListener('click', (e) => {
         e.preventDefault();
-        container.classList.add('right-panel-active');
+        loginFormContainer.style.display = 'none';
+        registerFormContainer.style.display = 'block';
+        forgotPasswordContainer.style.display = 'none';
         clearErrors();
     });
 
-    // التحويل إلى نموذج تسجيل الدخول
+    // Show Login Form
     showLogin.addEventListener('click', (e) => {
         e.preventDefault();
-        container.classList.remove('right-panel-active');
+        loginFormContainer.style.display = 'block';
+        registerFormContainer.style.display = 'none';
+        forgotPasswordContainer.style.display = 'none';
         clearErrors();
     });
 
-    // إرسال نموذج تسجيل الدخول
+    // Show Forgot Password Form
+    showForgotPassword.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginFormContainer.style.display = 'none';
+        registerFormContainer.style.display = 'none';
+        forgotPasswordContainer.style.display = 'block';
+        clearErrors();
+    });
+
+    // Back to Login from Forgot Password
+    backToLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginFormContainer.style.display = 'block';
+        registerFormContainer.style.display = 'none';
+        forgotPasswordContainer.style.display = 'none';
+        clearErrors();
+    });
+
+    // Handle Login Submit
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         clearErrors();
@@ -38,27 +69,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const res = await fetch('/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
-        });
-
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
 
             const data = await res.json();
 
-           if (res.ok) {
+            if (res.ok) {
                 alert("Login successful");
                 window.location.href = '/home';
-            } 
-            else {
+            } else {
                 showError(loginError, data.message || "Login failed.");
             }
-
         } catch (err) {
             showError(loginError, "Something went wrong. Please try again.");
         }
     });
 
+    // Handle Register Submit
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         clearErrors();
@@ -72,43 +101,75 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-console.log("Register request body:", { name, email, password });
-
-
         try {
             const res = await fetch('/api/auth/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, password })
-        });
-
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password })
+            });
 
             const data = await res.json();
 
             if (res.ok) {
                 alert("Register successful! Please login.");
-                document.getElementById('container').classList.remove('right-panel-active');
-            } 
-            else {
+                showLogin.click();
+            } else {
                 showError(registerError, data.message || "Registration failed.");
             }
-
         } catch (err) {
             showError(registerError, "Something went wrong. Please try again.");
         }
     });
 
-    // دالة لإخفاء الأخطاء
+    // Handle Forgot Password Submit
+    forgotPasswordForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErrors();
+
+        const email = document.getElementById('resetEmail').value.trim();
+        const password = document.getElementById('newPassword').value.trim();
+
+        if (!email || !password) {
+            showError(resetError, "Please fill in both fields.");
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/auth/resetPassword', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                alert("Password Updated successful. Please login.");
+                showLogin.click();
+            } else {
+                showError(resetError, data.message || "Update failed.");
+            }
+        } catch (err) {
+            showError(resetError, "Something went wrong. Please try again.");
+        }
+    });
+
+    // Clear error messages
     function clearErrors() {
-        loginError.style.display = 'none';
-        loginError.style.color = 'red';
-        registerError.style.display = 'none';
+        [loginError, registerError, resetError].forEach(el => {
+            if (el) {
+                el.style.display = 'none';
+                el.textContent = '';
+            }
+        });
     }
 
-    // دالة لعرض الخطأ
+    // Show error message
     function showError(element, message) {
-        element.textContent = message;
-        element.style.display = 'block';
-        element.style.color = 'red';
+        if (element) {
+            element.textContent = message;
+            element.style.display = 'block';
+            element.style.color = 'red';
+        }
     }
 });
