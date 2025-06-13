@@ -18,44 +18,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerError = document.getElementById('registerError');
     const resetError = document.getElementById('resetError');
 
-    // Show Register Form
-    showRegister.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginFormContainer.style.display = 'none';
-        registerFormContainer.style.display = 'block';
-        forgotPasswordContainer.style.display = 'none';
+    const forms = {
+        login: loginFormContainer,
+        register: registerFormContainer,
+        forgot: forgotPasswordContainer
+    };
+
+    // General function to show a specific form and hide the others
+    function switchForm(formToShow) {
+        Object.values(forms).forEach(form => form.style.display = 'none');
+        forms[formToShow].style.display = 'block';
         clearErrors();
+    }
+
+    showRegister.addEventListener('click', e => {
+        e.preventDefault();
+        switchForm('register');
     });
 
-    // Show Login Form
-    showLogin.addEventListener('click', (e) => {
+    showLogin.addEventListener('click', e => {
         e.preventDefault();
-        loginFormContainer.style.display = 'block';
-        registerFormContainer.style.display = 'none';
-        forgotPasswordContainer.style.display = 'none';
-        clearErrors();
+        switchForm('login');
     });
 
-    // Show Forgot Password Form
-    showForgotPassword.addEventListener('click', (e) => {
+    showForgotPassword.addEventListener('click', e => {
         e.preventDefault();
-        loginFormContainer.style.display = 'none';
-        registerFormContainer.style.display = 'none';
-        forgotPasswordContainer.style.display = 'block';
-        clearErrors();
+        switchForm('forgot');
     });
 
-    // Back to Login from Forgot Password
-    backToLogin.addEventListener('click', (e) => {
+    backToLogin.addEventListener('click', e => {
         e.preventDefault();
-        loginFormContainer.style.display = 'block';
-        registerFormContainer.style.display = 'none';
-        forgotPasswordContainer.style.display = 'none';
-        clearErrors();
+        switchForm('login');
     });
 
     // Handle Login Submit
-    loginForm.addEventListener('submit', async (e) => {
+    loginForm.addEventListener('submit', async e => {
         e.preventDefault();
         clearErrors();
 
@@ -63,8 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('password').value.trim();
 
         if (!email || !password) {
-            showError(loginError, "Please enter both email and password.");
-            return;
+            return showError(loginError, "Please enter both email and password.");
         }
 
         try {
@@ -73,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
             });
-
             const data = await res.json();
 
             if (res.ok) {
@@ -82,13 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 showError(loginError, data.message || "Login failed.");
             }
-        } catch (err) {
+        } catch {
             showError(loginError, "Something went wrong. Please try again.");
         }
     });
 
     // Handle Register Submit
-    registerForm.addEventListener('submit', async (e) => {
+    registerForm.addEventListener('submit', async e => {
         e.preventDefault();
         clearErrors();
 
@@ -97,8 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('reg-password').value.trim();
 
         if (!name || !email || !password) {
-            showError(registerError, "All fields are required.");
-            return;
+            return showError(registerError, "All fields are required.");
         }
 
         try {
@@ -107,22 +101,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password })
             });
-
             const data = await res.json();
 
             if (res.ok) {
                 alert("Register successful! Please login.");
-                showLogin.click();
+                switchForm('login');
             } else {
                 showError(registerError, data.message || "Registration failed.");
             }
-        } catch (err) {
+        } catch {
             showError(registerError, "Something went wrong. Please try again.");
         }
     });
 
     // Handle Forgot Password Submit
-    forgotPasswordForm.addEventListener('submit', async (e) => {
+    forgotPasswordForm.addEventListener('submit', async e => {
         e.preventDefault();
         clearErrors();
 
@@ -130,8 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('newPassword').value.trim();
 
         if (!email || !password) {
-            showError(resetError, "Please fill in both fields.");
-            return;
+            return showError(resetError, "Please fill in both fields.");
         }
 
         try {
@@ -140,21 +132,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
             });
-
             const data = await res.json();
 
             if (res.ok) {
-                alert("Password Updated successful. Please login.");
-                showLogin.click();
+                alert("Password updated successfully. Please login.");
+                switchForm('login');
             } else {
                 showError(resetError, data.message || "Update failed.");
             }
-        } catch (err) {
+        } catch {
             showError(resetError, "Something went wrong. Please try again.");
         }
     });
 
-    // Clear error messages
+    // Utility: Clear all error messages
     function clearErrors() {
         [loginError, registerError, resetError].forEach(el => {
             if (el) {
@@ -164,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Show error message
+    // Utility: Show a specific error message
     function showError(element, message) {
         if (element) {
             element.textContent = message;
@@ -172,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element.style.color = 'red';
         }
     }
+
+    // Default to login form on load
+    switchForm('login');
 });
-
-
