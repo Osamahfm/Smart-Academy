@@ -37,53 +37,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const res = await fetch('/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
+            const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
 
             const data = await res.json();
 
-            if (res.ok) {
-                window.location.href = '/home'; // غير المسار حسب مشروعك
-            } else {
+           if (res.ok) {
+                alert("Login successful");
+                window.location.href = '/home';
+            } 
+            else {
                 showError(loginError, data.message || "Login failed.");
             }
+
         } catch (err) {
             showError(loginError, "Something went wrong. Please try again.");
         }
     });
 
-    // إرسال نموذج التسجيل
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         clearErrors();
 
-        const username = document.getElementById('reg-username').value.trim();
+        const name = document.getElementById('reg-username').value.trim();
         const email = document.getElementById('reg-email').value.trim();
         const password = document.getElementById('reg-password').value.trim();
 
-        if (!username || !email || !password) {
+        if (!name || !email || !password) {
             showError(registerError, "All fields are required.");
             return;
         }
 
+console.log("Register request body:", { name, email, password });
+
+
         try {
-            const res = await fetch('/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, email, password })
-            });
+            const res = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password })
+        });
+
 
             const data = await res.json();
 
             if (res.ok) {
-                container.classList.remove('right-panel-active');
-                showSuccess(loginError, "Registration successful. Please login.");
-            } else {
+                alert("Register successful! Please login.");
+                document.getElementById('container').classList.remove('right-panel-active');
+            } 
+            else {
                 showError(registerError, data.message || "Registration failed.");
             }
+
         } catch (err) {
             showError(registerError, "Something went wrong. Please try again.");
         }
@@ -101,12 +110,5 @@ document.addEventListener('DOMContentLoaded', () => {
         element.textContent = message;
         element.style.display = 'block';
         element.style.color = 'red';
-    }
-
-    // دالة لعرض النجاح
-    function showSuccess(element, message) {
-        element.textContent = message;
-        element.style.display = 'block';
-        element.style.color = 'green';
     }
 });

@@ -18,10 +18,10 @@ const userSchema = new mongoose.Schema({
         validate: [validator.isEmail, 'Please enter a valid email address']
     },
     password: { 
-        type: String, 
-        required: [true, 'Please enter a password'],
-        minlength: [8, 'Password must be at least 8 characters'],
-        select: false  // Never return password in queries
+    type: String, 
+    required: [true, 'Please enter a password'],
+    minlength: [8, 'Password must be at least 8 characters'],
+    select: false  // Never return password in queries
     },
     isAdmin: { 
         type: Boolean, 

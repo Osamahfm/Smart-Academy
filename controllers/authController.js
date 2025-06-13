@@ -16,6 +16,7 @@ exports.register = async (req, res) => {
         if (userExists) return res.status(400).json({ message: 'User already exists' });
 
         const user = await User.create({ name, email, password });
+
         res.status(201).json({
             _id: user._id,
             name: user.name,
@@ -24,15 +25,27 @@ exports.register = async (req, res) => {
             token: generateToken(user)
         });
     } catch (err) {
+        // ✅ هنا أضف شرط الـ ValidationError
+        if (err.name === 'ValidationError') {
+            const messages = Object.values(err.errors).map(val => val.message);
+            console.error("❌ Registration validation errors:", messages);
+            return res.status(400).json({ message: messages.join(', ') });
+        }
+
+        // باقي الأخطاء العادية
+        console.error("❌ Registration error:", err);
         res.status(400).json({ message: err.message });
     }
 };
+
+
+
 
 exports.login = async (req, res) => {
     try {
         console.log('Login route hit');
         const { email, password } = req.body;
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).select('+password');
         if (!user || !(await user.matchPassword(password))) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
