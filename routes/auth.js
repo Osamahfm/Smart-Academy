@@ -29,5 +29,4 @@ router.get('/check-admin', protect, async (req, res) => {
 });
 
 
-
 module.exports = router;
