@@ -196,3 +196,7 @@ router.post('/courses/delete/:id', protect, isAdmin, async (req, res) => {
 });
 
 module.exports = router;
+router.get('/dashboard', isAdminLoggedIn, async (req, res) => {
+  const courses = await Course.find();
+  res.render('admin/dashboard', { courses });
+});

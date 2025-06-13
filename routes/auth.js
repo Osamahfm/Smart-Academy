@@ -28,6 +28,8 @@ router.get('/check-admin', protect, async (req, res) => {
     }
 });
 
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 
 module.exports = router;
