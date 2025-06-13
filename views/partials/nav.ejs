@@ -4,8 +4,6 @@
         <a href="/courses">Courses</a>
         <a href="/aboutUs">About Us</a>
         <a href="/contactUs">Contact</a>
-        <!-- Admin Dashboard Link (hidden by default) -->
-        <a href="/api/admin/dashboard" class="admin-only" style="display: none;">Admin Dashboard</a>
     </div>
 
     <div class="nav-search">
@@ -17,40 +15,12 @@
         </div>
     </div>
 
-    <div class="nav-cart">
-        <button id="cartBtn" title="View Cart" style="background: none; border: none; cursor: pointer;">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">0</span>
-        </button>
-    </div>
-
     <div class="nav-auth">
         <a href="/signlog" class="auth-btn">Sign Up</a>
         <button id="logoutBtn" style="display: none;">Logout</button>
     </div>
 </nav>
 
-<script>
-// Load cart count from backend using JWT token
-document.addEventListener('DOMContentLoaded', function () {
-    const token = localStorage.getItem('token');
-    if (token) {
-        fetch('/cart/count', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.count !== undefined) {
-                const cartCountEl = document.querySelector('.cart-count');
-                cartCountEl.textContent = data.count;
-            }
-        })
-        .catch(err => console.error('Error fetching cart count:', err));
-    }
-});
-</script>
 
 <!-- Admin Check Script -->
 <script src="/js/adminCheck.js"></script>

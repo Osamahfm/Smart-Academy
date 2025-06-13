@@ -1,0 +1,28 @@
+<div class="nav-cart">
+        <button id="cartBtn" title="View Cart" style="background: none; border: none; cursor: pointer;">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </button>
+    </div>
+
+<script>
+// Load cart count from backend using JWT token
+document.addEventListener('DOMContentLoaded', function () {
+    const token = localStorage.getItem('token');
+    if (token) {
+        fetch('/cart/count', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.count !== undefined) {
+                const cartCountEl = document.querySelector('.cart-count');
+                cartCountEl.textContent = data.count;
+            }
+        })
+        .catch(err => console.error('Error fetching cart count:', err));
+    }
+});
+</script>
