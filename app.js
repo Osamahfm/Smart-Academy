@@ -50,6 +50,8 @@ app.use('/api/courses', require('./routes/courses'));
 app.use('/', contactRoutes);
 
 
+
+
 // Production Build (Optional for React frontend)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
