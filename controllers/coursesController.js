@@ -10,12 +10,24 @@ const createError = require('http-errors');
 
 // Get all courses
 exports.getAllCourses = async (req, res) => {
-    try {
-        const courses = await Course.find();
-        res.json(courses);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 6;
+
+    const totalCourses = await Course.countDocuments();
+    const courses = await Course.find()
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    res.json({
+      courses,
+      currentPage: page,
+      totalPages: Math.ceil(totalCourses / limit)
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Error fetching courses' });
+  }
 };
 
 // Get single course
