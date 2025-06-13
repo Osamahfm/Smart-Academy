@@ -39,6 +39,7 @@ app.get('/cehacker', (req, res) => res.render('cehacker'));
 // API Routes
 app.use('/api', require('./routes'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/courses', require('./routes/courses'));
 
 // Production Build (Optional for React frontend)
 if (process.env.NODE_ENV === 'production') {
