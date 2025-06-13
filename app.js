@@ -53,6 +53,11 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+const uploadRoute = require('./routes/upload');
+app.use('/upload', uploadRoute);
+
+app.use('/upload', express.static('upload'));
+
 
 // 404 Handler
 const routeNotFound = require('./middlewares/routeNotFound');
