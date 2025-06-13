@@ -73,6 +73,4 @@ app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
 
-module.exports = app;
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
+
