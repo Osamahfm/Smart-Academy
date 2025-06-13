@@ -30,7 +30,10 @@ function loadCourses(page = 1) {
               <span><i class="far fa-clock"></i> ${course.duration || 'N/A'}</span>
               <span><i class="far fa-user"></i> ${course.level || 'All Levels'}</span>
             </div>
-            <button class="enter-course" onclick="window.location.href='/courses/${course._id}'">Enter Course</button>
+            
+            <button class="enter-course" onclick="window.location.href='/${course.slug}'">Enter Course</button>
+
+
           </div>
         `;
         container.appendChild(card);

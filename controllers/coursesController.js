@@ -32,18 +32,19 @@ exports.getAllCourses = async (req, res) => {
 
 // Get single course
 exports.getCourseById = async (req, res, next) => {
-    try {
-        const course = await Course.findById(req.params.id);
-        
-        if (!course) {
-            return next(createError(404, 'Course not found'));
-        }
-        
-        res.json(course);
-    } catch (error) {
-        next(createError(400, error.message));
+  try {
+    const course = await Course.findById(req.params.id);
+
+    if (!course) {
+      return next(createError(404, 'Course not found'));
     }
+
+    res.render('course', { course }); 
+  } catch (error) {
+    next(createError(400, error.message));
+  }
 };
+
 
 // Create new course
 exports.createCourse = async (req, res, next) => {

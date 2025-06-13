@@ -1,4 +1,5 @@
 <nav class="navbar">
+<<<<<<< HEAD
     <div class="nav-links">
         <a href="/home">Home</a>
         <a href="/courses">Courses</a>
@@ -51,3 +52,43 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
+=======
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/courses">Courses</a>
+            <a href="/aboutUs">About Us</a>
+            <a href="/contactUs">Contact</a>
+            
+  <a href="/admin/dashboard">Edit Courses</a>
+
+
+         
+            <!-- Admin Dashboard Link (hidden by default) -->
+            <a href="/api/admin/dashboard" class="admin-only" style="display: none;">Admin Dashboard</a>
+            
+        </div>
+        <div class="nav-search">
+            <div class="search-container">
+                <input type="text" placeholder="Search courses..." id="courseSearch">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="nav-cart">
+            <a href="/cart" title="View Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <!-- Optional: Add a badge for cart count -->
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+        <div class="nav-auth">
+            <a href="/signlog" class="auth-btn">Sign Up</a>
+        </div>
+    </nav>
+
+<!-- Admin Check Script -->
+<script src="/js/adminCheck.js"></script>
+<script src="/js/search.js"></script>
+
+>>>>>>> de922ba8bee67671a1453414740e8e2e571a7b78
