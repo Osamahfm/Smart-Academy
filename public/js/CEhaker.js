@@ -9,13 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkoutBtn = document.getElementById('checkoutBtn');
     const addToCartBtn = document.querySelector('.add-to-cart');
 
-    // Add to Cart
     addToCartBtn.addEventListener('click', function() {
         const courseId = this.dataset.course;
         const price = parseFloat(this.dataset.price);
         const courseName = document.querySelector('h2').textContent;
 
-        // Check if course is already in cart
         if (!cart.find(item => item.id === courseId)) {
             cart.push({
                 id: courseId,
@@ -77,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Checkout
     checkoutBtn.addEventListener('click', function() {
         if (cart.length > 0) {
-            // Add your payment processing logic here
             window.location.href = 'checkout.html';
         } else {
             showNotification('Your cart is empty!', 'warning');
@@ -98,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Prevent URL display in status bar on hover
     const links = document.querySelectorAll('a');
     links.forEach(link => {
         link.addEventListener('mouseover', function(e) {

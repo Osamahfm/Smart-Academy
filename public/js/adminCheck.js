@@ -1,4 +1,3 @@
-// Function to check if user is admin
 async function checkAdminStatus() {
     try {
         const response = await fetch('/api/auth/check-admin', {
@@ -13,13 +12,12 @@ async function checkAdminStatus() {
         
         const data = await response.json();
         
-        // Show/hide admin features based on status
         const adminElements = document.querySelectorAll('.admin-only');
         adminElements.forEach(element => {
             element.style.display = data.isAdmin ? 'block' : 'none';
         });
         
-        // If user is admin, show admin dashboard link
+        
         if (data.isAdmin) {
             const adminLink = document.createElement('a');
             adminLink.href = '/api/admin/dashboard';
@@ -36,5 +34,4 @@ async function checkAdminStatus() {
     }
 }
 
-// Check admin status when page loads
 document.addEventListener('DOMContentLoaded', checkAdminStatus); 

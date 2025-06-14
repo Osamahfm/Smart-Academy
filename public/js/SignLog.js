@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         switchForm('login');
     });
 
-    // ✅ Enhanced Login with JWT support
     loginForm.addEventListener('submit', async e => {
     e.preventDefault();
     clearErrors();

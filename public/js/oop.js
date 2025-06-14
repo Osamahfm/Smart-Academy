@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cart from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Get DOM elements

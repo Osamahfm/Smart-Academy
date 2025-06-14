@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cart from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Get DOM elements
@@ -12,24 +11,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.querySelector('.cart-count');
     const checkoutBtn = document.getElementById('checkoutBtn');
 
-    // Course details
     const course = {
         name: "Mobile Application Development",
         price: 999,
         id: "mobileapp"
     };
 
-    // Initialize cart display
     updateCartDisplay();
 
-    // Cart button click handler
     cartBtn.addEventListener('click', function() {
         modal.style.display = "block";
         updateCartDisplay();
         showNotification('Cart opened', 'info');
     });
 
-    // Close button click handler with animation
     closeBtn.addEventListener('click', function() {
         modal.classList.add('fade-out');
         setTimeout(() => {
@@ -38,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    // Click outside modal handler
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
             closeBtn.click();
@@ -61,13 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Checkout handler with validation and animation
+    // Checkout handler 
     checkoutBtn.addEventListener('click', function() {
         if (cart.length > 0) {
             checkoutBtn.classList.add('processing');
             showNotification('Processing your order...', 'info');
             setTimeout(() => {
-                // Simulate checkout process
                 showNotification('Order processed successfully!', 'success');
                 cart = [];
                 localStorage.setItem('cart', JSON.stringify(cart));
@@ -111,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cartTotal.textContent = `$${total}`;
     }
 
-    // Global removeFromCart function with animation
     window.removeFromCart = function(id) {
         const itemElement = document.querySelector(`[data-id="${id}"]`);
         if (itemElement) {

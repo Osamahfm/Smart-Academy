@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Cart functionality
+    // Cart function
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartBtn = document.getElementById('cartBtn');
     const cartModal = document.getElementById('cartModal');
@@ -9,12 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const addToCartBtn = document.querySelector('.add-to-cart');
     const closeBtn = document.querySelector('.close');
 
-    // Update cart count
     function updateCartCount() {
         cartCount.textContent = cart.length;
     }
 
-    // Update cart display
     function updateCartDisplay() {
         cartItems.innerHTML = '';
         let total = 0;
@@ -37,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartCount();
     }
 
-    // Add to cart
     addToCartBtn.addEventListener('click', function() {
         const courseId = this.dataset.course;
         const price = parseFloat(this.dataset.price);
@@ -56,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Remove from cart
     cartItems.addEventListener('click', function(e) {
         if (e.target.classList.contains('cart-item-remove')) {
             const id = e.target.dataset.id;
@@ -106,12 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 
-    // Initialize cart
     updateCartCount();
 
     
 });
-// Prevent URL display in status bar on hover
+
 const links = document.querySelectorAll('a');
 links.forEach(link => {
     link.addEventListener('mouseover', function(e) {

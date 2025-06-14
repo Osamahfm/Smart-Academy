@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cart from localStorage
+   
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Get DOM elements
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.querySelector('.cart-count');
     const checkoutBtn = document.getElementById('checkoutBtn');
 
-    // Course details
+    
     const course = {
         name: "Backend Development",
         price: 999,
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize cart display
     updateCartDisplay();
 
-    // Cart button click handler with animation
     cartBtn.addEventListener('click', function() {
         modal.style.display = "block";
         requestAnimationFrame(() => {
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartDisplay();
     });
 
-    // Close button click handler with improved animation
     closeBtn.addEventListener('click', function() {
         modal.classList.add('fade-out');
         setTimeout(() => {
@@ -40,14 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    // Click outside modal handler
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
             closeBtn.click();
         }
     });
 
-    // Add to cart handler with enhanced animation
     addToCartBtn.addEventListener('click', function() {
         if (!cart.some(item => item.id === course.id)) {
             addToCartBtn.classList.add('adding');
@@ -63,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Checkout handler with validation and loading state
     checkoutBtn.addEventListener('click', function() {
         if (cart.length > 0) {
             checkoutBtn.classList.add('processing');
@@ -91,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Update cart display with animations
     function updateCartDisplay() {
         cartCount.textContent = cart.length;
         
@@ -123,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cartTotal.textContent = `$${total}`;
     }
 
-    // Enhanced removeFromCart function
     window.removeFromCart = function(id) {
         const itemElement = document.querySelector(`[data-id="${id}"]`);
         if (itemElement) {

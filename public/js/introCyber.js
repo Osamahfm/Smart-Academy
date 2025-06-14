@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cart from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // DOM Elements
+    // Get DOM elements
     const cartBtn = document.getElementById('cartBtn');
     const cartModal = document.getElementById('cartModal');
     const cartItems = document.getElementById('cartItems');
@@ -10,13 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.querySelector('.cart-count');
     const addToCartBtn = document.querySelector('.add-to-cart');
     const closeBtn = document.querySelector('.close');
-    
-    // Update cart display
+
     function updateCartDisplay() {
-        // Update cart count
         cartCount.textContent = cart.length;
         
-        // Update cart items
         if (cartItems) {
             cartItems.innerHTML = '';
             let total = 0;
@@ -38,11 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 cartTotal.textContent = `$${total}`;
             }
         }
-        
-        // Save to localStorage
+ 
         localStorage.setItem('cart', JSON.stringify(cart));
     }
-    
     // Add to cart
     if (addToCartBtn) {
         addToCartBtn.addEventListener('click', function() {
@@ -50,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const price = parseFloat(this.dataset.price);
             const courseName = document.querySelector('header h2').textContent;
             
-            // Check if course is already in cart
             if (!cart.find(item => item.id === courseId)) {
                 cart.push({
                     id: courseId,
@@ -90,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cartModal.style.display = 'none';
         });
     }
-    
-    // Close modal on outside click
+ 
     window.addEventListener('click', function(e) {
         if (e.target === cartModal) {
             cartModal.style.display = 'none';
@@ -109,8 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             notification.remove();
         }, 3000);
     }
-    
-    // Initialize cart display
+ 
     updateCartDisplay();
 
 

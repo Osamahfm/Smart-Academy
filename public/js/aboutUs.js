@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize scroll reveal animations
     const animatedElements = document.querySelectorAll(".course-card, .team-member");
 
     function checkScroll() {
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener("scroll", checkScroll);
     checkScroll();
 
-    // Add hover effect to team member images
+  
     const teamMembers = document.querySelectorAll('.team-member');
     teamMembers.forEach(member => {
         member.addEventListener('mouseenter', () => {
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add this CSS for animations
+
 const style = document.createElement('style');
 style.textContent = `
     .course-card,

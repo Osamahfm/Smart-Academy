@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cart from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Get DOM elements
@@ -12,21 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.querySelector('.cart-count');
     const checkoutBtn = document.getElementById('checkoutBtn');
 
-    // Initialize cart display
     updateCartDisplay();
 
-    // Cart button click handler
     cartBtn.addEventListener('click', function() {
         modal.style.display = "block";
         updateCartDisplay();
     });
 
-    // Close button click handler
     closeBtn.addEventListener('click', function() {
         modal.style.display = "none";
     });
 
-    // Click outside modal handler
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -55,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     checkoutBtn.addEventListener('click', function() {
         if (cart.length > 0) {
             showNotification('Proceeding to checkout...', 'info');
-            // Add checkout logic here
         } else {
             showNotification('Your cart is empty!', 'warning');
         }
@@ -92,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cartTotal.textContent = `$${total}`;
     }
 
-    // Make removeFromCart function available globally
     window.removeFromCart = function(id) {
         cart = cart.filter(item => item.id !== id);
         localStorage.setItem('cart', JSON.stringify(cart));
