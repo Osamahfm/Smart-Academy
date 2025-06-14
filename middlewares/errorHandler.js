@@ -1,4 +1,3 @@
-// middlewares/errorHandler.js
 const { AppError } = require('../utils/AppError');
 const logger = require('../utils/logger');
 
@@ -40,15 +39,14 @@ const sendErrorDev = (err, req, res) => {
 const sendErrorProd = (err, req, res) => {
   // API error response
   if (req.originalUrl.startsWith('/api')) {
-    // Operational, trusted error: send message to client
     if (err.isOperational) {
       return res.status(err.statusCode).json({
         status: err.status,
         message: err.message
       });
     }
-    // Programming or other unknown error: don't leak error details
-    logger.error('ERROR 💥', err);
+   
+    logger.error('ERROR', err);
     return res.status(500).json({
       status: 'error',
       message: 'Something went very wrong!'
