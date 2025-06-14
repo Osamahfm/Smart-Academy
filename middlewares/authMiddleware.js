@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-// Middleware لإرفاق بيانات المستخدم في res.locals.user لو التوكن موجود وصالح
 const attachUser = async (req, res, next) => {
   try {
     const token = req.cookies.token;

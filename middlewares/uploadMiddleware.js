@@ -1,7 +1,6 @@
 const multer = require('multer');
 const path = require('path');
 
-// Set up storage engine
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/videos/'); 
@@ -12,7 +11,6 @@ const storage = multer.diskStorage({
   }
 });
 
-// File type validation
 const fileFilter = function (req, file, cb) {
   const allowedTypes = /mp4|webm|mov/;
   const ext = path.extname(file.originalname).toLowerCase();

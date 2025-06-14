@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Get DOM elements
     const cartBtn = document.getElementById('cartBtn');
     const modal = document.getElementById('cartModal');
     const closeBtn = document.querySelector('.close');
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add to cart handler
     addToCartBtn.addEventListener('click', function() {
         const course = {
             name: "Object Oriented Programming",

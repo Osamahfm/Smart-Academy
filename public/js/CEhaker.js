@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Update Cart
     function updateCart() {
         cartCount.textContent = cart.length;
         cartItems.innerHTML = '';
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cartTotal.textContent = `$${total}`;
     }
 
-    // Remove from Cart
     cartItems.addEventListener('click', function(e) {
         if (e.target.classList.contains('cart-item-remove')) {
             const id = e.target.dataset.id;
@@ -62,17 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Show Cart Modal
     cartBtn.onclick = function() {
         cartModal.style.display = 'block';
     }
 
-    // Close Cart Modal
     cartModal.querySelector('.close').onclick = function() {
         cartModal.style.display = 'none';
     }
 
-    // Checkout
     checkoutBtn.addEventListener('click', function() {
         if (cart.length > 0) {
             window.location.href = 'checkout.html';
@@ -81,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Notification
     function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;

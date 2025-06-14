@@ -39,7 +39,6 @@ function loadCourses(page = 1) {
         container.appendChild(card);
       });
 
-      // Pagination controls
       const pagination = document.getElementById("pagination-controls");
       pagination.innerHTML = `
         <button ${page <= 1 ? "disabled" : ""} onclick="loadCourses(${page - 1})">Previous</button>

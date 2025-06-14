@@ -23,7 +23,6 @@ exports.getAllCourses = async (req, res) => {
   }
 };
 
-// Get single course
 exports.getCourseById = async (req, res, next) => {
   try {
     const course = await Course.findById(req.params.id);
@@ -39,7 +38,6 @@ exports.getCourseById = async (req, res, next) => {
 };
 
 
-// Create new course
 exports.createCourse = async (req, res, next) => {
     try {
         const course = await Course.create(req.body);
@@ -49,7 +47,6 @@ exports.createCourse = async (req, res, next) => {
     }
 };
 
-// Update course
 exports.updateCourse = async (req, res, next) => {
     try {
         const course = await Course.findByIdAndUpdate(
@@ -68,7 +65,6 @@ exports.updateCourse = async (req, res, next) => {
     }
 };
 
-// Delete course
 exports.deleteCourse = async (req, res, next) => {
     try {
         const course = await Course.findByIdAndDelete(req.params.id);

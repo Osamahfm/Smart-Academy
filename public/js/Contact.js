@@ -10,13 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
-            // Validate email
             if (!validateEmail(email)) {
                 showNotification('Please enter a valid email address', 'error');
                 return;
             }
 
-            // Send form data to backend
             fetch('/contact', {
                 method: 'POST',
                 headers: {

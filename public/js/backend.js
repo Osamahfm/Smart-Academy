@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
    
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Get DOM elements
     const cartBtn = document.getElementById('cartBtn');
     const modal = document.getElementById('cartModal');
     const closeBtn = document.querySelector('.close');
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         id: "backend"
     };
 
-    // Initialize cart display
     updateCartDisplay();
 
     cartBtn.addEventListener('click', function() {
@@ -130,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Improved notification system
     function showNotification(message, type) {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
@@ -160,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return icons[type] || icons.info;
     }
 
-    // Enhanced styles with improved animations
     const style = document.createElement('style');
     style.textContent = `
         .notification {

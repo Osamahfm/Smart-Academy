@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Cart function
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartBtn = document.getElementById('cartBtn');
     const cartModal = document.getElementById('cartModal');
@@ -65,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Cart modal
     cartBtn.addEventListener('click', function() {
         cartModal.style.display = 'block';
         updateCartDisplay();
@@ -81,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Checkout
     document.getElementById('checkoutBtn').addEventListener('click', function() {
         if (cart.length > 0) {
             window.location.href = 'checkout.html';
@@ -90,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Notifications
     function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
