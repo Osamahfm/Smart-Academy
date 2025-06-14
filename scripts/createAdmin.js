@@ -5,10 +5,7 @@ const connectDB = require('../config/db');
 
 const createAdmin = async () => {
     try {
-        // Connect to MongoDB
         await connectDB();
-
-        // Admin user data
         const adminData = {
             name: '123',
             email: '123@gmail.com',
@@ -19,20 +16,20 @@ const createAdmin = async () => {
         // Check if admin already exists
         const existingAdmin = await User.findOne({ email: adminData.email });
         if (existingAdmin) {
-            console.log('❌ Admin user already exists');
+            console.log('Admin user already exists');
             process.exit(1);
         }
 
-        // Create admin user
+        // Create admin u
         const admin = await User.create(adminData);
-        console.log('✅ Admin user created successfully:');
+        console.log('Admin user created successfully:');
         console.log('Email:', admin.email);
         console.log('Password:', adminData.password);
         console.log('isAdmin:', admin.isAdmin);
 
         process.exit(0);
     } catch (error) {
-        console.error('❌ Error creating admin:', error.message);
+        console.error('Error creating admin:', error.message);
         process.exit(1);
     }
 };
