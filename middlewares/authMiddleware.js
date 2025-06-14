@@ -1,6 +1,25 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+// Middleware لإرفاق بيانات المستخدم في res.locals.user لو التوكن موجود وصالح
+const attachUser = async (req, res, next) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      res.locals.user = null;
+      return next();
+    }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id).select('-password');
+    res.locals.user = user || null;
+    next();
+  } catch (error) {
+    console.error('attachUser middleware error:', error);
+    res.locals.user = null;
+    next();
+  }
+};
+
 const protect = async (req, res, next) => {
   try {
     const token = req.cookies.token;
@@ -32,4 +51,4 @@ const isAdmin = async (req, res, next) => {
   });
 };
 
-module.exports = { protect, isAdmin };
+module.exports = { attachUser, protect, isAdmin };

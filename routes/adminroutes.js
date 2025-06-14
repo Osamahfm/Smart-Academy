@@ -6,8 +6,18 @@ const Category = require('../models/Category');
 const Course = require('../models/Course');
 
 // Admin dashboard
-router.get('/dashboard', protect, isAdmin, (req, res) => {
-  res.render('admin/dashboard');
+router.get('/dashboard', protect, isAdmin, async (req, res) => {
+  try {
+    const courses = await Course.find();
+    res.render('admin/dashboard', { 
+      courses, 
+      user: req.user, 
+      admin: req.user.isAdmin 
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).render('error', { message: 'Error loading dashboard' });
+  }
 });
 
 // View all products
@@ -25,7 +35,7 @@ router.get('/products', protect, isAdmin, async (req, res) => {
 router.get('/products/add', protect, isAdmin, async (req, res) => {
   try {
     const categories = await Category.find();
-    res.render('admin/addProduct', { categories });
+    res.render('admin/addproducts', { categories });
   } catch (error) {
     console.error(error);
     res.status(500).render('error', { message: 'Error loading form' });
@@ -37,11 +47,11 @@ router.post('/products/add', protect, isAdmin, async (req, res) => {
   try {
     const { name, description, price, image, category, countInStock } = req.body;
     await Product.create({ name, description, price, image, category, countInStock });
-    res.redirect('/admin/products');
+    res.redirect('admin/products');
   } catch (error) {
     console.error(error);
     const categories = await Category.find();
-    res.status(400).render('admin/addProduct', { 
+    res.status(400).render('admin/addproducts', { 
       categories, 
       error: 'Error creating product', 
       formData: req.body 
@@ -57,7 +67,7 @@ router.get('/products/edit/:id', protect, isAdmin, async (req, res) => {
       return res.status(404).render('error', { message: 'Product not found' });
     }
     const categories = await Category.find();
-    res.render('admin/editProduct', { product, categories });
+    res.render('admin/editproducts', { product, categories });
   } catch (error) {
     console.error(error);
     res.status(500).render('error', { message: 'Error loading product' });
@@ -73,12 +83,12 @@ router.post('/products/edit/:id', protect, isAdmin, async (req, res) => {
       { name, description, price, image, category, countInStock },
       { new: true, runValidators: true }
     );
-    res.redirect('/admin/products');
+    res.redirect('admin/products');
   } catch (error) {
     console.error(error);
     const categories = await Category.find();
     const product = await Product.findById(req.params.id);
-    res.status(400).render('admin/editProduct', { 
+    res.status(400).render('admin/editproducts', { 
       product, 
       categories, 
       error: 'Error updating product',
@@ -100,7 +110,7 @@ exports.isAdmin = (req, res, next) => {
 router.post('/products/delete/:id', protect, isAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
-    res.redirect('/admin/products');
+    res.redirect('admin/products');
   } catch (error) {
     console.error(error);
     res.status(500).render('error', { message: 'Error deleting product' });
@@ -196,7 +206,7 @@ router.post('/courses/delete/:id', protect, isAdmin, async (req, res) => {
 });
 
 module.exports = router;
-router.get('/dashboard', isAdminLoggedIn, async (req, res) => {
+router.get('/dashboard', protect, isAdmin, async (req, res) => {
   const courses = await Course.find();
   res.render('admin/dashboard', { courses });
 });

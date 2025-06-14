@@ -5,7 +5,7 @@ const createError = require('http-errors');
 const connectDB = require('./config/db');
 const contactRoutes = require('./routes/contact');
 const authRoutes = require('./routes/auth');
-const {isAdmin} = require('./middlewares/authMiddleware');
+const { attachUser, isAdmin } = require('./middlewares/authMiddleware');
 const cookieParser = require('cookie-parser');
 const app = express();
 
@@ -19,6 +19,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
+
+app.use(attachUser); 
 
 // Frontend Page Routes
 app.get(['/', '/home'], (req, res) => res.render('home'));
@@ -37,9 +39,12 @@ app.get('/cyberspec', (req, res) => res.render('cyberspec'));
 app.get('/cehacker', (req, res) => res.render('cehacker'));
 
 app.get('/dashboard', isAdmin, (req, res) => {
-  res.render('dashboard');
+  res.render('admin/dashboard');
 });
 
+
+const adminRoutes = require('./routes/adminroutes');
+app.use('/admin', adminRoutes);
 
 
 // API Routes

@@ -40,4 +40,4 @@ courseSchema.pre('save', function(next) {
     next();
 });
 
-module.exports = mongoose.model('Course', courseSchema); 
+module.exports = mongoose.models.Course || mongoose.model('Course', courseSchema);
