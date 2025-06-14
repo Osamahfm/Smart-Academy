@@ -21,8 +21,7 @@ exports.register = async (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            isAdmin: user.isAdmin,
-            token: generateToken(user)
+            isAdmin: user.isAdmin
         });
     } catch (err) {
         if (err.name === 'ValidationError') {
@@ -48,9 +47,10 @@ exports.login = async (req, res) => {
 
         const token = generateToken(user);
         
-        // Store token in localStorage
+        
         res.cookie('token', token, {
-            httpOnly: true,
+            httpOnly: true,      
+            sameSite: 'Lax',
             secure: process.env.NODE_ENV === 'production',
             maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
         });
@@ -60,7 +60,6 @@ exports.login = async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-            token,
             redirectUrl: user.isAdmin ? '/api/admin/dashboard' : '/'
         });
     } catch (err) {
