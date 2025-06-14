@@ -1,4 +1,3 @@
-// middlewares/routeNotFound.js
 const { NotFoundError } = require('../utils/AppError');
 
 module.exports = (req, res, next) => {
