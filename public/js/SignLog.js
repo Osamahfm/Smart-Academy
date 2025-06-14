@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         forgot: forgotPasswordContainer
     };
 
-    // General function to show a specific form and hide the others
     function switchForm(formToShow) {
         Object.values(forms).forEach(form => form.style.display = 'none');
         forms[formToShow].style.display = 'block';
@@ -51,38 +50,41 @@ document.addEventListener('DOMContentLoaded', () => {
         switchForm('login');
     });
 
-    // Handle Login Submit
+    // ✅ Enhanced Login with JWT support
     loginForm.addEventListener('submit', async e => {
-        e.preventDefault();
-        clearErrors();
+    e.preventDefault();
+    clearErrors();
 
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-        if (!email || !password) {
-            return showError(loginError, "Please enter both email and password.");
+    if (!email || !password) {
+        return showError(loginError, "Please enter both email and password.");
+    }
+
+    try {
+        const res = await fetch('/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            alert("Login successful");
+            window.location.href = '/home';
+        } else {
+            showError(loginError, data.message || "Login failed.");
         }
+    } catch (err) {
+        console.error(err);
+        showError(loginError, "Something went wrong. Please try again.");
+    }
+});
 
-        try {
-            const res = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
-            const data = await res.json();
-
-            if (res.ok) {
-                alert("Login successful");
-                window.location.href = '/home';
-            } else {
-                showError(loginError, data.message || "Login failed.");
-            }
-        } catch {
-            showError(loginError, "Something went wrong. Please try again.");
-        }
-    });
-
-    // Handle Register Submit
+    // Registration
     registerForm.addEventListener('submit', async e => {
         e.preventDefault();
         clearErrors();
@@ -114,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle Forgot Password Submit
+    // Forgot Password
     forgotPasswordForm.addEventListener('submit', async e => {
         e.preventDefault();
         clearErrors();
@@ -130,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('/api/auth/resetPassword', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                 credentials: 'include',
                 body: JSON.stringify({ email, password })
             });
             const data = await res.json();
@@ -145,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Utility: Clear all error messages
     function clearErrors() {
         [loginError, registerError, resetError].forEach(el => {
             if (el) {
@@ -155,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Utility: Show a specific error message
     function showError(element, message) {
         if (element) {
             element.textContent = message;
@@ -164,6 +165,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Default to login form on load
     switchForm('login');
 });
