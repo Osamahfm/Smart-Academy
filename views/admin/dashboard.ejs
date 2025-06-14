@@ -45,12 +45,27 @@
               <div class="card-body">
                 <h5 class="card-title"><%= course.title %></h5>
                 <p class="card-text"><%= course.description %></p>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between mb-2">
                   <a href="/admin/courses/edit/<%= course._id %>" class="btn btn-outline-primary btn-sm">Edit</a>
                   <form action="/admin/courses/delete/<%= course._id %>?_method=DELETE" method="POST">
                     <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                   </form>
                 </div>
+                <% if (course.videoUrl) { %>
+                  <div class="mb-2">
+                    <strong>Current Video:</strong><br>
+                    <video width="220" controls>
+                      <source src="<%= course.videoUrl %>" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                <% } %>
+                <form action="/admin/courses/upload-video/<%= course._id %>" method="POST" enctype="multipart/form-data">
+                  <div class="mb-2">
+                    <input type="file" name="courseVideo" accept="video/mp4,video/webm,video/mov" required>
+                  </div>
+                  <button type="submit" class="btn btn-success btn-sm">Upload/Replace Video</button>
+                </form>
               </div>
             </div>
           </div>

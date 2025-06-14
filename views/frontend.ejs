@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/frontend.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/courseVideo.css">
     <link rel="icon" type="image/x-icon" href="/Photos/smart_academy-updated.png">
 </head>
 <body>
@@ -52,6 +53,16 @@
         </div>
 
         <div class="course-content">
+            <section class="course-video">
+                <h2>Course Preview</h2>
+                <div class="video-container">
+                    <video id="courseVideo" controls>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
             <section class="overview">
                 <h2>Course Overview</h2>
                 <p>Master frontend web development with HTML, CSS, and JavaScript to build modern, responsive websites.</p>
@@ -127,5 +138,24 @@
     <%- include('partials/footer') %>
 
     <script src="/js/frontend.js"></script>
+    <script>
+        // Load course video
+        async function loadCourseVideo() {
+            try {
+                const response = await fetch('/course-video/frontend');
+                const data = await response.json();
+                if (data.videoUrl) {
+                    const videoElement = document.getElementById('courseVideo');
+                    videoElement.querySelector('source').src = data.videoUrl;
+                    videoElement.load();
+                }
+            } catch (error) {
+                console.error('Error loading course video:', error);
+            }
+        }
+
+        // Load video when page loads
+        document.addEventListener('DOMContentLoaded', loadCourseVideo);
+    </script>
 </body>
 </html>

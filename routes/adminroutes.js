@@ -4,20 +4,15 @@ const { protect, isAdmin } = require('../middlewares/authMiddleware');
 const Product = require('../models/Product');
 const Category = require('../models/Category');
 const Course = require('../models/Course');
+const upload = require('../middlewares/uploadMiddleware');
 
 // Admin dashboard
 router.get('/dashboard', protect, isAdmin, async (req, res) => {
-  try {
-    const courses = await Course.find();
-    res.render('admin/dashboard', { 
-      courses, 
-      user: req.user, 
-      admin: req.user.isAdmin 
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).render('error', { message: 'Error loading dashboard' });
-  }
+  const courses = await Course.find();
+  res.render('admin/dashboard', { 
+    courses, 
+    admin: req.user && req.user.isAdmin 
+  });
 });
 
 // View all products
@@ -205,8 +200,27 @@ router.post('/courses/delete/:id', protect, isAdmin, async (req, res) => {
   }
 });
 
-module.exports = router;
-router.get('/dashboard', protect, isAdmin, async (req, res) => {
+// Video upload page route
+router.get('/upload-video', protect, isAdmin, async (req, res) => {
   const courses = await Course.find();
-  res.render('admin/dashboard', { courses });
+  res.render('admin/uploadVideo', { courses });
 });
+
+router.post('/courses/upload-video/:id', protect, isAdmin, upload.single('courseVideo'), async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course) {
+      return res.status(404).render('error', { message: 'Course not found' });
+    }
+    if (req.file) {
+      course.videoUrl = `/uploads/videos/${req.file.filename}`;
+      await course.save();
+    }
+    res.redirect('/admin/dashboard');
+  } catch (error) {
+    console.error('Error uploading video:', error);
+    res.status(500).render('error', { message: 'Error uploading video' });
+  }
+});
+
+module.exports = router;

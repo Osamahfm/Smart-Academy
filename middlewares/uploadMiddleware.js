@@ -4,7 +4,7 @@ const path = require('path');
 // Set up storage engine
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/'); 
+    cb(null, 'uploads/videos/'); 
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -12,20 +12,20 @@ const storage = multer.diskStorage({
   }
 });
 
-// File type validation (optional)
+// File type validation
 const fileFilter = function (req, file, cb) {
-  const allowedTypes = /jpeg|jpg|png|pdf/;
+  const allowedTypes = /mp4|webm|mov/;
   const ext = path.extname(file.originalname).toLowerCase();
   if (allowedTypes.test(ext)) {
     cb(null, true);
   } else {
-    cb(new Error('Only JPEG, PNG, or PDF files are allowed'));
+    cb(new Error('Only MP4, WebM, or MOV video files are allowed'));
   }
 };
 
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB max
+  limits: { fileSize: 500 * 1024 * 1024 }, // 500MB max for videos
   fileFilter: fileFilter
 });
 

@@ -24,6 +24,10 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Course image is required']
     },
+    videoUrl: {
+        type: String,
+        default: null
+    },
     createdAt: {
         type: Date,
         default: Date.now

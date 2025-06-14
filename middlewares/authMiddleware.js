@@ -41,14 +41,12 @@ const protect = async (req, res, next) => {
   }
 };
 
-const isAdmin = async (req, res, next) => {
-  await protect(req, res, async () => {
-    if (req.user && req.user.isAdmin) {
-      next();
-    } else {
-      res.status(403).render('error', { message: 'Admin access required' });
-    }
-  });
+const isAdmin = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+    next();
+  } else {
+    res.status(403).render('error', { message: 'Admin access required' });
+  }
 };
 
 module.exports = { attachUser, protect, isAdmin };

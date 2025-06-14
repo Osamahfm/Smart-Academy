@@ -61,9 +61,13 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 const uploadRoute = require('./routes/upload');
+const courseVideoRoute = require('./routes/courseVideo');
+
 app.use('/upload', uploadRoute);
+app.use('/course-video', courseVideoRoute);
 
 app.use('/upload', express.static('upload'));
+app.use('/uploads', express.static('uploads'));
 
 const routeNotFound = require('./middlewares/routeNotFound');
 app.use(routeNotFound);
