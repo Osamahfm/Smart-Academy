@@ -4,6 +4,11 @@ const path = require('path');
 const createError = require('http-errors');
 const connectDB = require('./config/db');
 const contactRoutes = require('./routes/contact'); // غيّر الاسم حسب ملفك
+const authRoutes = require('./routes/auth');
+const {isAdmin} = require('./middlewares/authMiddleware');
+const cookieParser = require('cookie-parser');
+
+
 
 
 const app = express();
@@ -22,9 +27,11 @@ app.set('views', path.join(__dirname, 'views'));
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Body Parsers
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
+
+
+
+app.use(cookieParser());
 
 // Frontend Page Routes
 app.get(['/', '/home'], (req, res) => res.render('home'));
@@ -42,10 +49,16 @@ app.get('/introcyber', (req, res) => res.render('introcyber'));
 app.get('/cyberspec', (req, res) => res.render('cyberspec'));
 app.get('/cehacker', (req, res) => res.render('cehacker'));
 
+app.get('/dashboard', isAdmin, (req, res) => {
+  res.render('dashboard');
+});
+
+
 
 // API Routes
 app.use('/api', require('./routes'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/auth', authRoutes);
 app.use('/api/courses', require('./routes/courses'));
 app.use('/', contactRoutes);
 
