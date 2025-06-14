@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Cart = require('../models/Cart');
-const Course = require('../models/Course'); // Assuming you have this model
-const authenticate = require('../middleware/auth'); // JWT middleware
+const Course = require('../models/Course');
+const authenticate = require('../middleware/auth'); 
 
 // Add item to cart
 router.post('/add', authenticate, async (req, res) => {

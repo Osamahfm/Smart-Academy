@@ -5,11 +5,11 @@ const validateRequest = require('../middlewares/validateRequest');
 const coursesController = require('../controllers/coursesController');
 const { protect, isAdmin } = require('../middlewares/authMiddleware');
 
-// Public
+// for Public
 router.get('/', coursesController.getAllCourses);
 router.get('/:id', coursesController.getCourseById);
 
-// Admin-only
+// for Admin-only
 router.post(
   '/',
   protect,

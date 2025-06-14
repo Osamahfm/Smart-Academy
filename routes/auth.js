@@ -8,14 +8,12 @@ dotenv.config();
 
 const authController = require('../controllers/authController');
 
-// Define authentication routes
+
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 router.post('/logout', authController.logout);
-// routes/auth.js
 router.post('/resetPassword', authController.resetPassword);
 
-// Check admin status
 router.get('/check-admin', protect, async (req, res) => {
     try {
         const user = await User.findById(req.user._id);

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/usersController');
 
-// Define user routes
 router.get('/', userController.getAllUsers);
 router.get('/profile', userController.getUserProfile);
 router.get('/:id', userController.getUser);

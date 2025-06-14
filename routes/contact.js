@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/contact', async (req, res) => {
-  console.log('✅ POST /contact triggered');
+  console.log('contact triggered');
 
   try {
     const { name, email, subject, message } = req.body;
 
-    console.log('📩 New Contact Message:');
+    console.log('New Contact Message:');
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Subject:', subject);
