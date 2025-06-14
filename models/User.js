@@ -1,7 +1,7 @@
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new mongoose.Schema({
     name: { 
@@ -18,10 +18,10 @@ const userSchema = new mongoose.Schema({
         validate: [validator.isEmail, 'Please enter a valid email address']
     },
     password: { 
-    type: String, 
-    required: [true, 'Please enter a password'],
-    minlength: [8, 'Password must be at least 8 characters'],
-    select: false  // Never return password in queries
+        type: String, 
+        required: [true, 'Please enter a password'],
+        minlength: [8, 'Password must be at least 8 characters'],
+        select: false
     },
     isAdmin: { 
         type: Boolean, 
@@ -30,9 +30,12 @@ const userSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    role: { 
+        type: String, 
+        default: 'user' 
     }
 });
-
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {
@@ -59,15 +62,7 @@ userSchema.methods.toJSON = function() {
     return user;
 };
 
-module.exports = mongoose.model('User', userSchema);
-const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
-
-const userSchema = new mongoose.Schema({
-    username: String,
-    password: String,
-    role: { type: String, default: 'user' }
-});
-
+// Add passport plugin
 userSchema.plugin(passportLocalMongoose);
-module.exports = mongoose.model('User', userSchema);
+
+module.exports = mongoose.models.User || mongoose.model('User', userSchema);

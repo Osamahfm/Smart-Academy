@@ -6,9 +6,9 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const createError = require('http-errors');
-<<<<<<< HEAD
+
 const User = require('./models/User');
-=======
+
 const connectDB = require('./config/db');
 const contactRoutes = require('./routes/contact'); // غيّر الاسم حسب ملفك
 const authRoutes = require('./routes/auth');
@@ -17,7 +17,6 @@ const cookieParser = require('cookie-parser');
 
 
 
->>>>>>> 387d417fdbda7d3727b12aab43fb731d11dd5f07
 
 // Initialize Express app
 const app = express();
@@ -56,8 +55,8 @@ passport.deserializeUser(User.deserializeUser());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-<<<<<<< HEAD
-=======
+
+
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -67,7 +66,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cookieParser());
 
->>>>>>> 387d417fdbda7d3727b12aab43fb731d11dd5f07
 // Frontend Page Routes
 const pageRoutes = [
     { path: ['/', '/home'], view: 'home' },
@@ -86,26 +84,27 @@ const pageRoutes = [
     { path: '/cehacker', view: 'cehacker' }
 ];
 
-<<<<<<< HEAD
+
 pageRoutes.forEach(route => {
     app.get(route.path, (req, res) => res.render(route.view, { user: req.user }));
 });
-=======
+
 app.get('/dashboard', isAdmin, (req, res) => {
   res.render('dashboard');
 });
 
 
->>>>>>> 387d417fdbda7d3727b12aab43fb731d11dd5f07
+
 
 // API Routes
 app.use('/api', require('./routes'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/auth', authRoutes);
 app.use('/api/courses', require('./routes/courses'));
-app.use('/admin', require('./routes/courseRoutes')); // Admin routes
+const courseRoutes = require('./routes/courses');
 app.use('/', require('./routes/contact'));
 app.use('/upload', require('./routes/upload'));
+app.use('/courses', courseRoutes);
 
 
 

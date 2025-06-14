@@ -88,4 +88,4 @@ courseSchema.index({ title: 'text', description: 'text' });
 courseSchema.index({ category: 1, price: 1 });
 courseSchema.index({ rating: -1 });
 
-module.exports = mongoose.model('Course', courseSchema);
+module.exports = mongoose.models.Course || mongoose.model('Course', courseSchema);

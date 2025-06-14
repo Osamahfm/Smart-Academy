@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+// Middleware to protect routes (authenticate user)
 const protect = async (req, res, next) => {
   try {
     const token = req.cookies.token;
@@ -22,27 +23,12 @@ const protect = async (req, res, next) => {
   }
 };
 
-<<<<<<< HEAD
+// Middleware to check if user is an admin
 const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
-    next();
-  } else {
-    res.status(403).render('error', { message: 'Admin access required' });
+    return next();
   }
-   if (req.user && req.user.role === 'admin') {
-        return next();
-    }
-    return res.status(403).json({ message: 'Access denied. Admins only.' });
-=======
-const isAdmin = async (req, res, next) => {
-  await protect(req, res, async () => {
-    if (req.user && req.user.isAdmin) {
-      next();
-    } else {
-      res.status(403).render('error', { message: 'Admin access required' });
-    }
-  });
->>>>>>> 387d417fdbda7d3727b12aab43fb731d11dd5f07
+  return res.status(403).render('error', { message: 'Admin access required' });
 };
 
 module.exports = { protect, isAdmin };
