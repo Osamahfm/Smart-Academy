@@ -6,8 +6,6 @@ async function verifyAdmin() {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
         console.log('Connected to MongoDB');
-
-        // Find all users with isAdmin set to true
         const adminUsers = await User.find({ isAdmin: true });
         
         if (adminUsers.length === 0) {
