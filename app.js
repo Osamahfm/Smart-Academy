@@ -38,6 +38,12 @@ app.get('/introcyber', (req, res) => res.render('introcyber'));
 app.get('/cyberspec', (req, res) => res.render('cyberspec'));
 app.get('/cehacker', (req, res) => res.render('cehacker'));
 
+app.post('/logout', (req, res) => {
+  res.clearCookie('token');  // لو بتستخدم JWT في كوكيز اسمه token
+  res.status(200).json({ message: 'Logged out successfully' });
+});
+
+
 app.get('/dashboard', isAdmin, (req, res) => {
   res.render('admin/dashboard');
 });

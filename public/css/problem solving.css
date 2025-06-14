@@ -433,3 +433,19 @@ footer {
         font-size: 2rem;
     }
 }
+
+#logoutBtn {
+  background-color: #2B7A78; 
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+#logoutBtn:hover {
+  background-color: #3AAFA9; 
+}
