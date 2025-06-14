@@ -1,4 +1,3 @@
-// controllers/usersController.js
 const createError = require('http-errors');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
@@ -12,13 +11,11 @@ exports.createUser = async (req, res, next) => {
   }
   
   try {
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return next(createError(400, 'User already exists'));
     }
 
-    // Create user with hashed password
     const user = await User.create({
       name,
       email,
@@ -83,7 +80,7 @@ exports.getUser = async (req, res, next) => {
   }
 };
 
-// Get user profile (for currently logged in user)
+// Get user profile (current user)
 exports.getUserProfile = async (req, res, next) => {
   try {
     // req.user is set by auth middleware

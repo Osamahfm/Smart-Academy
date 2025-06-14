@@ -1,14 +1,7 @@
-// controllers/coursesController.js
-const Course = require('../models/Courses'); // Fix the path
+const Course = require('../models/Courses'); 
 const createError = require('http-errors');
 
 
-
-
-
-
-
-// Get all courses
 exports.getAllCourses = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;

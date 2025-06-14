@@ -72,7 +72,7 @@ exports.logout = async (req, res) => {
     res.status(200).json({ message: 'Logout successful' });
 };
 
-// controllers/authController.js
+
 exports.resetPassword = async (req, res) => {
   const { email, password } = req.body;
   try {
