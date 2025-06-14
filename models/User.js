@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
@@ -21,7 +20,7 @@ const userSchema = new mongoose.Schema({
     type: String, 
     required: [true, 'Please enter a password'],
     minlength: [8, 'Password must be at least 8 characters'],
-    select: false  // Never return password in queries
+    select: false 
     },
     isAdmin: { 
         type: Boolean, 
@@ -52,7 +51,6 @@ userSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// Prevent returning password in any user query
 userSchema.methods.toJSON = function() {
     const user = this.toObject();
     delete user.password;
