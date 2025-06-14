@@ -1,24 +1,20 @@
 // routes/courses.js
-
 const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
+const { isAdmin } = require('../middleware/authMiddleware');
 const validateRequest = require('../middlewares/validateRequest');
 const coursesController = require('../controllers/coursesController');
+const Course = require('../models/Course');
 
+// Public routes (accessible to all users)
+router.get('/', coursesController.getAllCourses);
+router.get('/:id', coursesController.getCourseById);
 
-// Corrected function names (uppercase 'C' in Courses)
-router.get('/', coursesController.getAllCourses); // Fixed: getAllCourses
-router.get('/:id', coursesController.getCourseById); // Fixed: getCourseById
-router.post('/', coursesController.createCourse); // Fixed: createCourse
-router.put('/:id', coursesController.updateCourse); // Fixed: updateCourse
-router.delete('/:id', coursesController.deleteCourse); // Fixed: deleteCourse
-
-
-
-
+// Admin-only routes
 router.post(
   '/',
+  isAdmin,
   [
     body('title').notEmpty().withMessage('Title is required'),
     body('description').notEmpty().withMessage('Description is required'),
@@ -28,5 +24,18 @@ router.post(
   validateRequest,
   coursesController.createCourse
 );
+
+router.put('/:id', isAdmin, coursesController.updateCourse);
+router.delete('/:id', isAdmin, coursesController.deleteCourse);
+
+// Admin dashboard routes
+router.get('/admin/courses', isAdmin, async (req, res) => {
+    try {
+        const courses = await Course.find();
+        res.render('admin/courses', { courses, user: req.user });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
 module.exports = router;

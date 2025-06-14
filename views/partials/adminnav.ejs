@@ -1,0 +1,27 @@
+<!-- views/partials/adminNavbar.ejs -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Course Website</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <% if (user && user.role === 'admin') { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/courses">Manage Courses</a>
+                </li>
+            <% } %>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <% if (user) { %>
+                <li class="nav-item">
+                    <span class="navbar-text">Welcome, <%= user.name %></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

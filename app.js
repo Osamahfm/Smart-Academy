@@ -1,80 +1,94 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const createError = require('http-errors');
-const connectDB = require('./config/db');
-const contactRoutes = require('./routes/contact'); // غيّر الاسم حسب ملفك
+const User = require('./models/User');
 
-
+// Initialize Express app
 const app = express();
 
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/coursesDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => console.log('Connected to MongoDB'));
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/upload', express.static('upload'));
 
-// Connect to MongoDB
-connectDB();
+// Session configuration
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: process.env.NODE_ENV === 'production' }
+}));
+
+// Passport configuration
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // View Engine Setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Static Files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Body Parsers
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
 // Frontend Page Routes
-app.get(['/', '/home'], (req, res) => res.render('home'));
-app.get('/aboutUs', (req, res) => res.render('aboutUs'));
-app.get('/courses', (req, res) => res.render('courses'));
-app.get('/contactUs', (req, res) => res.render('contactUs'));
-app.get('/signlog', (req, res) => res.render('signlog'));
-app.get('/backend', (req, res) => res.render('backend'));
-app.get('/frontend', (req, res) => res.render('frontend'));
-app.get('/mobile', (req, res) => res.render('mobile'));
-app.get('/problemsolving', (req, res) => res.render('problemsolving'));
-app.get('/oop', (req, res) => res.render('oop'));
-app.get('/datastruct', (req, res) => res.render('datastruct'));
-app.get('/introcyber', (req, res) => res.render('introcyber'));
-app.get('/cyberspec', (req, res) => res.render('cyberspec'));
-app.get('/cehacker', (req, res) => res.render('cehacker'));
+const pageRoutes = [
+    { path: ['/', '/home'], view: 'home' },
+    { path: '/aboutUs', view: 'aboutUs' },
+    { path: '/courses', view: 'courses' },
+    { path: '/contactUs', view: 'contactUs' },
+    { path: '/signlog', view: 'signlog' },
+    { path: '/backend', view: 'backend' },
+    { path: '/frontend', view: 'frontend' },
+    { path: '/mobile', view: 'mobile' },
+    { path: '/problemsolving', view: 'problemsolving' },
+    { path: '/oop', view: 'oop' },
+    { path: '/datastruct', view: 'datastruct' },
+    { path: '/introcyber', view: 'introcyber' },
+    { path: '/cyberspec', view: 'cyberspec' },
+    { path: '/cehacker', view: 'cehacker' }
+];
 
+pageRoutes.forEach(route => {
+    app.get(route.path, (req, res) => res.render(route.view, { user: req.user }));
+});
 
 // API Routes
 app.use('/api', require('./routes'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/courses', require('./routes/courses'));
-app.use('/', contactRoutes);
-
+app.use('/admin', require('./routes/courseRoutes')); // Admin routes
+app.use('/', require('./routes/contact'));
+app.use('/upload', require('./routes/upload'));
 
 // Production Build (Optional for React frontend)
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
 }
-const uploadRoute = require('./routes/upload');
-app.use('/upload', uploadRoute);
 
-app.use('/upload', express.static('upload'));
-
-
-// 404 Handler
-const routeNotFound = require('./middlewares/routeNotFound');
-app.use(routeNotFound);
-
-// Global Error Handler
-const errorHandler = require('./middlewares/errorHandler');
-app.use(errorHandler);
+// Error Handling Middlewares
+app.use(require('./middlewares/routeNotFound'));
+app.use(require('./middlewares/errorHandler'));
 
 // Start Server
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+    console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
-
-
