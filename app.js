@@ -3,34 +3,21 @@ const express = require('express');
 const path = require('path');
 const createError = require('http-errors');
 const connectDB = require('./config/db');
-const contactRoutes = require('./routes/contact'); // غيّر الاسم حسب ملفك
+const contactRoutes = require('./routes/contact');
 const authRoutes = require('./routes/auth');
 const {isAdmin} = require('./middlewares/authMiddleware');
 const cookieParser = require('cookie-parser');
-
-
-
-
 const app = express();
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
 connectDB();
 
-// View Engine Setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Static Files
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-
-
 app.use(cookieParser());
 
 // Frontend Page Routes
@@ -62,10 +49,6 @@ app.use('/auth', authRoutes);
 app.use('/api/courses', require('./routes/courses'));
 app.use('/', contactRoutes);
 
-
-
-
-// Production Build (Optional for React frontend)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
   app.get('*', (req, res) => {
@@ -77,8 +60,6 @@ app.use('/upload', uploadRoute);
 
 app.use('/upload', express.static('upload'));
 
-
-// 404 Handler
 const routeNotFound = require('./middlewares/routeNotFound');
 app.use(routeNotFound);
 
@@ -86,10 +67,9 @@ app.use(routeNotFound);
 const errorHandler = require('./middlewares/errorHandler');
 app.use(errorHandler);
 
-// Start Server
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 
