@@ -16,7 +16,7 @@
             <div class="alert alert-danger"><%= error %></div>
         <% } %>
 
-        <form action="/api/admin/courses/add" method="POST" class="mt-4">
+        <form action="/admin/courses/add" method="POST" class="mt-4">
             <div class="mb-3">
                 <label for="title" class="form-label">Course Title</label>
                 <input type="text" class="form-control" id="title" name="title" required value="<%= typeof formData !== 'undefined' ? formData.title : '' %>">
@@ -55,7 +55,7 @@
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Add Course</button>
-                <a href="/api/admin/courses" class="btn btn-secondary">Cancel</a>
+                <a href="/admin/courses" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>

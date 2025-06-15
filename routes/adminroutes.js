@@ -42,7 +42,7 @@ router.post('/products/add', protect, isAdmin, async (req, res) => {
   try {
     const { name, description, price, image, category, countInStock } = req.body;
     await Product.create({ name, description, price, image, category, countInStock });
-    res.redirect('admin/products');
+    res.redirect('/admin/products');  // ✅ تم التعديل هنا
   } catch (error) {
     console.error(error);
     const categories = await Category.find();
@@ -78,7 +78,7 @@ router.post('/products/edit/:id', protect, isAdmin, async (req, res) => {
       { name, description, price, image, category, countInStock },
       { new: true, runValidators: true }
     );
-    res.redirect('admin/products');
+    res.redirect('/admin/products'); // ✅ تم التعديل هنا
   } catch (error) {
     console.error(error);
     const categories = await Category.find();
@@ -92,27 +92,18 @@ router.post('/products/edit/:id', protect, isAdmin, async (req, res) => {
   }
 });
 
-// middlewares/authMiddleware.js
-exports.isAdmin = (req, res, next) => {
-  if (req.user && req.user.isAdmin) {
-    next();
-  } else {
-    res.status(403).render('error', { message: 'Admin access required' });
-  }
-};
-
 // Delete product
 router.post('/products/delete/:id', protect, isAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
-    res.redirect('admin/products');
+    res.redirect('/admin/products'); // ✅ تم التعديل هنا
   } catch (error) {
     console.error(error);
     res.status(500).render('error', { message: 'Error deleting product' });
   }
 });
 
-// Get all courses (admin view)
+// View all courses
 router.get('/courses', protect, isAdmin, async (req, res) => {
   try {
     const courses = await Course.find();
@@ -122,12 +113,12 @@ router.get('/courses', protect, isAdmin, async (req, res) => {
   }
 });
 
-// Show add course form
+// Add course form
 router.get('/courses/add', protect, isAdmin, (req, res) => {
   res.render('admin/addproducts');
 });
 
-// Add new course
+// Handle add course
 router.post('/courses/add', protect, isAdmin, async (req, res) => {
   try {
     const { title, description, price, category, imageUrl } = req.body;
@@ -139,7 +130,7 @@ router.post('/courses/add', protect, isAdmin, async (req, res) => {
       imageUrl
     });
     await course.save();
-    res.redirect('/api/admin/courses');
+    res.redirect('/admin/courses');  // ✅ تم التعديل هنا
   } catch (error) {
     res.status(400).render('admin/addproducts', { 
       error: 'Error adding course',
@@ -148,7 +139,7 @@ router.post('/courses/add', protect, isAdmin, async (req, res) => {
   }
 });
 
-// Show edit course form
+// Edit course form
 router.get('/courses/edit/:id', protect, isAdmin, async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
@@ -161,7 +152,7 @@ router.get('/courses/edit/:id', protect, isAdmin, async (req, res) => {
   }
 });
 
-// Update course
+// Handle edit course
 router.post('/courses/edit/:id', protect, isAdmin, async (req, res) => {
   try {
     const { title, description, price, category, imageUrl } = req.body;
@@ -169,15 +160,15 @@ router.post('/courses/edit/:id', protect, isAdmin, async (req, res) => {
     if (!course) {
       return res.status(404).render('error', { message: 'Course not found' });
     }
-    
+
     course.title = title;
     course.description = description;
     course.price = price;
     course.category = category;
     course.imageUrl = imageUrl;
-    
+
     await course.save();
-    res.redirect('/api/admin/courses');
+    res.redirect('/admin/courses');  // ✅ تم التعديل هنا
   } catch (error) {
     res.status(400).render('admin/editproducts', { 
       error: 'Error updating course',
@@ -194,18 +185,19 @@ router.post('/courses/delete/:id', protect, isAdmin, async (req, res) => {
       return res.status(404).render('error', { message: 'Course not found' });
     }
     await course.deleteOne();
-    res.redirect('/api/admin/courses');
+    res.redirect('/admin/courses');  // ✅ تم التعديل هنا
   } catch (error) {
     res.status(500).render('error', { message: 'Error deleting course' });
   }
 });
 
-// Video upload page route
+// Upload video page
 router.get('/upload-video', protect, isAdmin, async (req, res) => {
   const courses = await Course.find();
   res.render('admin/uploadVideo', { courses });
 });
 
+// Upload video handler
 router.post('/courses/upload-video/:id', protect, isAdmin, upload.single('courseVideo'), async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);

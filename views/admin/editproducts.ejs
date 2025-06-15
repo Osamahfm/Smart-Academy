@@ -16,7 +16,7 @@
             <div class="alert alert-danger"><%= error %></div>
         <% } %>
 
-        <form action="/api/admin/courses/edit/<%= course._id %>" method="POST" class="mt-4">
+        <form action="/admin/courses/edit/<%= course._id %>" method="POST" class="mt-4">
             <div class="mb-3">
                 <label for="title" class="form-label">Course Title</label>
                 <input type="text" class="form-control" id="title" name="title" required value="<%= course.title %>">
@@ -55,7 +55,7 @@
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Update Course</button>
-                <a href="/api/admin/courses" class="btn btn-secondary">Cancel</a>
+                <a href="/admin/courses" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
