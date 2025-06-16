@@ -18,7 +18,7 @@ const courseSchema = new mongoose.Schema({
     category: {
         type: String,
         required: [true, 'Course category is required'],
-        enum: ['software development','computer science','cyber security']
+        enum: [ 'mobile', 'problemsolving', 'oop', 'datastruct', 'introcyber', 'cyberspec', 'cehacker']
     },
     imageUrl: {
         type: String,
