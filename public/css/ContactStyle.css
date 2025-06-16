@@ -92,44 +92,6 @@ nav a:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Cart Styles */
-.cart-container {
-    position: relative;
-    margin-left: 1rem;
-}
-
-#cartBtn {
-    background: transparent;
-    border: none;
-    color: #DEF2F1;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-#cartBtn:hover {
-    transform: scale(1.1);
-    color: #3AAFA9;
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #2B7A78;
-    color: #DEF2F1;
-    border-radius: 50%;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.8rem;
-    font-weight: bold;
-    min-width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .hero {
     display: flex;
     flex-direction: column;

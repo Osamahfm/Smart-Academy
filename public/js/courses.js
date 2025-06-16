@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const courseCategories = document.querySelectorAll('.course-category');
       
         const homeCourseCards = document.querySelectorAll('.course-grid .course-card');
-        const homeCourseCategories = document.querySelectorAll('.course-category');
 
         if (!searchTerm) {
             courseCards.forEach(card => card.style.display = 'block');
@@ -105,12 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         courseCategories.forEach(category => {
-            const categoryCards = category.querySelectorAll('.course-card');
-            const hasVisibleCards = Array.from(categoryCards).some(card => card.style.display !== 'none');
-            category.style.display = hasVisibleCards ? 'block' : 'none';
-        });
-
-        homeCourseCategories.forEach(category => {
             const categoryCards = category.querySelectorAll('.course-card');
             const hasVisibleCards = Array.from(categoryCards).some(card => card.style.display !== 'none');
             category.style.display = hasVisibleCards ? 'block' : 'none';
