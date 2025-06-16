@@ -15,27 +15,26 @@
         <h2>Mobile Application Development</h2>
     </header>
 
-     <nav class="navbar">
-  <div class="nav-links">
-    <a href="/home">Home</a>
-    <a href="/courses">Courses</a>
-    <a href="/aboutUs">About Us</a>
-    <a href="/contactUs">Contact</a>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/courses">Courses</a>
+            <a href="/aboutUs">About Us</a>
+            <a href="/contactUs">Contact</a>
+            <%- include('partials/cart') %>
+        </div>
 
-    <%- include('partials/cart') %>
-  </div>
-
-  <div class="nav-auth">
-    <% if (user) { %>
-      <% if (user.isAdmin) { %>
-        <a href="admin/dashboard" class="btn btn-primary me-2">Dashboard</a>
-      <% } %>
-      <button id="logoutBtn">Logout</button>
-    <% } else { %>
-      <a href="/signlog" class="auth-btn">Sign Up</a>
-    <% } %>
-  </div>
-</nav>
+        <div class="nav-auth">
+            <% if (user) { %>
+                <% if (user.isAdmin) { %>
+                    <a href="admin/dashboard" class="btn btn-primary me-2">Dashboard</a>
+                <% } %>
+                <button id="logoutBtn">Logout</button>
+            <% } else { %>
+                <a href="/signlog" class="auth-btn">Sign Up</a>
+            <% } %>
+        </div>
+    </nav>
 
     <div id="cartModal" class="modal">
         <div class="modal-content">
@@ -57,34 +56,33 @@
             <img src="/Photos/mobile-application.jpg" alt="Mobile App Development Course" class="course-image">
         </div>
 
+        <!-- 🔥 Embedded Video Section -->
+        <div class="course-video" style="text-align: center; margin: 30px 0;">
+            <h2>Course Introduction Video</h2>
+            <iframe width="800" height="450" 
+                src="https://www.youtube.com/embed/yye7rSsiV6k" 
+                title="Mobile App Development Course Video" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
         <div class="course-content">
             <section class="overview">
                 <h2>Course Overview</h2>
                 <p>Master mobile application development with our comprehensive course covering Android and iOS platforms using Flutter framework.</p>
-                
+
                 <div class="course-meta">
-                    <span class="rating">
-                        <i class="fas fa-star"></i> 4.9
-                        <small>(1,856 ratings)</small>
-                    </span>
-                    <span class="students">
-                        <i class="fas fa-users"></i> 32,450 students
-                    </span>
-                    <span class="instructor">
-                        <i class="fas fa-chalkboard-teacher"></i> Taraggy Mohiy Ghanim
-                    </span>
-                    <span class="language">
-                        <i class="fas fa-globe"></i> English, Arabic
-                    </span>
-                    <span class="last-updated">
-                        <i class="fas fa-calendar-alt"></i> Last updated 1/4/2025
-                    </span>
+                    <span class="rating"><i class="fas fa-star"></i> 4.9 <small>(1,856 ratings)</small></span>
+                    <span class="students"><i class="fas fa-users"></i> 32,450 students</span>
+                    <span class="instructor"><i class="fas fa-chalkboard-teacher"></i> Taraggy Mohiy Ghanim</span>
+                    <span class="language"><i class="fas fa-globe"></i> English, Arabic</span>
+                    <span class="last-updated"><i class="fas fa-calendar-alt"></i> Last updated 1/4/2025</span>
                 </div>
 
                 <div class="course-actions">
                     <button class="add-to-cart" data-course="mobileapp" data-price="999">
-                        <i class="fas fa-cart-plus"></i>
-                        Add to Cart - $999
+                        <i class="fas fa-cart-plus"></i> Add to Cart - $999
                     </button>
                 </div>
             </section>
@@ -95,44 +93,4 @@
                     <li><i class="fas fa-check"></i> Build native mobile applications for iOS and Android</li>
                     <li><i class="fas fa-check"></i> Master Flutter and Dart programming</li>
                     <li><i class="fas fa-check"></i> Design beautiful and responsive UI/UX</li>
-                    <li><i class="fas fa-check"></i> Implement cross-platform development strategies</li>
-                    <li><i class="fas fa-check"></i> Work with mobile device features and APIs</li>
-                    <li><i class="fas fa-check"></i> Handle data storage and user authentication</li>
-                    <li><i class="fas fa-check"></i> Deploy apps to app stores</li>
-                    <li><i class="fas fa-check"></i> Implement push notifications</li>
-                    <li><i class="fas fa-check"></i> Test and debug mobile applications</li>
-                    <li><i class="fas fa-check"></i> Follow mobile development best practices</li>
-                </ul>
-            </section>
-
-            <section class="course-includes">
-                <h2>This Course Includes</h2>
-                <ul>
-                    <li><i class="fas fa-video"></i> 35 hours of video</li>
-                    <li><i class="fas fa-file"></i> 12 coding exercises</li>
-                    <li><i class="fas fa-mobile-alt"></i> 4 complete app projects</li>
-                    <li><i class="fas fa-download"></i> Downloadable resources</li>
-                    <li><i class="fas fa-certificate"></i> Certificate of completion</li>
-                    <li><i class="fas fa-infinity"></i> Full lifetime access</li>
-                </ul>
-            </section>
-
-            <section class="learning-outcomes">
-                <h2>By The End Of This Course You Will Be Able To</h2>
-                <ol>
-                    <li>Create professional mobile applications</li>
-                    <li>Develop for both iOS and Android platforms</li>
-                    <li>Implement modern UI/UX design principles</li>
-                    <li>Handle complex app architecture</li>
-                    <li>Deploy apps to production environments</li>
-                </ol>
-            </section>
-        </div>
-    </main>
-
-    <%- include('partials/footer') %>
-
-    <script src="/js/mobileapp.js"></script>
-    <script src="/js/logOut.js"></script>
-</body>
-</html>
+                    <li><i class="fas fa-check"></i> Implement

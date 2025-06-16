@@ -16,27 +16,26 @@
         <h2>Backend Development</h2>
     </header>
 
- <nav class="navbar">
-  <div class="nav-links">
-    <a href="/home">Home</a>
-    <a href="/courses">Courses</a>
-    <a href="/aboutUs">About Us</a>
-    <a href="/contactUs">Contact</a>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/courses">Courses</a>
+            <a href="/aboutUs">About Us</a>
+            <a href="/contactUs">Contact</a>
+            <%- include('partials/cart') %>
+        </div>
 
-    <%- include('partials/cart') %>
-  </div>
-
-  <div class="nav-auth">
-    <% if (user) { %>
-      <% if (user.isAdmin) { %>
-        <a href="admin/dashboard" class="btn btn-primary me-2">Dashboard</a>
-      <% } %>
-      <button id="logoutBtn">Logout</button>
-    <% } else { %>
-      <a href="/signlog" class="auth-btn">Sign Up</a>
-    <% } %>
-  </div>
-</nav>
+        <div class="nav-auth">
+            <% if (user) { %>
+                <% if (user.isAdmin) { %>
+                    <a href="admin/dashboard" class="btn btn-primary me-2">Dashboard</a>
+                <% } %>
+                <button id="logoutBtn">Logout</button>
+            <% } else { %>
+                <a href="/signlog" class="auth-btn">Sign Up</a>
+            <% } %>
+        </div>
+    </nav>
 
     <div id="cartModal" class="modal">
         <div class="modal-content">
@@ -58,11 +57,21 @@
             <img src="/Photos/back.jpg" alt="Backend Development Course" class="course-image">
         </div>
 
+        <!-- Embedded YouTube Video Section -->
+        <div class="course-video" style="text-align: center; margin: 20px 0;">
+            <h2>Course Introduction Video</h2>
+            <iframe width="800" height="450" src="https://www.youtube.com/embed/4r6WdaY3SOA" 
+                title="Backend Course Video" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
         <div class="course-content">
             <section class="overview">
                 <h2>Course Overview</h2>
                 <p>Master server-side programming, database management, and API development with our comprehensive backend development course.</p>
-                
+
                 <div class="course-meta">
                     <span class="rating">
                         <i class="fas fa-star"></i> 4.7
@@ -132,7 +141,7 @@
     </main>
 
     <%- include('partials/footer') %>
-    
+
     <script src="/js/backend.js"></script>
     <script src="/js/logOut.js"></script>
 </body>
