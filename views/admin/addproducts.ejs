@@ -36,15 +36,10 @@
                 <label for="category" class="form-label">Category</label>
                 <select class="form-select" id="category" name="category" required>
                     <option value="">Select a category</option>
-                    <option value="frontend" <%= typeof formData !== 'undefined' && formData.category === 'frontend' ? 'selected' : '' %>>Frontend</option>
-                    <option value="backend" <%= typeof formData !== 'undefined' && formData.category === 'backend' ? 'selected' : '' %>>Backend</option>
-                    <option value="mobile" <%= typeof formData !== 'undefined' && formData.category === 'mobile' ? 'selected' : '' %>>Mobile</option>
-                    <option value="problemsolving" <%= typeof formData !== 'undefined' && formData.category === 'problemsolving' ? 'selected' : '' %>>Problem Solving</option>
-                    <option value="oop" <%= typeof formData !== 'undefined' && formData.category === 'oop' ? 'selected' : '' %>>OOP</option>
-                    <option value="datastruct" <%= typeof formData !== 'undefined' && formData.category === 'datastruct' ? 'selected' : '' %>>Data Structures</option>
-                    <option value="introcyber" <%= typeof formData !== 'undefined' && formData.category === 'introcyber' ? 'selected' : '' %>>Intro to Cybersecurity</option>
-                    <option value="cyberspec" <%= typeof formData !== 'undefined' && formData.category === 'cyberspec' ? 'selected' : '' %>>Cybersecurity Specialist</option>
-                    <option value="cehacker" <%= typeof formData !== 'undefined' && formData.category === 'cehacker' ? 'selected' : '' %>>CEH Hacker</option>
+                    <option value="software" <%= typeof formData !== 'undefined' && formData.category === 'software' ? 'selected' : '' %>>software</option>
+                    <option value="cyber security" <%= typeof formData !== 'undefined' && formData.category === 'cyber security' ? 'selected' : '' %>>cyber security</option>
+                    <option value="computer science" <%= typeof formData !== 'undefined' && formData.category === 'computer sceince' ? 'selected' : '' %>>computer science</option>
+                   
                 </select>
             </div>
 
