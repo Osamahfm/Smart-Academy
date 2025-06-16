@@ -33,20 +33,15 @@
             </div>
 
             <div class="mb-3">
-                <label for="category" class="form-label">Category</label>
-                <select class="form-select" id="category" name="category" required>
-                    <option value="">Select a category</option>
-                    <option value="frontend" <%= course.category === 'frontend' ? 'selected' : '' %>>Frontend</option>
-                    <option value="backend" <%= course.category === 'backend' ? 'selected' : '' %>>Backend</option>
-                    <option value="mobile" <%= course.category === 'mobile' ? 'selected' : '' %>>Mobile</option>
-                    <option value="problemsolving" <%= course.category === 'problemsolving' ? 'selected' : '' %>>Problem Solving</option>
-                    <option value="oop" <%= course.category === 'oop' ? 'selected' : '' %>>OOP</option>
-                    <option value="datastruct" <%= course.category === 'datastruct' ? 'selected' : '' %>>Data Structures</option>
-                    <option value="introcyber" <%= course.category === 'introcyber' ? 'selected' : '' %>>Intro to Cybersecurity</option>
-                    <option value="cyberspec" <%= course.category === 'cyberspec' ? 'selected' : '' %>>Cybersecurity Specialist</option>
-                    <option value="cehacker" <%= course.category === 'cehacker' ? 'selected' : '' %>>CEH Hacker</option>
-                </select>
-            </div>
+  <label for="category" class="form-label">Category</label>
+  <select class="form-select" id="category" name="category" required>
+    <option value="">Select a category</option>
+    <option value="Software Development" <%= course.category === 'Software Development' ? 'selected' : '' %>>Software Development</option>
+    <option value="Cyber Security" <%= course.category === 'Cyber Security' ? 'selected' : '' %>>Cyber Security</option>
+    <option value="Computer Science" <%= course.category === 'Computer Science' ? 'selected' : '' %>>Computer Science</option>
+  </select>
+</div>
+
 
             <div class="mb-3">
                 <label for="imageUrl" class="form-label">Image URL</label>
