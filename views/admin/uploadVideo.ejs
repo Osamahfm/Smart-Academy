@@ -59,71 +59,78 @@
         }
     </style>
 </head>
+
 <body>
-    <%- include('../partials/nav') %>
+  <div class="container">
+    <h1>Upload Video for Course</h1>
 
-    <div class="upload-container">
-        <h1>Upload Course Videos</h1>
-        <form class="upload-form" id="uploadForm">
-            <div class="form-group">
-                <label for="course">Select Course:</label>
-                <select id="course" name="course" required>
-                    <option value="">Choose a course...</option>
-                    <% courses.forEach(course => { %>
-                        <option value="<%= course._id %>"><%= course.title %></option>
-                    <% }) %>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="video">Select Video File:</label>
-                <input type="file" id="video" name="courseVideo" accept="video/mp4,video/webm,video/mov" required>
-            </div>
-            <button type="submit" class="upload-btn">Upload Video</button>
-        </form>
-        <div id="status" class="status" style="display: none;"></div>
-    </div>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <div>
+        <label for="course">Select Course:</label>
+        <select name="course" id="course" required>
+          <% courses.forEach(course => { %>
+            <option value="<%= course._id %>"><%= course.title %></option>
+          <% }); %>
+        </select>
+      </div>
 
-    <script>
-        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const course = document.getElementById('course').value;
-            const videoFile = document.getElementById('video').files[0];
-            const statusDiv = document.getElementById('status');
-            
-            if (!course || !videoFile) {
-                showStatus('Please select both a course and a video file.', 'error');
-                return;
-            }
+      <div>
+        <label for="courseVideo">Choose Video File:</label>
+        <input type="file" name="courseVideo" id="courseVideo" accept="video/*" required />
+      </div>
 
-            const formData = new FormData();
-            formData.append('courseVideo', videoFile);
+      <button type="submit">Upload</button>
+    </form>
 
-            try {
-                const response = await fetch(`/course-video/${course}`, {
-                    method: 'POST',
-                    body: formData
-                });
+    <div id="uploadStatus" style="margin-top: 20px;"></div>
 
-                const data = await response.json();
+    <div id="videoPreview" style="margin-top: 20px;"></div>
+  </div>
 
-                if (response.ok) {
-                    showStatus('Video uploaded successfully!', 'success');
-                    document.getElementById('uploadForm').reset();
-                } else {
-                    showStatus(data.message || 'Error uploading video', 'error');
-                }
-            } catch (error) {
-                showStatus('Error uploading video: ' + error.message, 'error');
-            }
+  <script>
+    const form = document.getElementById('uploadForm');
+    const statusDiv = document.getElementById('uploadStatus');
+    const videoPreview = document.getElementById('videoPreview');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const course = document.getElementById('course').value;
+      const video = document.getElementById('courseVideo').files[0];
+
+      const formData = new FormData();
+      formData.append('courseVideo', video);
+
+      try {
+        const response = await fetch(`/courses/upload-video/${course}`, {
+          method: 'POST',
+          body: formData
         });
 
-        function showStatus(message, type) {
-            const statusDiv = document.getElementById('status');
-            statusDiv.textContent = message;
-            statusDiv.className = 'status ' + type;
-            statusDiv.style.display = 'block';
+        const result = await response.json();
+
+        if (response.ok) {
+          statusDiv.innerHTML = `<span style="color: green;">✅ ${result.message}</span>`;
+          
+          // Show preview
+          if (result.videoUrl) {
+            videoPreview.innerHTML = `
+              <h3>Video Preview:</h3>
+              <video width="500" controls>
+                <source src="${result.videoUrl}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            `;
+          }
+        } else {
+          statusDiv.innerHTML = `<span style="color: red;">❌ ${result.message || 'Upload failed'}</span>`;
         }
-    </script>
+      } catch (err) {
+        statusDiv.innerHTML = `<span style="color: red;">❌ Error uploading video</span>`;
+        console.error(err);
+      }
+    });
+  </script>
 </body>
+
 </html> 

@@ -3,28 +3,20 @@ const path = require('path');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/videos/'); 
+    cb(null, 'public/uploads/videos');  // لازم يكون داخل public
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + path.extname(file.originalname)); 
+    const uniqueName = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueName + path.extname(file.originalname));
   }
 });
 
-const fileFilter = function (req, file, cb) {
-  const allowedTypes = /mp4|webm|mov/;
+const fileFilter = (req, file, cb) => {
+  const allowed = /mp4|mov|webm/;
   const ext = path.extname(file.originalname).toLowerCase();
-  if (allowedTypes.test(ext)) {
-    cb(null, true);
-  } else {
-    cb(new Error('Only MP4, WebM, or MOV video files are allowed'));
-  }
+  allowed.test(ext) ? cb(null, true) : cb(new Error("Only video files allowed"));
 };
 
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 500 * 1024 * 1024 }, // 500MB max for videos
-  fileFilter: fileFilter
-});
+const upload = multer({ storage, fileFilter });
 
 module.exports = upload;
