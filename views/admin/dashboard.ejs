@@ -52,13 +52,7 @@
                   </form>
                 </div>
                 <% if (course.videoUrl) { %>
-                  <div class="mb-2">
-                    <strong>Current Video:</strong><br>
-                    <video width="220" controls>
-                      <source src="<%= course.videoUrl %>" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
+                  
                 <% } %>
                 <form action="/admin/courses/upload-video/<%= course._id %>" method="POST" enctype="multipart/form-data">
                   <div class="mb-2">
